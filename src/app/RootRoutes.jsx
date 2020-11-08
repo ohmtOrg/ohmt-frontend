@@ -10,12 +10,13 @@ import dragAndDropRoute from "./views/Drag&Drop/DragAndDropRoute";
 
 import formsRoutes from "./views/forms/FormsRoutes";
 import mapRoutes from "./views/map/MapRoutes";
+import evaluationRoutes from "./views/Evaluation/EvaluationsRoutes"
 
 const redirectRoute = [
   {
     path: "/",
     exact: true,
-    component: () => <Redirect to="/dashboard/analytics" />
+    component: () => <Redirect to="/dashboard/guidance" />
   }
 ];
 
@@ -32,6 +33,7 @@ const routes = [
   ...utilitiesRoutes,
   ...dragAndDropRoute,
   ...formsRoutes,
+  ...evaluationRoutes,
   ...mapRoutes,
   ...redirectRoute,
   ...errorRoute

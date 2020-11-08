@@ -67,9 +67,9 @@ export function firebaseLoginEmailPassword({ email, password }) {
             setUserData({
               userId: "1",
               role: "ADMIN",
-              displayName: "Watson Joyce",
+              displayName: "Jean Salvi",
               email: "watsonjoyce@gmail.com",
-              photoURL: "/assets/images/face-7.jpg",
+              photoURL: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fmedium.com%2F%40salviosage%2Fabout&psig=AOvVaw3IweLmDm61BZBbjvuSE6TF&ust=1604932534940000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNDpoN-V8-wCFQAAAAAdAAAAABAD",
               age: 25,
               token: "faslkhfh423oiu4h4kj432rkj23h432u49ufjaklj423h4jkhkjh",
               ...user
