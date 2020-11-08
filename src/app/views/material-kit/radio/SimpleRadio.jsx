@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function SimpleRadio() {
   const classes = useStyles();
-  const [value, setValue] = React.useState("female");
+  const [value, setValue] = React.useState([]);
 
   function handleChange(event) {
     setValue(event.target.value);
