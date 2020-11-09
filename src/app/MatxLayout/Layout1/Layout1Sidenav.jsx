@@ -105,15 +105,16 @@ class Layout1Sidenav extends Component {
     return (
       <div className="sidenav__user">
         <div className="username-photo">
-          <img src={user.photoURL} alt="user" />
+          <img src='/assets/images/fao.png' alt="user" />
         </div>
         <div className="ml-4">
           <span className="username">
             {/* <Icon>lock</Icon> */}
-            {user.displayName}
+            {/* {user.displayName} */}
+            super admin
           </span>
           <div className="user__menu">
-            <MatxMenu
+            {/* <MatxMenu
               menuButton={
                 <Tooltip title="Settings">
                   <IconButtonWhite
@@ -134,14 +135,14 @@ class Layout1Sidenav extends Component {
                 <Icon> settings </Icon>
                 <span className="pl-4"> Account Setting </span>
               </MenuItem>
-            </MatxMenu>
+            </MatxMenu> */}
 
-            <Tooltip title="Profile">
+            {/* <Tooltip title="Profile">
               <IconButtonWhite aria-label="Delete" className="" size="small">
                 <IconSmall>person</IconSmall>
               </IconButtonWhite>
-            </Tooltip>
-            <Tooltip title="Sign out">
+            </Tooltip> */}
+            {/* <Tooltip title="Sign out">
               <IconButtonWhite
                 aria-label="Delete"
                 className=""
@@ -150,7 +151,7 @@ class Layout1Sidenav extends Component {
               >
                 <IconSmall>exit_to_app</IconSmall>
               </IconButtonWhite>
-            </Tooltip>
+            </Tooltip> */}
           </div>
         </div>
       </div>
@@ -172,8 +173,10 @@ class Layout1Sidenav extends Component {
           >
             {!this.state.hidden && (
               <Fragment>
-                {this.renderLogoSwitch()}
-                <Sidenav>{this.renderUser()}</Sidenav>
+                {/* {this.renderLogoSwitch()} */}
+                <Sidenav>
+                  {this.renderUser()}
+                  </Sidenav>
               </Fragment>
             )}
           </div>

@@ -79,7 +79,7 @@ class Layout1Topbar extends Component {
               >
                 <Icon>menu</Icon>
               </IconButton>
-
+{/* 
               <div className="hide-on-mobile">
                 <IconButton>
                   <Icon>mail_outline</Icon>
@@ -92,20 +92,20 @@ class Layout1Topbar extends Component {
                 <IconButton>
                   <Icon>star_outline</Icon>
                 </IconButton>
-              </div>
+              </div> */}
             </div>
             <div className="flex items-center">
-              <MatxSearchBox />
+              {/* <MatxSearchBox />
 
               <NotificationBar />
 
-              <ShoppingCart></ShoppingCart>
+              <ShoppingCart></ShoppingCart> */}
 
               <MatxMenu
                 menuButton={
                   <img
                     className="mx-2 align-middle circular-image-small cursor-pointer"
-                    src="/assets/images/face-6.jpg"
+                    src="/assets/images/fao.png"
                     alt="user"
                   />
                 }
@@ -116,19 +116,19 @@ class Layout1Topbar extends Component {
                     <span className="pl-4"> Home </span>
                   </Link>
                 </MenuItem>
-                <MenuItem>
-                  {/* <Link
+                {/* <MenuItem>
+                  <Link
                     className={classes.menuItem}
                     to="/page-layouts/user-profile"
-                  > */}
+                  >
                   <Icon> person </Icon>
                   <span className="pl-4"> Profile </span>
-                  {/* </Link> */}
+                  </Link>
                 </MenuItem>
                 <MenuItem className={classes.menuItem}>
                   <Icon> settings </Icon>
                   <span className="pl-4"> Settings </span>
-                </MenuItem>
+                </MenuItem> */}
                 <MenuItem
                   onClick={this.handleSignOut}
                   className={classes.menuItem}

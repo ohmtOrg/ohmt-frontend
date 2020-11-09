@@ -91,6 +91,7 @@ export default function SimpleExpansionPanel() {
           onChange={handleChange(v.id)}
         >
              {states.map((option,ind) => (
+               
                <FormControlLabel value={option.value} control={<Radio />} label= {v.scores[ind]}  />
              
               ))}

@@ -38,7 +38,7 @@ function ShoppingCart(props) {
 
   return (
     <ThemeProvider theme={settings.themes[settings.activeTheme]}>
-      <IconButton
+      {/* <IconButton
         onClick={handleDrawerToggle}
         style={{
           color:
@@ -118,7 +118,7 @@ function ShoppingCart(props) {
             </div>
           ))}
         </div>
-      </Drawer>
+      </Drawer> */}
     </ThemeProvider>
   );
 }

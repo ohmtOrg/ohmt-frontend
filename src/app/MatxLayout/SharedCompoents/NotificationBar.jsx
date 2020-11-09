@@ -41,7 +41,7 @@ const NotificationBar = props => {
 
   return (
     <ThemeProvider theme={settings.themes[settings.activeTheme]}>
-      <IconButton
+      {/* <IconButton
         onClick={handleDrawerToggle}
         style={{
           color:
@@ -122,7 +122,7 @@ const NotificationBar = props => {
             <Button onClick={deleteAllNotification}>Clear Notifications</Button>
           </div>
         </div>
-      </Drawer>
+      </Drawer> */}
     </ThemeProvider>
   );
 };
