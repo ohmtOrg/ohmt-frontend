@@ -96,8 +96,9 @@ scores:['There is no plan to create/develop a budgetary provision mechanism to s
     // {name:"Institutional capacity development",id:21,value:1},
     // {name:"Workforce and technical capacity development",id:22,value:1},
     // {name:"One Health prirorities  ",id:23,value:1}
-  ];
-  export const implemD=[
+  ]
+
+  export const implemData=[
     {name:"Framework implementation mechanism ",id:211,value:1,
     feedback:'',
     scores:[
@@ -213,4 +214,3 @@ scores:['There is no plan to create/develop a budgetary provision mechanism to s
     // {name:"Monitoring and Evaluation",id:23,value:1},
     
 ]
-
