@@ -6,11 +6,12 @@ import utilitiesRoutes from "./views/utilities/UtilitiesRoutes";
 import sessionRoutes from "./views/sessions/SessionRoutes";
 
 import materialRoutes from "./views/material-kit/MaterialRoutes";
-import dragAndDropRoute from "./views/Drag&Drop/DragAndDropRoute";
+// import dragAndDropRoute from "./views/Drag&Drop/DragAndDropRoute";
 
-import formsRoutes from "./views/forms/FormsRoutes";
-import mapRoutes from "./views/map/MapRoutes";
+// import formsRoutes from "./views/forms/FormsRoutes";
+// import mapRoutes from "./views/map/MapRoutes";
 import evaluationRoutes from "./views/Evaluation/EvaluationsRoutes"
+import WelcomeRoutes from "./views/welcome/WelcomeRoutes"
 
 const redirectRoute = [
   {
@@ -31,10 +32,11 @@ const routes = [
   ...dashboardRoutes,
   ...materialRoutes,
   ...utilitiesRoutes,
-  ...dragAndDropRoute,
-  ...formsRoutes,
+  // ...dragAndDropRoute,
+  // ...formsRoutes,
   ...evaluationRoutes,
-  ...mapRoutes,
+  // ...mapRoutes,
+  ...WelcomeRoutes,
   ...redirectRoute,
   ...errorRoute
 ];

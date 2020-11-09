@@ -1,6 +1,6 @@
 import React from "react";
 
-const formsRoutes = [
+const EvaluationRoutes = [
     {
       path: "/evaluation/governance",
       component: React.lazy(() => import("./Governance"))
@@ -8,7 +8,12 @@ const formsRoutes = [
     {
       path: "/evaluation/implementatiom",
       component: React.lazy(() => import("./Implementation"))
+    },
+    {
+      path: "/evaluation/graph",
+      component: React.lazy(() => import("./graphs"))
     }
   ];
   
-  export default formsRoutes;
+  export default EvaluationRoutes;
+  

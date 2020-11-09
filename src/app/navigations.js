@@ -15,20 +15,26 @@ export const navigations = [
   //   icon: "dashboard"
   // },
   {
-    name: "Reports",
+    name: "Evaluation",
     icon: "description",
     children: [
+      {
+        name: "Governance",
+        path: "/evaluation/governance",
+        iconText: "E"
+      },
       {
         name: "implementation and Performance",
         path: "/evaluation/implementatiom",
         iconText: "B"
       },
-      {
-        name: "Governance",
-        path: "/evaluation/governance",
-        iconText: "E"
-      }
+      
     ]
+  },
+  {
+    name: "graphs",
+    icon: "G",
+    path: "/evaluation/graph"
   },
   // {
   //   name: "Forms",

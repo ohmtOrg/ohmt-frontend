@@ -1,5 +1,6 @@
 import React,{useState} from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import history from "history.js";
+import { makeStyles,withStyles, } from "@material-ui/core/styles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
@@ -9,7 +10,16 @@ import { Breadcrumb, SimpleCard } from "matx";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Tooltip from '@material-ui/core/Tooltip';
+import Button from '@material-ui/core/Button';
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
+
+import { AddGov } from "../../redux/actions/PerformamceAction";
 import {goverd} from './data'
+import { values } from "lodash";
+// import Chart from "./chart"
 const subcateg=[
   {name:"One Health Institutional Policy ",id:11,value:1},
     {name:"Advocacy strategy",id:12,value:1},
@@ -33,6 +43,7 @@ const states = [
     label: '4'
   }
 ];
+
 const useStyles = makeStyles(theme => ({
   root: {
     width: "100%"
@@ -43,9 +54,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SimpleExpansionPanel() {
+ function Governance() {
   const classes = useStyles();
-  const [value, setValue] = React.useState("female");
   const [val,setVal]=useState([...goverd])
 
   const handleChange= index=>e=>{
@@ -59,6 +69,14 @@ export default function SimpleExpansionPanel() {
     
     setVal(newArr)
   }
+  const  handleFormSubmit = event => {
+    // console.log(AddGov)
+    history.push({
+      pathname: "/evaluation/implementatiom"
+    });
+    AddGov({ ...val });
+    
+  };
 
   return (
     <>
@@ -71,9 +89,11 @@ export default function SimpleExpansionPanel() {
         />
       </div>
       {subcateg.map((a,ind)=>(
+        <>
       <SimpleCard title={a.name}>
       <div className={classes.root}>
       {goverd.filter((a)=>((a.id>((ind+1)*10)+100)&&(a.id<((ind+2)*10)+100))).map((v,index) => ( 
+         
         <ExpansionPanel>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
@@ -91,23 +111,45 @@ export default function SimpleExpansionPanel() {
           onChange={handleChange(v.id)}
         >
              {states.map((option,ind) => (
-               <FormControlLabel value={option.value} control={<Radio />} label= {v.scores[ind]}  />
-             
+               <>
+                <Tooltip
+                title={
+                  <React.Fragment>
+                    <Typography color="inherit">Question</Typography>
+                    <em>{"And here's"}</em> <b>{'some'}</b> <u>{'amazing content'}</u>.{' '}
+                    {"It's very engaging. Right?"}
+                  </React.Fragment>
+                }
+              >
+               <FormControlLabel value={option.value} control={<Radio />} label= {option.value+': '+v.scores[ind]}  />
+               
+               </Tooltip>
+               <div className="py-3" />
+               </>
               ))}
        
         </RadioGroup>
         </ExpansionPanelDetails>
       </ExpansionPanel>
+      
 ))}
  </div>
       </SimpleCard>
-))}
-      
-     
-   
-     
+      <div className="py-3" />
+      </>
+))} 
+{/* <Chart valu={val} ll='Implementation and performance' />  */}
+
     </div>
+    <Button variant="contained" color="primary" onClick={handleFormSubmit}>
+          Save and continue 
+        </Button>
     </>
-    
   );
 }
+const mapStateToProps = state => ({
+  AddGov: PropTypes.func.isRequired,
+  // val: state.login
+});
+export default (connect(mapStateToProps, { AddGov })(Governance))
+;

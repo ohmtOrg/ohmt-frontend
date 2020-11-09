@@ -1,14 +1,24 @@
 import React,{useState} from "react";
+import history from "history.js";
 import { makeStyles } from "@material-ui/core/styles";
+import { Button } from "@material-ui/core";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+
 import { Breadcrumb, SimpleCard } from "matx";
 import Radio from "@material-ui/core/Radio";
+import Tooltip from '@material-ui/core/Tooltip';
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
+// import Chart from "./chart"
+
+import { AddImp } from "../../redux/actions/PerformamceAction";
 import {implemData} from './data'
 const subcateg=[
   {name:"Institutional capacity development",id:21,value:1},
@@ -43,9 +53,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SimpleExpansionPanel() {
+ function  Implementation() {
   const classes = useStyles();
-  const [value, setValue] = React.useState("female");
   const [val,setVal]=useState([...implemData])
 
   const handleChange= index=>e=>{
@@ -59,6 +68,13 @@ export default function SimpleExpansionPanel() {
     
     setVal(newArr)
   }
+  const  handleFormSubmit = (event) => {
+    history.push({
+      pathname: "/evaluation/graph"
+    });
+    AddImp({ ...val });
+   
+  };
 
   return (
     <>
@@ -71,9 +87,11 @@ export default function SimpleExpansionPanel() {
         />
       </div>
       {subcateg.map((a,ind)=>(
+        <>
       <SimpleCard title={a.name}>
       <div className={classes.root}>
       {implemData.filter((a)=>((a.id>((ind+1)*10)+200)&&(a.id<((ind+2)*10)+200))).map((v,index) => ( 
+       
         <ExpansionPanel>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
@@ -91,24 +109,44 @@ export default function SimpleExpansionPanel() {
           onChange={handleChange(v.id)}
         >
              {states.map((option,ind) => (
-               
-               <FormControlLabel value={option.value} control={<Radio />} label= {v.scores[ind]}  />
-             
+               <>
+                  <Tooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="inherit">Question</Typography>
+                      <em>{"And here's"}</em> <b>{'some'}</b> <u>{'amazing content'}</u>.{' '}
+                      {"It's very engaging. Right?"}
+                    </React.Fragment>
+                  }
+                >
+               <FormControlLabel value={option.value} control={<Radio />} label= {option.value+': '+v.scores[ind]}  />
+               </Tooltip>
+               <div className="py-3" />
+               </>
               ))}
        
         </RadioGroup>
         </ExpansionPanelDetails>
       </ExpansionPanel>
+      
 ))}
  </div>
       </SimpleCard>
-))}
-      
-     
-   
-     
+      <div className="py-3" />
+      </>
+))} 
+{/* <Chart valu={val} ll='Implementation and performance' />  */}
+
     </div>
+    <Button variant="contained" color="primary" onClick={handleFormSubmit}>
+          Save
+        </Button>
     </>
-    
   );
 }
+const mapStateToProps = state => ({
+  AddImp: PropTypes.func.isRequired,
+  // val: state.login
+});
+export default (connect(mapStateToProps, { AddImp })(Implementation))
+;

@@ -7,6 +7,7 @@ import ScrumBoardReducer from "./ScrumBoardReducer";
 import NotificationReducer from "./NotificationReducer";
 import EcommerceReducer from "./EcommerceReducer";
 import NavigationReducer from "./NavigationReducer";
+import PerformamceReducer from "./PerformanceReducer"
 
 
 const RootReducer = combineReducers({
@@ -14,10 +15,11 @@ const RootReducer = combineReducers({
   user: UserReducer,
   Signup:SignupReducer,
   layout: LayoutReducer,
-  scrumboard: ScrumBoardReducer,
-  notification: NotificationReducer,
-  ecommerce: EcommerceReducer,
-  navigations: NavigationReducer
+  // scrumboard: ScrumBoardReducer,
+  // notification: NotificationReducer,
+  // ecommerce: EcommerceReducer,
+  navigations: NavigationReducer,
+  performance:PerformamceReducer
 });
 
 export default RootReducer;

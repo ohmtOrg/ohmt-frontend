@@ -192,24 +192,24 @@ class Definition extends Component {
       <Container maxWidth={false}>
         {/* <Toolbar /> */}
         <h3>
-All the information/definitions provided below are only specific for this tool usage</h3>
-        <Box mt={3}>
+All the definitions provided below are only specific in the context  for this tool usage</h3>
+        <Box mt={1}>
           <Grid
             container
-            spacing={3}
+            spacing={1}
           >
         
             {this.state.map((p) => (
               <Grid
                 item
                 key={p.id}
-                lg={4}
-                md={6}
+                lg={6}
+                md={4}
                 xs={12}
               >
-        <Card elevation={0} className="upgrade-card bg-light-primary p-sm-24">
-            <h4 className="text-unmuted m-0 py-6" >{p.title}</h4>
-        <p className="text-muted m-0 py-6">
+        <Card elevation={0} className="upgrade-card bg-light-primary p-sm-24 fixed">
+            <h4 className="text-unmuted m-0 py-2" >{p.title}</h4>
+        <p className="text-muted m-0 py-2">
           {p.description}
         </p>
         <ExpansionPanel>
@@ -219,7 +219,7 @@ All the information/definitions provided below are only specific for this tool u
           id="panel1a-header"
           color="primary"
         >
-          <Typography >show Example</Typography>
+          <Typography >Example</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
