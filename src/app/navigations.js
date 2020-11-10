@@ -15,7 +15,7 @@ export const navigations = [
   //   icon: "dashboard"
   // },
   {
-    name: "Evaluation",
+    name: "Assessment",
     icon: "description",
     children: [
       {
@@ -24,7 +24,7 @@ export const navigations = [
         iconText: "E"
       },
       {
-        name: "implementation and Performance",
+        name: "Implementation and Performance",
         path: "/evaluation/implementatiom",
         iconText: "B"
       },
@@ -32,9 +32,26 @@ export const navigations = [
     ]
   },
   {
-    name: "graphs",
-    icon: "G",
-    path: "/evaluation/graph"
+    name: "Results",
+    icon: "description",
+    children: [
+      {
+        name: "Governance",
+        path: "/result/governance",
+        iconText: "E"
+      },
+      {
+        name: "Implementation and Performance",
+        path: "/result/implementatiom",
+        iconText: "B"
+      },
+      
+    ]
+  },
+  {
+    name: "Report",
+    icon: "R",
+    path: "/report"
   },
   // {
   //   name: "Forms",

@@ -35,7 +35,7 @@ class NotFound extends Component {
             className="capitalize"
             variant="contained"
             color="primary"
-            onClick={() => this.props.history.push("/")}
+            onClick={() => this.props.history.push("/dashboard/guidance")}
           >
             Back to Dashboard
           </Button>

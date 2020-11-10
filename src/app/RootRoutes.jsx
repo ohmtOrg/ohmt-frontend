@@ -12,6 +12,7 @@ import materialRoutes from "./views/material-kit/MaterialRoutes";
 // import mapRoutes from "./views/map/MapRoutes";
 import evaluationRoutes from "./views/Evaluation/EvaluationsRoutes"
 import WelcomeRoutes from "./views/welcome/WelcomeRoutes"
+import ResultRoutes from "./views/Results/ResultRoutes"
 
 const redirectRoute = [
   {
@@ -32,6 +33,7 @@ const routes = [
   ...dashboardRoutes,
   ...materialRoutes,
   ...utilitiesRoutes,
+  ...ResultRoutes,
   // ...dragAndDropRoute,
   // ...formsRoutes,
   ...evaluationRoutes,

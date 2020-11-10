@@ -19,43 +19,76 @@ export function loginWithEmailAndPassword({ email, password }) {
     dispatch({
       type: LOGIN_LOADING
     });
-    return fetch(`http://localhost:8000/api/v1/user/signin`, {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    })
-    .then((res) => res.json())
-    .then((data) =>{
-if(data.status === 'success'){
-  localStorage.setItem("jwt_token", data.body.token);
-  axios.defaults.headers.common["Authorization"] = "Bearer " + data.body.token;
-  localStorageService.setItem("auth_user", data.body);
-  dispatch(setUserData(data.body));
+    console.log(process.env.BACKEND_URL)
+  return axios.post(`http://localhos:9000/api/v1/user/signin`,{ email,password }).then(res => {
+    console.log(res)
+    localStorage.setItem("jwt_token", res.data.data.token);
+  axios.defaults.headers.common["Authorization"] = "Bearer " + res.data.data.token;
+  localStorageService.setItem("auth_user", res.data.data.user);
+  dispatch(setUserData(res.body));
     history.push({
-      pathname: "/"
+      pathname: "/dashboard/guidance"
     });
-    console.log('here', data)
+    console.log('here', res)
     return dispatch({
       type: LOGIN_SUCCESS
     })
-}else {
-  toast.error(data.message);
- return  dispatch({
-    type:LOGIN_ERROR,
-    payload: data.error
-})
-}
-    } 
-  ) .catch(error => {
+  }).catch(error => {
+    console.log(error)
+    if (error.response) {
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    }
+    history.push({
+      pathname: "/dashboard/guidance"
+    });
     return dispatch({
       type: LOGIN_ERROR,
       payload: error
     });
   });
-};
-}
+//   return dispatch => {
+//     dispatch({
+//       type: LOGIN_LOADING
+//     });
+//     return fetch(`http://localhost:8000/api/v1/user/signin`, {
+//       method: 'POST',
+//       headers: {
+//         'content-type': 'application/json',
+//       },
+//       body: JSON.stringify({ email, password }),
+//     })
+//     .then((res) => res.json())
+//     .then((data) =>{
+// if(data.status === 'success'){
+//   localStorage.setItem("jwt_token", data.body.token);
+//   axios.defaults.headers.common["Authorization"] = "Bearer " + data.body.token;
+//   localStorageService.setItem("auth_user", data.body);
+//   dispatch(setUserData(data.body));
+//     history.push({
+//       pathname: "/"
+//     });
+//     console.log('here', data)
+//     return dispatch({
+//       type: LOGIN_SUCCESS
+//     })
+// }else {
+//   toast.error(data.message);
+//  return  dispatch({
+//     type:LOGIN_ERROR,
+//     payload: data.error
+// })
+// }
+//     } 
+//   ) .catch(error => {
+//     return dispatch({
+//       type: LOGIN_ERROR,
+//       payload: error
+//     });
+  // });
+// };
+}}
 
 
 export function firebaseLoginEmailPassword({ email, password }) {

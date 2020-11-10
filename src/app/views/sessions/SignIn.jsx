@@ -33,8 +33,8 @@ const styles = theme => ({
 
 class SignIn extends Component {
   state = {
-    email: "admin@ohmt.com",
-    password: "adminOhmt",
+    email: "salviosage@mail.com",
+    password: "welcomeHome",
     agreement: ""
   };
   handleChange = event => {
@@ -47,9 +47,9 @@ class SignIn extends Component {
     
     console.log(this.state)
     this.props.loginWithEmailAndPassword({ ...this.state });
-    history.push({
-      pathname: "/dashboard/guidance"
-    });
+    // history.push({
+    //   pathname: "/dashboard/guidance"
+    // });
   };
   render() {
     let { email, password } = this.state;
