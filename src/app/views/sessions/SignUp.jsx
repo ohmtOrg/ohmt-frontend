@@ -12,6 +12,7 @@ import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { connect } from "react-redux";
 import { SignupAction } from "../../redux/actions/SignupActions";
 import { Autocomplete, createFilterOptions } from "@material-ui/lab";
+import history from "history.js";
 
 const suggestions = [
   { label: "Afghanistan" },
@@ -105,6 +106,9 @@ class SignUp extends Component{
   handleFormSubmit = event => {
     console.log(this.state)
     this.props.SignupAction({ ...this.state });
+    history.push({
+      pathname: "/dashboard/guidance"
+    });
   };
 
  render() {

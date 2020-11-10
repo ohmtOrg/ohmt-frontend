@@ -7,7 +7,17 @@ import {
 import {Radar} from 'react-chartjs-2';
 
 const Chart = ({ valu,ll,...rest }) => {
-  
+  const  clickHandler=(evt)=> {
+    console.log(evt)
+    // const points = Radar.getElementAtEventForMode(evt, 'nearest', { intersect: true }, true);
+
+    // if (points.length) {
+    //     const firstPoint = points[0];
+    //     var label = Radar.data.labels[firstPoint._index];
+    //     var value = Radar.data.datasets[firstPoint._datasetIndex].data[firstPoint._index];
+    //     console.log(value,label)
+    // }
+}
     let lbls=valu.map(a=>a.name)
     let points=valu.map(a=>a.value)
     var options = {
@@ -44,7 +54,7 @@ const Chart = ({ valu,ll,...rest }) => {
           md={12}
           xs={12}
         >
-    <Radar data={data}  options={options}/>
+    <Radar data={data}  options={options} onElementsClick={clickHandler} getElementAtEvent={clickHandler}/>
     </Grid>
     
         </Grid>

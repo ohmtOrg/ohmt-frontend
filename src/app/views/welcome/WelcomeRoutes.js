@@ -1,5 +1,6 @@
 
 import  Welcome from "./Welcome";
+import MainR from "./shared"
 
 const settings = {
   activeLayout: "layout1",
@@ -25,10 +26,15 @@ const settings = {
 
 const sessionRoutes = [
   {
-    path: "/welcome",
+    path: "/hey",
     component: Welcome,
     settings
-  }
+  },
+  {
+    path: "/welcome",
+    component: MainR,
+    settings
+  },
 ];
 
 export default sessionRoutes;

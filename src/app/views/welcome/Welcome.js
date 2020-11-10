@@ -6,6 +6,7 @@ import {
     Button,
   Grid
   } from '@material-ui/core';
+
   
   import { makeStyles } from "@material-ui/core/styles";
   
@@ -26,6 +27,8 @@ import {
   
   const HomeView = () => {
     const classes = useStyles();
+   
+
     
   
     return (
@@ -38,10 +41,12 @@ import {
         >
           <Container >
           <img
-                alt="Under development"
+                alt="OH Logo"
                 className={classes.image}
-                src="fao.png"
+                src="/assets/images/fao.png"
               />
+            
+      
             <Typography
               align="center"
               color="textPrimary"
