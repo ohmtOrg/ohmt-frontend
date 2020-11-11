@@ -70,7 +70,7 @@ const useStyles = makeStyles(theme => ({
   }
   const  handleFormSubmit = (event) => {
     history.push({
-      pathname: "/evaluation/graph"
+      pathname: "/result/governance"
     });
     AddImp({ ...val });
    
