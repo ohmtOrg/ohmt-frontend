@@ -111,7 +111,7 @@ const Sales = ({ impl,className, ...rest }) => {
       className={clsx(classes.root, className)}
       {...rest}
     >
-      <CardHeader
+      {/* <CardHeader
         action={(
           <Button
             endIcon={<ArrowDropDownIcon />}
@@ -122,7 +122,7 @@ const Sales = ({ impl,className, ...rest }) => {
           </Button>
         )}
         title="Latest Sales"
-      />
+      /> */}
       <Divider />
       <CardContent>
         <Box
@@ -136,7 +136,7 @@ const Sales = ({ impl,className, ...rest }) => {
         </Box>
       </CardContent>
       <Divider />
-      <Box
+      {/* <Box
         display="flex"
         justifyContent="flex-end"
         p={2}
@@ -149,7 +149,7 @@ const Sales = ({ impl,className, ...rest }) => {
         >
           Overview
         </Button>
-      </Box>
+      </Box> */}
     </Card>
   );
 };
