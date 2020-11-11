@@ -58,7 +58,7 @@ export default function Welcome() {
         <Header title="Blog"  />
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
-          <Grid container spacing={4}>
+          {/* <Grid container spacing={4}>
             {featuredPosts.map((post) => (
                 <Grid item md={6}>
                   <div className="play-card p-sm-24 bg-paper">
@@ -68,14 +68,14 @@ export default function Welcome() {
                     <Typography variant="h5" color="inherit" paragraph>
                       {post.description}
                     </Typography>
-                    {/* <Link variant="subtitle1" href="#">
+                    <Link variant="subtitle1" href="#">
                       {post.linkText}
-                    </Link> */}
+                    </Link>
                   </div>
                 </Grid>
             
             ))}
-          </Grid>
+          </Grid> */}
          
         </main>
       </Container>

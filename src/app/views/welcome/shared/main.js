@@ -9,10 +9,8 @@ import Link from '@material-ui/core/Link';
 const useStyles = makeStyles((theme) => ({
   mainFeaturedPost: {
     position: 'relative',
-    // backgroundColor: theme.palette.grey[800],
     color: '#FFFFFF',
     marginBottom: theme.spacing(4),
-    backgroundImage: 'url(https://source.unsplash.com/random)',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
@@ -40,23 +38,13 @@ export default function MainFeaturedPost(props) {
   const { post } = props;
 
   return (
-    <Paper className={classes.mainFeaturedPost} style={{ backgroundImage: `url(${post.image})` }}>
-      {/* Increase the priority of the hero background image */}
-      {<img style={{ display: 'none' }} src={post.image} alt={post.imageText} />}
-      <div className={classes.overlay} />
-      <Grid container>
-        <Grid item md={6}>
-          <div className="play-card p-sm-24 bg-paper">
-            <Typography component="h1" variant="h3" color="white" gutterBottom>
-              {post.title}
-            </Typography>
-            <Typography variant="h5" color="inherit" paragraph>
-              {post.description}
-            </Typography>
-            
-          </div>
-        </Grid>
-      </Grid>
+    <Paper className={classes.mainFeaturedPost} >
+    
+      
+      <div className={classes.overlay} >
+      {<img  src="/assets/images/home.jpg" alt={post.imageText} />}
+      </div>
+      
     </Paper>
   );
 }
