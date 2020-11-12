@@ -2,6 +2,12 @@ import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { Bar } from 'react-chartjs-2';
+import TextField from "@material-ui/core/TextField";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
 import {
   Box,
   Button,
@@ -32,6 +38,15 @@ const useStyles = makeStyles(() => ({
 const Sales = ({ impl,className, ...rest }) => {
   const classes = useStyles();
   const theme = useTheme();
+  const [open, setOpen] = React.useState(false);
+
+  const  handleClickOpen=() =>{
+    setOpen(true);
+  }
+
+  const  handleClose=()=> {
+    setOpen(false);
+  }
 
 //   const {impl , AddImp } = props;
   const valu =impl 
@@ -107,22 +122,24 @@ const Sales = ({ impl,className, ...rest }) => {
   };
 
   return (
-    <Card
+    <div>
+   <Card
       className={clsx(classes.root, className)}
       {...rest}
     >
-      {/* <CardHeader
+      <CardHeader
         action={(
           <Button
-            endIcon={<ArrowDropDownIcon />}
+            endIcon={<ArrowRightIcon  />}
             size="small"
-            variant="text"
+            variant="outlined" color="primary"
+            onClick={handleClickOpen}
           >
-            Last 7 days
+            Add Feedback
           </Button>
         )}
-        title="Latest Sales"
-      /> */}
+        title="Result of your scores and recomended tools "
+      />
       <Divider />
       <CardContent>
         <Box
@@ -136,7 +153,7 @@ const Sales = ({ impl,className, ...rest }) => {
         </Box>
       </CardContent>
       <Divider />
-      {/* <Box
+      <Box
         display="flex"
         justifyContent="flex-end"
         p={2}
@@ -147,10 +164,40 @@ const Sales = ({ impl,className, ...rest }) => {
           size="small"
           variant="text"
         >
-          Overview
+          View All your repors
         </Button>
-      </Box> */}
+      </Box>
     </Card>
+   <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="form-dialog-title"
+      >
+        <DialogTitle id="form-dialog-title">Add Feedback</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Please add the general feedback regarding your score records
+          </DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="feedback"
+            label="Feedback "
+            type="text"
+            fullWidth
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button variant="outlined" color="secondary" onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button onClick={handleClose} color="primary">
+            Add
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+    
   );
 };
 

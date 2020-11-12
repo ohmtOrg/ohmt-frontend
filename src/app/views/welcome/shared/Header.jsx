@@ -46,7 +46,7 @@ export default function Header(props) {
           noWrap
           className={classes.toolbarTitle}
         >
-          One Health Management Tool
+          One Health monitoring Tool
         </Typography>
     
       
