@@ -37,7 +37,7 @@ const useStyles = makeStyles(() => ({
   root: {}
 }));
 
-const Sales = ({ impl,className, ...rest }) => {
+const ResultChart = ({ impl,className, ...rest }) => {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -126,6 +126,18 @@ const Sales = ({ impl,className, ...rest }) => {
 
   return (
     <div>
+{/* {cat.map((a,index1)=>(
+<>
+{subcateg.map((a,ind)=>(
+        <>
+        {data.filter((a)=>((a.id>((ind+1)*10)+100)&&(a.id<((ind+2)*10)+100))).map((v,index) => (
+        </>
+        ))}
+</>
+))} */}
+
+     
+      
    <Card
       className={clsx(classes.root, className)}
       {...rest}
@@ -204,10 +216,10 @@ const Sales = ({ impl,className, ...rest }) => {
   );
 };
 
-Sales.propTypes = {
+ResultChart.propTypes = {
   className: PropTypes.string
 };
-export default Sales 
+export default ResultChart 
 
 
 // const mapStateToProps = state => ({

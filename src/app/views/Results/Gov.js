@@ -8,7 +8,7 @@ import { navigations } from "../../navigations";
 import { MatxVerticalNav } from "matx";
 import Chart from '../Evaluation/chart';
 import { AddImp } from "../../redux/actions/PerformamceAction";
-import Sales from '../report/index'
+import ResultChart from './chart'
 
 const Graphs = props => {
   
@@ -21,7 +21,7 @@ const Graphs = props => {
 
   return (
     <Fragment>
-      <Sales impl={gov}/>
+      <ResultChart impl={gov}/>
       <Chart valu={gov} ll='Governance' /> 
     </Fragment>
   );

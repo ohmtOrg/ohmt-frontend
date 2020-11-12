@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 const mainFeaturedPost = {
-  title: 'Welcome to One Health monitoring Tool',
+  title: 'Welcome to One Health Monitoring Tool',
   description:
     "This One Health Monitoring Tool (OHMT) is aiming of assessment progress made in OH implementation by identifying strenghtens, gaps at national, sub-regional and regional levels.This is also a repository tool of all exixting OH tools, which will be an entry point whic will be used advising for any users to identify which of the existing tools of OH",
   image: 'https://source.unsplash.com/random',

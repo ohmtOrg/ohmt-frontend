@@ -1,67 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import Link from '@material-ui/core/Link';
+import { Card,Button } from '@material-ui/core';
+import history from "history.js";
 
-const useStyles = makeStyles((theme) => ({
-  mainFeaturedPost: {
-    position: 'relative',
-    // backgroundColor: theme.palette.grey[800],
-    color: '#FFFFFF',
-    marginBottom: theme.spacing(4),
-    // backgroundImage: 'url(/assets/images/home.jpg)',
-    backgroundSize: 'container',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
-  },
-  overlay: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0,
-    backgroundColor: 'rgba(0,0,0,.3)',
-  },
-  mainFeaturedPostContent: {
-    position: 'relative',
-    padding: theme.spacing(3),
-    [theme.breakpoints.up('md')]: {
-      padding: theme.spacing(6),
-      paddingRight: 0,
-    },
-  },
-}));
+
+
 
 export default function MainFeaturedPost(props) {
-  const classes = useStyles();
-  const { post } = props;
+  const handleLogin=()=>{
+    history.push({
+      pathname: "/session/signin"
+    });
+  }
 
   return (
-    <Paper className={classes.mainFeaturedPost} 
-    style={{ backgroundImage: `url(/assets/images/home.jpg)` }}
-    >
-      {/* Increase the priority of the hero background image */}
-      {<img 
-      style={{ display: 'none' }}
-       src="/assets/images/home.jpg" alt={post.imageText} />}
-      <div className={classes.overlay} />
-      <Grid container>
-        <Grid item md={7}>
-          <div className="play-card p-sm-24 bg-paper">
-            <Typography component="h1" variant="h3" color="white" gutterBottom>
-              {post.title}
-            </Typography>
-            {/* <Typography variant="h5" color="inherit" paragraph>
-              {post.description}
-            </Typography> */}
-            
-          </div>
-        </Grid>
-      </Grid>
-    </Paper>
+   
+     <Card className="p-sm-24 mb-6">
+     <Card elevation={0} className="upgrade-card bg-light-primary p-sm-24">
+       <img src="/assets/images/faologo.png" alt="upgrade" />
+       <p className="text-muted m-0 py-4">
+         {/* <b>MatX PRO</b> for <br /> more resources */}
+       </p>
+       <Button
+         className="uppercase"
+         size="large"
+         variant="contained"
+         color="primary"
+         onClick={handleLogin}
+       >
+         Sign In 
+       </Button>
+     </Card>
+   </Card>
   );
 }
 
