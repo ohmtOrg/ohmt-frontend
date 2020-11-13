@@ -6,10 +6,13 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import history from "history.js";
+import  Brand from '../../../MatxLayout/SharedCompoents/Brand'
+import Icon from './icon'
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
+    backgroundColor:'white',
   },
   toolbarTitle: {
     flex: 1,
@@ -39,12 +42,16 @@ export default function Header(props) {
         <Typography
           component="h2"
           variant="h5"
-          color="secondary"
+          color="primary"
           align="center"
           noWrap
           className={classes.toolbarTitle}
         >
-          One Health Monitoring Tool
+          <Icon/>
+         {/* <Brand/>
+         <div className="username-photo">
+          <img src='/assets/images/fao.png' alt="user" />
+        </div> */}
         </Typography>
     
       

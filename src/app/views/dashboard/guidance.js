@@ -2,11 +2,7 @@ import React, { Component, Fragment } from "react";
 import { 
     Box,
     Card,
-    CardContent,
-    Button,
-    Divider,
     Grid,
-    Typography,
     Container,
     } from "@material-ui/core";
 
@@ -42,7 +38,7 @@ class Dashboard1 extends Component {
   state = guidance;
 
   render() {
-    let { theme } = this.props;
+   
 
     return (
       <Fragment>

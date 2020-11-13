@@ -37,7 +37,7 @@ const useStyles = makeStyles(() => ({
   root: {}
 }));
 
-const ResultChart = ({ impl,className, ...rest }) => {
+const ResultChart = ({ impl,ll,className, ...rest }) => {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -53,15 +53,21 @@ const ResultChart = ({ impl,className, ...rest }) => {
 //   const {impl , AddImp } = props;
   const valu =impl 
   
-  let colo=[red[500],grey[500],green[500], indigo[500]]
+  let colo=[red[200],grey[200],green[200], indigo[200]]
+  let borc=[red[500],grey[500],green[500], indigo[500]]
+
   let lbls=valu.map(a=>a.name)
   let points=valu.map(a=>a.value)
   let col=valu.map(a=>colo[a.value-1])
   const data = {
     datasets: [
+      
       {
+       
         backgroundColor:[...col],
+        // borderColor:[...borc],
         data: [...points],
+        borderWidth: 1,
         // label: [...lbls]
       }
       
@@ -71,7 +77,7 @@ const ResultChart = ({ impl,className, ...rest }) => {
 
   const options = {
     animation: false,
-    cornerRadius: 20,
+    cornerRadius: 2,
     layout: { padding: 0 },
     legend: { display: false },
     maintainAspectRatio: false,
@@ -80,8 +86,8 @@ const ResultChart = ({ impl,className, ...rest }) => {
       xAxes: [
         {
           barThickness: 50,
-          maxBarThickness: 10,
-          barPercentage: 1,
+          maxBarThickness: 150,
+          barPercentage: 10,
           categoryPercentage:1,
           ticks: {
             fontColor: theme.palette.text.secondary
@@ -97,15 +103,16 @@ const ResultChart = ({ impl,className, ...rest }) => {
           ticks: {
             fontColor: theme.palette.text.secondary,
             beginAtZero: true,
-            min: 0
+            min: 0,
+            interval:1
           },
           gridLines: {
-            borderDash: [2],
-            borderDashOffset: [2],
+            borderDash: [0],
+            borderDashOffset: [0],
             color: theme.palette.divider,
             drawBorder: false,
-            zeroLineBorderDash: [2],
-            zeroLineBorderDashOffset: [2],
+            zeroLineBorderDash: [200],
+            zeroLineBorderDashOffset: [200],
             zeroLineColor: theme.palette.divider
           }
         }
@@ -115,7 +122,7 @@ const ResultChart = ({ impl,className, ...rest }) => {
       backgroundColor: theme.palette.background.default,
       bodyFontColor: theme.palette.text.secondary,
       borderColor: theme.palette.divider,
-      borderWidth: 1,
+      borderWidth: 10,
       enabled: true,
       footerFontColor: theme.palette.text.secondary,
       intersect: false,
@@ -143,17 +150,17 @@ const ResultChart = ({ impl,className, ...rest }) => {
       {...rest}
     >
       <CardHeader
-        action={(
-          <Button
-            endIcon={<ArrowRightIcon  />}
-            size="small"
-            variant="outlined" color="primary"
-            onClick={handleClickOpen}
-          >
-            Add Feedback
-          </Button>
-        )}
-        title="Result of your scores and recomended tools "
+        // action={(
+        //   <Button
+        //     endIcon={<ArrowRightIcon  />}
+        //     size="small"
+        //     variant="outlined" color="primary"
+        //     onClick={handleClickOpen}
+        //   >
+        //     Add Feedback
+        //   </Button>
+        // )}
+        title={`Result of your scores for ${ll} category`}
       />
       <Divider />
       <CardContent>
@@ -170,17 +177,18 @@ const ResultChart = ({ impl,className, ...rest }) => {
       <Divider />
       <Box
         display="flex"
-        justifyContent="flex-end"
+        justifyContent="flex"
         p={2}
       >
-        <Button
-          color="primary"
-          endIcon={<ArrowRightIcon />}
-          size="small"
-          variant="text"
-        >
-          View All your repors
-        </Button>
+        
+         <Button
+            endIcon={<ArrowRightIcon  />}
+            size="small"
+            variant="outlined" color="primary"
+            onClick={handleClickOpen}
+          >
+            Add comments and feedback
+          </Button>
       </Box>
     </Card>
    <Dialog
@@ -188,10 +196,10 @@ const ResultChart = ({ impl,className, ...rest }) => {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Add Feedback</DialogTitle>
+        <DialogTitle id="form-dialog-title">Add comments </DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Please add the general feedback regarding your score records
+          Add comments focusing on weaknes strength and recomendation 
           </DialogContentText>
           <TextField
             autoFocus

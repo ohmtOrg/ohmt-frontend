@@ -54,13 +54,13 @@ import {
             >
               One Health Monitoring Tool (OHMT)
             </Typography>
-            {/* <Typography
+            <Typography
               align="center"
               color="textPrimary"
               variant="subtitle2"
             >
               This One Health Monitoring Tool (OHMT) is a guide to guide the assessment of progress made in OH implementation by identifying strenghtens, gaps at national, sub-regional and regional levels. The tool is intended to be used to collect semi-quantitative data to improve OH. Add the tool kit aspect
-            </Typography> */}
+            </Typography>
             {/* <Box mt={2}> */}
             {/* <Grid
               container

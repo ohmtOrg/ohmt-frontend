@@ -21,8 +21,8 @@ const Graphs = props => {
 
   return (
     <Fragment>
-      <ResultChart impl={gov}/>
-      <Chart valu={gov} ll='Governance' /> 
+      <ResultChart impl={gov} ll='Governance'/>
+      {/* <Chart valu={gov} ll='Governance' />  */}
     </Fragment>
   );
 };
