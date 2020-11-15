@@ -37,17 +37,25 @@ const useStyles = makeStyles(() => ({
   root: {}
 }));
 
-const ResultChart = ({ impl,ll,className, ...rest }) => {
+const ResultChart = ({ impl,ll,submitFeedback,className, ...rest }) => {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [feedback, setfeedback] = React.useState('');
 
   const  handleClickOpen=() =>{
     setOpen(true);
   }
-
+const handleChange=(e)=>{
+setfeedback(e.target.value)
+}
   const  handleClose=()=> {
     setOpen(false);
+  }
+  const handleSubmit =()=>{
+    submitFeedback(feedback)
+    console.log(feedback)
+    setOpen(false)
   }
 
 //   const {impl , AddImp } = props;
@@ -206,15 +214,20 @@ const ResultChart = ({ impl,ll,className, ...rest }) => {
             margin="dense"
             id="feedback"
             label="Feedback "
-            type="text"
+            type="inputbox"
+            multiline
+            name='feedback'
+  rows={5}
+  rowsMax={15}
             fullWidth
+            onChange={handleChange}
           />
         </DialogContent>
         <DialogActions>
           <Button variant="outlined" color="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleSubmit} color="primary">
             Add
           </Button>
         </DialogActions>

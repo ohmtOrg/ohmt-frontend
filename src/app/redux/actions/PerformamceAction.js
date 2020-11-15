@@ -1,5 +1,7 @@
 import history from "history.js";
 export const SET_GOV = "SET_GOV";
+export const SET_IMP_FEEDBACK = "SET_IMP_FEEDBACK";
+export const SET_GOV_FEEDBACK = "SET_GOV_FEEDBACK";
 export const SET_IMP = "SET_IMP";
 export const ADD_PERFORMANCE_LOADING = "ADD_PERFORMANCE_LOADING";
 export const ADD_PERFORMANCE_SUCCESS = "ADD_PERFORMANCE_SUCCESS";
@@ -16,6 +18,29 @@ export function AddGov(gov) {
     dispatch({
       type: SET_GOV,
       data: gov
+    });
+   
+  };
+}
+
+export function AddImpFeedback(feedback) {
+  return dispatch => {
+  
+    console.log(feedback)
+    dispatch({
+      type: SET_IMP_FEEDBACK,
+      data: feedback
+    });
+   
+  };
+}
+export function AddGovFeedback(feedback) {
+  return dispatch => {
+   
+    console.log(feedback)
+    dispatch({
+      type: SET_GOV_FEEDBACK,
+      data: feedback
     });
    
   };

@@ -7,12 +7,12 @@ import PropTypes from "prop-types";
 import { navigations } from "../../navigations";
 import { MatxVerticalNav } from "matx";
 import Chart from '../Evaluation/chart';
-import { AddImp } from "../../redux/actions/PerformamceAction";
+import { AddImpFeedback } from "../../redux/actions/PerformamceAction";
 import ResultChart from './chart'
 
 const Graphs = props => {
   
-    let {impl , AddImp } = props;
+    let {impl , AddImpFeedback } = props;
     // const [gover,setGov]=useState([gov])
     // const [impl,setImp]=useState([imp])
 
@@ -21,7 +21,7 @@ const Graphs = props => {
 
   return (
     <Fragment>
-      <ResultChart impl={impl} ll='Implementation and performance'/>
+      <ResultChart impl={impl} ll='Implementation and performance' submitFeedback={AddImpFeedback}/>
       {/* <Chart valu={impl} ll='Implementation and performance' />  */}
     </Fragment>
   );
@@ -34,13 +34,13 @@ Graphs.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    AddImp: PropTypes.func.isRequired,
+    AddImpFeedback: PropTypes.func.isRequired,
   gov: state.performance.gov,
   impl: state.performance.impl
 });
 
 export default withRouter(
   connect(mapStateToProps, {
-    AddImp
+    AddImpFeedback
   })(Graphs)
 );
