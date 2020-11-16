@@ -95,8 +95,20 @@ const Graphs = props => {
     setOpen(false);
   }
     let {impl ,gov, AddImp } = props;
+   const  filtered =gov.filter( function (e){
+      return e.value<3
+    })
+  
 
-    console.log(props)
+    const  filtered2 =impl.filter( function (e){
+      return e.value<3
+    })
+    // console.log('filteredt two', filtered2)
+    // console.log('filteredt one', filtered)
+    const fil= [...filtered,...filtered2]
+    
+
+    console.log('filtered all', fil)
 
 
   return (
