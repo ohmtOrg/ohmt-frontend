@@ -114,8 +114,7 @@ const useStyles = makeStyles(theme => ({
                   title={
                     <React.Fragment>
                       <Typography color="inherit">Question</Typography>
-                      <em>{"And here's"}</em> <b>{'some'}</b> <u>{'amazing content'}</u>.{' '}
-                      {"It's very engaging. Right?"}
+                      {v.qs[ind]}
                     </React.Fragment>
                   }
                 >
