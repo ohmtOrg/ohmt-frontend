@@ -35,7 +35,8 @@ import {
   CardContent,
   CardHeader,
   Divider,
-  colors 
+  colors ,
+  Container
   
 //   makeStyles,
 //   colors
@@ -95,21 +96,46 @@ const Graphs = props => {
     setOpen(false);
   }
     let {impl ,gov, AddImp } = props;
-   const  filtered =gov.filter( function (e){
-      return e.value<3
-    })
+   const  filtered =gov.filter( e=> e.value<3)
   
 
-    const  filtered2 =impl.filter( function (e){
-      return e.value<3
-    })
+    const  filtered2 =impl.filter(e=>  e.value<3)
     // console.log('filteredt two', filtered2)
     // console.log('filteredt one', filtered)
     const fil= [...filtered,...filtered2]
     
-
-    console.log('filtered all', fil)
-
+// reference.filter(fucntion (e) {
+// return e
+// })
+reference.map(ob=>{
+  console.log(fil)
+  if(ob.catId < 10){
+    let results = fil.filter(f => ob.catId  ===parseInt(f.id/100)).map(obj=>{
+      return obj.id
+    });
+   const res2=results.filter(f => {
+    return ob.id
+  } )
+    ob.sc=[...results] 
+    
+  } else if (ob.catId<100){
+    let results = fil.filter(f => ob.catId  ===parseInt(f.id/10)).map(obj=>{
+      return obj.id
+    });
+    ob.sc=[...results] 
+    
+  }
+ else{
+  let results = fil.filter(f => ob.catId  ===parseInt(f.id)).map(obj=>{
+    return obj.catId
+  });
+  ob.sc=[...results] 
+  
+}
+})
+    console.log('ref', reference)
+    
+// const filteredRef=reference.filter(f => f.sc.length>0) 
 
   return (
     <Fragment>
@@ -213,6 +239,7 @@ const Graphs = props => {
             </Button>
           </Toolbar>
         </AppBar>
+        <Container>
       <Card elevation={3} className="pt-5 mb-6">
       <div className="card-title px-6 mb-3">Refernce tools based on your scoring </div>
       <div className="overflow-auto">
@@ -227,7 +254,7 @@ const Graphs = props => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {reference.map((rectool, index) => (
+          {reference.filter(f => f.sc.length>0).map( (rectool, index) => (
             <TableRow key={index}>
               <TableCell className="px-0 capitalize" align="left">
                 {rectool.title}
@@ -248,6 +275,7 @@ const Graphs = props => {
       </Paper>
       </div>
     </Card>
+    </Container>
       </Dialog>
  </div>
       {/* <ResultChart impl={impl} ll='Implementation and performance'/> */}
