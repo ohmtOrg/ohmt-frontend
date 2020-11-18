@@ -112,10 +112,19 @@ const useStyles = makeStyles(theme => ({
                <>
                   <Tooltip
                   title={
-                    <React.Fragment>
-                      <Typography color="inherit">Question</Typography>
-                      {v.qs[ind]}
-                    </React.Fragment>
+                    <>
+                    {v.qs[ind]?(
+                      <React.Fragment>
+                        <Typography color="inherit">Questions</Typography>
+                            {v.qs[ind]} </React.Fragment>
+                    ):(
+                      <React.Fragment>
+                      <Typography color="inherit">No Questions</Typography>
+                      </React.Fragment>
+                    )}
+                   
+                    
+             </>
                   }
                 >
                <FormControlLabel value={option.value} control={<Radio />} label= {option.value+': '+v.scores[ind]}  />

@@ -206,7 +206,7 @@ All the definitions provided below are only specific in the context  for this to
               >
         <Card elevation={0} className="upgrade-card bg-light-primary p-sm-24 fixed">
             <h4 className="text-unmuted m-0 py-2" >{p.title}</h4>
-        <p className="text-muted m-0 py-2">
+        <p className="text-muted m-0 py-2" style={{ textAlign: "left" }}>
           {p.description}
         </p>
         <ExpansionPanel>

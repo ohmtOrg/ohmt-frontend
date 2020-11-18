@@ -31,22 +31,27 @@ export const navigations = [
       
     ]
   },
+  // {
+  //   name: "Results",
+  //   icon: "description",
+  //   children: [
+  //     {
+  //       name: "Governance",
+  //       path: "/result/governance",
+  //       iconText: "E"
+  //     },
+  //     {
+  //       name: "Implementation and Performance",
+  //       path: "/result/implementatiom",
+  //       iconText: "B"
+  //     },
+      
+  //   ]
+  // },
   {
     name: "Results",
-    icon: "description",
-    children: [
-      {
-        name: "Governance",
-        path: "/result/governance",
-        iconText: "E"
-      },
-      {
-        name: "Implementation and Performance",
-        path: "/result/implementatiom",
-        iconText: "B"
-      },
-      
-    ]
+    icon: "R",
+    path: "/result"
   },
   {
     name: "Report",

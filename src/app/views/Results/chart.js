@@ -15,7 +15,8 @@ import {
   CardContent,
   CardHeader,
   Divider,
-  colors 
+  colors ,
+  Typography
   
 //   makeStyles,
 //   colors
@@ -37,7 +38,7 @@ const useStyles = makeStyles(() => ({
   root: {}
 }));
 
-const ResultChart = ({ impl,ll,submitFeedback,className, ...rest }) => {
+const ResultChart = ({ impl,ll,submitFeedback,className,fb, ...rest }) => {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -158,17 +159,17 @@ setfeedback(e.target.value)
       {...rest}
     >
       <CardHeader
-        // action={(
-        //   <Button
-        //     endIcon={<ArrowRightIcon  />}
-        //     size="small"
-        //     variant="outlined" color="primary"
-        //     onClick={handleClickOpen}
-        //   >
-        //     Add Feedback
-        //   </Button>
-        // )}
-        title={`Result of your scores for ${ll} category`}
+        action={(
+          <Button
+            endIcon={<ArrowRightIcon  />}
+            size="small"
+            variant="outlined" color="primary"
+            onClick={handleClickOpen}
+          >
+            Add Feedback
+          </Button>
+        )}
+        title={`Scores for the assessment of  ${ll} domain`}
       />
       <Divider />
       <CardContent>
@@ -189,15 +190,9 @@ setfeedback(e.target.value)
         p={2}
       >
         
-         <Button
-            endIcon={<ArrowRightIcon  />}
-            size="small"
-            variant="outlined" color="primary"
-            onClick={handleClickOpen}
-          >
-            Add comments and feedback
-          </Button>
+        <Typography color="inherit">Feedback: {fb}</Typography>
       </Box>
+      <Divider />
     </Card>
    <Dialog
         open={open}
