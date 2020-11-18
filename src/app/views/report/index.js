@@ -12,6 +12,16 @@ Paper,
   TableCell,
   TableBody
 } from "@material-ui/core";
+import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { Breadcrumb, SimpleCard } from "matx";
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Tooltip from '@material-ui/core/Tooltip';
+
 
 import { navigations } from "../../navigations";
 import { MatxVerticalNav } from "matx";
@@ -241,34 +251,80 @@ reference.map(ob=>{
         </AppBar>
         <Container>
       <Card elevation={3} className="pt-5 mb-6">
-      <div className="card-title px-6 mb-3">Refernce tools based on your scoring </div>
+      <div className="card-title px-6 mb-3">Reference tools based on your scoring </div>
       <div className="overflow-auto">
         
         <Paper className={classes.paper}>
         <Table className="whitespace-pre">
         <TableHead>
           <TableRow>
-            <TableCell className="px-0" >Title</TableCell>
-            <TableCell className="px-0">Description</TableCell>
-            <TableCell className="px-0">Link</TableCell>
+            <TableCell className="px-0"  colSpan={3}>Title</TableCell>
+            <TableCell className="px-0" colSpan={10}>Description</TableCell>
+            <TableCell className="px-0" colSpan={2}>Link</TableCell>
+            <TableCell className="px-0" colSpan={2}>Metrix</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {reference.filter(f => f.sc.length>0).map( (rectool, index) => (
             <TableRow key={index}>
-              <TableCell className="px-0 capitalize" align="left">
+              <TableCell className="px-0 capitalize" align="left" colSpan={3}>
                 {rectool.title}
               </TableCell>
              
-              <TableCell className="px-0 capitalize">
-                ${rectool.description}
+              <TableCell className="px-0 capitalize" colSpan={10}>
+                {rectool.description}
               </TableCell>
-              <TableCell className="px-0">
+              <TableCell className="px-0" colSpan={1}>
                 <Button color="secondary" href={rectool.href} target='blank'>
                   Visit 
                 </Button>
               </TableCell>
+              <ExpansionPanel>
+              <ExpansionPanelSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                
+                <TableCell className="px-0" colSpan={1}>
+                
+                <Typography className={classes.heading}>Why ?</Typography>
+                
+              </TableCell>
+              
+            
+              </ExpansionPanelSummary>
+              {/* <ExpansionPanelDetails>
+              <RadioGroup
+                aria-label="Gender"
+                name="gender1"
+                className={classes.group}
+                value={v.value}
+                onChange={handleChange(v.id)}
+              >
+                   {fil.filter(f=> f.id.inlude(rectool.sc)).map((option,ind) => (
+                     <>
+                      <Tooltip
+                      title={
+                        <React.Fragment>
+                          <Typography color="inherit">becouse you scored low</Typography>
+                          {option.name}
+                          
+                        </React.Fragment>
+                      }
+                    >
+                     <FormControlLabel value={option.value} control={<Radio />} label= {option.value+': '+v.scores[ind]}  />
+                     
+                     </Tooltip>
+                     <div className="py-3" />
+                     </>
+                    ))}
+             
+              </RadioGroup>
+              </ExpansionPanelDetails> */}
+            </ExpansionPanel>
             </TableRow>
+            
           ))}
         </TableBody>
       </Table>
