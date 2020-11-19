@@ -30,12 +30,14 @@ const Graphs = props => {
 
 Graphs.propTypes = {
     AddGovFeedback: PropTypes.func.isRequired,
+    AddImpFeedback: PropTypes.func.isRequired,
   gov: PropTypes.object.isRequired,
   impl: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
     AddGovFeedback: PropTypes.func.isRequired,
+    AddImpFeedback: PropTypes.func.isRequired,
   gov: state.performance.gov,
   impl: state.performance.impl,
   govfeedback:state.performance.govfeedback,
@@ -44,6 +46,6 @@ const mapStateToProps = state => ({
 
 export default withRouter(
   connect(mapStateToProps, {
-    AddGovFeedback
+    AddGovFeedback,AddImpFeedback
   })(Graphs)
 );

@@ -15,10 +15,14 @@ import Button from '@material-ui/core/Button';
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
+import indigo from  '@material-ui/core/colors/indigo';
+import grey from  '@material-ui/core/colors/grey'
+import purple from  '@material-ui/core/colors/purple'
 
 import { AddGov } from "../../redux/actions/PerformamceAction";
 import {goverd} from './data'
 import { values } from "lodash";
+import { Divider } from "@material-ui/core";
 // import Chart from "./chart"
 const subcateg=[
   {name:"One Health Institutional Policy ",id:11,value:1},
@@ -77,7 +81,7 @@ const useStyles = makeStyles(theme => ({
     AddGov({ ...val });
     
   };
-
+  let colo=[grey[200],purple[200],grey[500]]
   return (
     <>
     <div className="m-sm-30">
@@ -89,8 +93,8 @@ const useStyles = makeStyles(theme => ({
         />
       </div>
       {subcateg.map((a,ind)=>(
-        <>
-      <SimpleCard title={a.name}>
+        <div>
+      <SimpleCard title={a.name}  >
       <div className={classes.root}>
       {goverd.filter((a)=>((a.id>((ind+1)*10)+100)&&(a.id<((ind+2)*10)+100))).map((v,index) => ( 
          
@@ -144,7 +148,9 @@ const useStyles = makeStyles(theme => ({
  </div>
       </SimpleCard>
       <div className="py-3" />
-      </>
+      <Divider style={{ color: colo[ind] }}/>
+      </div>
+      
 ))} 
 {/* <Chart valu={val} ll='Implementation and performance' />  */}
 

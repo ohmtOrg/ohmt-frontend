@@ -16,18 +16,21 @@ import {
   const performanceReducer = function(state = initialState, action) {
     switch (action.type) {
       case SET_IMP: {
+        
         return {
           ...state,
           imp:[...action.data]
         };
       }
       case SET_GOV_FEEDBACK: {
+        console.log('setting  gov feed redicer ', action.data)
         return {
           ...state,
         govfeedback: action.data
         };
       }
          case SET_IMP_FEEDBACK: {
+          console.log('setting emp  feedback redicer ', action.data)
         return {
           ...state,
           impfeedback:action.data

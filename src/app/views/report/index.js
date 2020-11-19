@@ -105,7 +105,7 @@ const Graphs = props => {
   const  handleClose=()=> {
     setOpen(false);
   }
-    let {impl ,gov, AddImp } = props;
+    let {impl ,gov, AddImp ,govfeedback,impfeedback} = props;
    const  filtered =gov.filter( e=> e.value<3)
   
 
@@ -191,6 +191,15 @@ reference.map(ob=>{
       <Chart valu={gov} ll='Governance' /> 
      </Box>
      </Grid>
+     <Divider />
+   <Box
+     display="flex"
+     justifyContent="flex"
+     p={2}
+   >
+     
+     <Typography color="inherit">Feedback: {govfeedback}</Typography>
+   </Box>
      <Grid
                   item
                   lg={12}
@@ -215,14 +224,7 @@ reference.map(ob=>{
      p={2}
    >
      
-      <Button
-         endIcon={<ArrowRightIcon  />}
-         size="small"
-         variant="outlined" color="primary"
-         onClick={handleClickOpen}
-       >
-         View recommended tools 
-       </Button>
+     <Typography color="inherit">Feedback: {impfeedback}</Typography>
    </Box>
  </Card>
  <Dialog
@@ -347,9 +349,12 @@ Graphs.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    AddImp: PropTypes.func.isRequired,
-  gov: state.performance.gov,
-  impl: state.performance.impl
+  AddGovFeedback: PropTypes.func.isRequired,
+  AddImpFeedback: PropTypes.func.isRequired,
+gov: state.performance.gov,
+impl: state.performance.impl,
+govfeedback:state.performance.govfeedback,
+impfeedback:state.performance.impfeedback,
 });
 
 export default withRouter(

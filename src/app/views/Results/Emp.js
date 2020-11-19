@@ -10,7 +10,7 @@ import Chart from '../Evaluation/chart';
 import { AddImpFeedback } from "../../redux/actions/PerformamceAction";
 import ResultChart from './chart'
 
-const Graphs = props => {
+const ImpRes = props => {
   
     let {impl , AddImpFeedback } = props;
     // const [gover,setGov]=useState([gov])
@@ -27,7 +27,7 @@ const Graphs = props => {
   );
 };
 
-Graphs.propTypes = {
+ImpRes.propTypes = {
     AddImp: PropTypes.func.isRequired,
   gov: PropTypes.object.isRequired,
   impl: PropTypes.object.isRequired,
@@ -42,5 +42,5 @@ const mapStateToProps = state => ({
 export default withRouter(
   connect(mapStateToProps, {
     AddImpFeedback
-  })(Graphs)
+  })(ImpRes)
 );
