@@ -10,9 +10,9 @@ const userReducer = function(state = initialState, action) {
   switch (action.type) {
     case SET_USER_DATA: {
       return {
-        ...state,
+        // ...state,
         ...action.data,
-        role:'ADMIN'
+        // role:'ADMIN'
       };
     }
     case REMOVE_USER_DATA: {

@@ -45,7 +45,7 @@ class SignIn extends Component {
   };
   handleFormSubmit = event => {
     
-    console.log(this.state)
+    // console.log(this.state)
     this.props.loginWithEmailAndPassword({ ...this.state });
     // history.push({
     //   pathname: "/dashboard/guidance"
@@ -152,3 +152,4 @@ const mapStateToProps = state => ({
 export default withStyles(styles, { withTheme: true })(
   withRouter(connect(mapStateToProps, { loginWithEmailAndPassword })(SignIn))
 );
+// export default connect(mapStateToProps, { loginWithEmailAndPassword })(SignIn);

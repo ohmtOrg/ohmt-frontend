@@ -36,17 +36,41 @@ class JwtAuthService {
   // You need to send http requst with existing token to your server to check token is valid
   // This method is being used when user logged in & app is reloaded
   loginWithToken = () => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(this.user);
-      }, 100);
-    }).then(data => {
-      // Token is valid
-      this.setSession(data.token);
-      this.setUser(data);
-      return data;
-    });
-  };
+    
+      return  fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/ser/me`, {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+            'authorization':localStorage.getItem("jwt_token")
+          },
+        })
+          .then((res) => res.json())
+          .
+        then(data => {
+          console.log(data)
+          // Login successful
+          // Save token
+          if (data.status === 200){
+            this.setSession(data.token);
+            // Set user
+            this.setUser(data.data);
+          }else{
+            return null
+          }
+          return data;
+        });
+      };
+    // return new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve(this.user);
+    //   }, 100);
+    // }).then(data => {
+    //   // Token is valid
+    //   this.setSession(data.token);
+    //   this.setUser(data);
+    //   return data;
+    // });
+  // };
 
   logout = () => {
     this.setSession(null);

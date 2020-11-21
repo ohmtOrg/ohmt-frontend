@@ -110,8 +110,8 @@ class Layout1Sidenav extends Component {
         <div className="ml-4">
           <span className="username">
             {/* <Icon>lock</Icon> */}
-            {/* {user.displayName} */}
-            super admin
+            {user.firstName}|{user.role}
+            {/* super admin */}
           </span>
           <div className="user__menu">
             {/* <MatxMenu

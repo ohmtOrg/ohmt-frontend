@@ -11,12 +11,11 @@ export const SIGNUP_LOADING = "SIGNUP_LOADING";
 
 
 export function SignupAction(input) {
-    console.log(input)
   return dispatch => {
     dispatch({
       type: SIGNUP_LOADING
     });
-    return fetch(`http://localhost:8000/api/v1/user/signup`, {
+    return fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/user/signup`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -25,20 +24,29 @@ export function SignupAction(input) {
     })
     .then((res) => res.json())
     .then((data) =>{
-        console.log(data)
+        
 if(data.status === 'success'){
-  localStorage.setItem("jwt_token", data.body.token);
-  axios.defaults.headers.common["Authorization"] = "Bearer " + data.body.token;
-  localStorageService.setItem("auth_user", data.body);
-  dispatch(setUserData(data.body));
+ 
+  localStorage.setItem("jwt_token", data.data.token);
+  
+  // axios.defaults.headers.common["Authorization"] = "Bearer " + data.body.token;
+  // console.log('after axios token ',data)
+  localStorageService.setItem("auth_user", data.data.user);
+  
+  //  history.push({
+  //     pathname: "/dashboard/guidance"
+  //   });
+    // console.log('here', data)
+    dispatch(setUserData(data.data.user));
     history.push({
-      pathname: "/"
+      pathname: "/dashboard/guidance"
     });
-    console.log('here', data)
     return dispatch({
-      type: SIGNUP_SUCCESS
+      type: SIGNUP_SUCCESS,
+      payload:  data.data.user
     })
 }else {
+  console.log('error', data)
   toast.error(data.message);
  return  dispatch({
     type:SIGNUP_ERROR,
