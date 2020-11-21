@@ -189,7 +189,7 @@ class Definition extends Component {
       <Container maxWidth={false}>
         {/* <Toolbar /> */}
         <h3>
-All the definitions provided below are only specific in the context  for this tool usage</h3>
+The Definitions provided are only specific in the context  for this tool usage</h3>
         <Box mt={1}>
           <Grid
             container
