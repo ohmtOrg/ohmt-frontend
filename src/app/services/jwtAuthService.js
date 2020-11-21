@@ -37,7 +37,7 @@ class JwtAuthService {
   // This method is being used when user logged in & app is reloaded
   loginWithToken = () => {
     
-      return  fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/ser/me`, {
+      return  fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/user/me`, {
           method: 'POST',
           headers: {
             'content-type': 'application/json',
