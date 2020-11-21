@@ -38,7 +38,7 @@ class JwtAuthService {
   loginWithToken = () => {
     
       return  fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/user/me`, {
-          method: 'POST',
+          method: 'GET',
           headers: {
             'content-type': 'application/json',
             'authorization':localStorage.getItem("jwt_token")
