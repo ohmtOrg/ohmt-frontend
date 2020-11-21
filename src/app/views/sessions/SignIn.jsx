@@ -33,8 +33,8 @@ const styles = theme => ({
 
 class SignIn extends Component {
   state = {
-    email: "salviosage@mail.com",
-    password: "welcomeHome",
+    email: "",
+    password: "",
     agreement: ""
   };
   handleChange = event => {

@@ -168,7 +168,7 @@ reference.map(ob=>{
         View Recomended tools 
        </Button>
      )}
-     title={`Report Of your scores and recomended tools to increase scores `}
+     title={`Report of the assessment and recomended one health tools to address gaps identified`}
    />
    <Divider />
    <CardContent>
@@ -263,7 +263,7 @@ reference.map(ob=>{
             <TableCell className="px-0"  colSpan={3}>Title</TableCell>
             <TableCell className="px-0" colSpan={10}>Description</TableCell>
             <TableCell className="px-0" colSpan={2}>Link</TableCell>
-            <TableCell className="px-0" colSpan={2}>Metrix</TableCell>
+            <TableCell className="px-0" colSpan={2}>Score</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
