@@ -3,10 +3,24 @@ import Scrollbar from "react-perfect-scrollbar";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 import { navigations } from "../../navigations";
 import { MatxVerticalNav } from "matx";
 import Chart from '../Evaluation/chart';
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  Divider,
+  colors ,
+  Typography
+  
+//   makeStyles,
+//   colors
+} from '@material-ui/core';
 import { AddGovFeedback,AddImpFeedback } from "../../redux/actions/PerformamceAction";
 import ResultChart from './chart'
 
@@ -24,6 +38,20 @@ const Graphs = props => {
       <ResultChart impl={gov} ll='Governance' submitFeedback={AddGovFeedback} fb={govfeedback}/>
       <ResultChart impl={impl} ll='Implementation and performance' submitFeedback={AddImpFeedback} fb={impfeedback}/>
       {/* <Chart valu={gov} ll='Governance' />  */}
+      <Box 
+      mt={3}
+      mb={3}
+      >
+      <Button
+            endIcon={<ArrowRightIcon  />}
+            size="small"
+            variant="outlined" color="primary"
+            href='/report'
+            // onClick={handleClickOpen}
+          >
+            Validate and Continue 
+          </Button>
+          </Box>
     </Fragment>
   );
 };

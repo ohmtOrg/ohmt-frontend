@@ -196,9 +196,11 @@ reference.map(ob=>{
      display="flex"
      justifyContent="flex"
      p={2}
+      mt={3}
+      mb={5}
    >
      
-     <Typography color="inherit">Feedback: {govfeedback}</Typography>
+     <Typography color="inherit">Comments: {govfeedback}</Typography>
    </Box>
      <Grid
                   item
@@ -222,9 +224,11 @@ reference.map(ob=>{
      display="flex"
      justifyContent="flex"
      p={2}
+     mt={3}
+      mb={5}
    >
      
-     <Typography color="inherit">Feedback: {impfeedback}</Typography>
+     <Typography color="inherit">Comments: {impfeedback}</Typography>
    </Box>
  </Card>
  <Dialog
@@ -338,6 +342,17 @@ reference.map(ob=>{
  </div>
       {/* <ResultChart impl={impl} ll='Implementation and performance'/> */}
       {/* <Chart valu={impl} ll='Implementation and performance' />  */}
+      <Divider/>
+      <Box 
+      mt={3}
+      mb={3}
+      >
+     
+          <Button color="primary" variant="contained" type="submit">
+            <Icon>send</Icon>
+            <span className="pl-2 capitalize">Submit</span>
+          </Button>
+          </Box >
     </Fragment>
   );
 };

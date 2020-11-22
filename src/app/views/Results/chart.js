@@ -166,7 +166,7 @@ setfeedback(e.target.value)
             variant="outlined" color="primary"
             onClick={handleClickOpen}
           >
-            Add Feedback
+            Add Comments
           </Button>
         )}
         title={`Scores for the assessment of  ${ll} domain`}
@@ -190,7 +190,7 @@ setfeedback(e.target.value)
         p={2}
       >
         
-        <Typography color="inherit">Feedback: {fb}</Typography>
+        <Typography color="inherit">Comments: {fb}</Typography>
       </Box>
       <Divider />
     </Card>
@@ -227,6 +227,7 @@ setfeedback(e.target.value)
           </Button>
         </DialogActions>
       </Dialog>
+      
     </div>
     
   );
