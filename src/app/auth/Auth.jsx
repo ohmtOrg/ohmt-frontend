@@ -16,7 +16,7 @@ const checkJwtAuth = async setUserData => {
   if (user) setUserData(user);
   else
     history.push({
-      pathname: "/session/signin"
+      pathname: "/"
     });
   return user;
 };
