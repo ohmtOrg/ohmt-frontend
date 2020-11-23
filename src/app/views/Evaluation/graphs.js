@@ -1,11 +1,11 @@
-import React, { Fragment,useState } from "react";
-import Scrollbar from "react-perfect-scrollbar";
+import React, { Fragment} from "react";
+// import Scrollbar from "react-perfect-scrollbar";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import { navigations } from "../../navigations";
-import { MatxVerticalNav } from "matx";
+// import { navigations } from "../../navigations";
+// import { MatxVerticalNav } from "matx";
 import Chart from './chart';
 import { AddImp } from "../../redux/actions/PerformamceAction";
 

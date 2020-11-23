@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {
   
@@ -6,7 +6,7 @@ import {
 } from '@material-ui/core';
 import {Radar} from 'react-chartjs-2';
 
-const Chart = ({ valu,ll,...rest }) => {
+const Chart = ({ valu,ll}) => {
   const  clickHandler=(evt)=> {
     console.log(evt)
     // const points = Radar.getElementAtEventForMode(evt, 'nearest', { intersect: true }, true);

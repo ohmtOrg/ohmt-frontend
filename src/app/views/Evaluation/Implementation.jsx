@@ -15,7 +15,7 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
+// import { withRouter } from "react-router-dom";
 // import Chart from "./chart"
 
 import { AddImp } from "../../redux/actions/PerformamceAction";
@@ -61,9 +61,7 @@ const useStyles = makeStyles(theme => ({
     const newArr=[...val]
     
     let ob=newArr.findIndex(ar=>ar.id==index)
-    if (e.target.name=='feedback'){
-      newArr[ob].feedback=e.target.value
-    }else{newArr[ob].value=parseInt(e.target.value)}
+   newArr[ob].value=parseInt(e.target.value)
     
     
     setVal(newArr)

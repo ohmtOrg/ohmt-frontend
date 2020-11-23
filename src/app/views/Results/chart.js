@@ -15,7 +15,7 @@ import {
   CardContent,
   CardHeader,
   Divider,
-  colors ,
+  // colors ,
   Typography
   
 //   makeStyles,
@@ -27,7 +27,7 @@ import indigo from  '@material-ui/core/colors/indigo';
 import grey from  '@material-ui/core/colors/grey'
 import red from  '@material-ui/core/colors/red'
 import green from  '@material-ui/core/colors/green'
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+// import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 // import {goverd} from '../Evaluation/data'
 // import { AddImp } from "../../redux/actions/PerformamceAction";
@@ -63,7 +63,7 @@ setfeedback(e.target.value)
   const valu =impl 
   
   let colo=[red[200],grey[200],green[200], indigo[200]]
-  let borc=[red[500],grey[500],green[500], indigo[500]]
+  // let borc=[red[500],grey[500],green[500], indigo[500]]
 
   let lbls=valu.map(a=>a.name)
   let points=valu.map(a=>a.value)

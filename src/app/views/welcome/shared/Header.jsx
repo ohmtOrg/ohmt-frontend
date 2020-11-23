@@ -4,9 +4,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
+// import Link from '@material-ui/core/Link';
 import history from "history.js";
-import  Brand from '../../../MatxLayout/SharedCompoents/Brand'
+// import  Brand from '../../../MatxLayout/SharedCompoents/Brand'
 import Icon from './icon'
 
 const useStyles = makeStyles((theme) => ({

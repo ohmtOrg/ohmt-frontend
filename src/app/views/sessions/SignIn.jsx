@@ -12,7 +12,7 @@ import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
-import history from "history.js";
+// import history from "history.js";
 
 
 import { loginWithEmailAndPassword } from "../../redux/actions/LoginActions";

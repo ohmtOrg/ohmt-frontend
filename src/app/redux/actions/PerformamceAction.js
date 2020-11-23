@@ -35,7 +35,7 @@ export function AddImpFeedback(feedback) {
   };
 }
 export function AddGovFeedback(feedback) {
-  console.log('add gov feed action',feedback)
+ 
   return dispatch => {
     dispatch({
       type: SET_GOV_FEEDBACK,

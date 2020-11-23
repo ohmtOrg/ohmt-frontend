@@ -14,14 +14,14 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Button from '@material-ui/core/Button';
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
-import indigo from  '@material-ui/core/colors/indigo';
+// import { withRouter } from "react-router-dom";
+// import indigo from  '@material-ui/core/colors/indigo';
 import grey from  '@material-ui/core/colors/grey'
 import purple from  '@material-ui/core/colors/purple'
 
 import { AddGov } from "../../redux/actions/PerformamceAction";
 import {goverd} from './data'
-import { values } from "lodash";
+// import { values } from "lodash";
 import { Divider } from "@material-ui/core";
 // import Chart from "./chart"
 const subcateg=[
@@ -66,9 +66,8 @@ const useStyles = makeStyles(theme => ({
     const newArr=[...val]
     
     let ob=newArr.findIndex(ar=>ar.id==index)
-    if (e.target.name=='feedback'){
-      newArr[ob].feedback=e.target.value
-    }else{newArr[ob].value=parseInt(e.target.value)}
+    
+    newArr[ob].value=parseInt(e.target.value)
     
     
     setVal(newArr)

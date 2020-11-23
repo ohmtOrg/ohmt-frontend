@@ -1,5 +1,5 @@
 import React, { Fragment,useState } from "react";
-import Scrollbar from "react-perfect-scrollbar";
+// import Scrollbar from "react-perfect-scrollbar";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -14,29 +14,29 @@ Paper,
 } from "@material-ui/core";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+// import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { Breadcrumb, SimpleCard } from "matx";
-import Radio from "@material-ui/core/Radio";
-import RadioGroup from "@material-ui/core/RadioGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Tooltip from '@material-ui/core/Tooltip';
+// import { Breadcrumb, SimpleCard } from "matx";
+// import Radio from "@material-ui/core/Radio";
+// import RadioGroup from "@material-ui/core/RadioGroup";
+// import FormControlLabel from "@material-ui/core/FormControlLabel";
+// import Tooltip from '@material-ui/core/Tooltip';
 
 
-import { navigations } from "../../navigations";
-import { MatxVerticalNav } from "matx";
+// import { navigations } from "../../navigations";
+// import { MatxVerticalNav } from "matx";
 import Chart from '../Evaluation/chart';
-import { AddImp } from "../../redux/actions/PerformamceAction";
+// import { AddImp } from "../../redux/actions/PerformamceAction";
 // import ResultChart from './chart'
 
-import clsx from 'clsx';
-import { Bar } from 'react-chartjs-2';
-import TextField from "@material-ui/core/TextField";
+// import clsx from 'clsx';
+// import { Bar } from 'react-chartjs-2';
+// import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
+// import DialogActions from "@material-ui/core/DialogActions";
+// import DialogContent from "@material-ui/core/DialogContent";
+// import DialogContentText from "@material-ui/core/DialogContentText";
+// import DialogTitle from "@material-ui/core/DialogTitle";
 import {
   Box,
   Button,
@@ -45,23 +45,23 @@ import {
   CardContent,
   CardHeader,
   Divider,
-  colors ,
+  // colors ,
   Container
   
 //   makeStyles,
 //   colors
 } from '@material-ui/core';
-import {useTheme, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 // import from '@material-ui/core/colors'
-import indigo from  '@material-ui/core/colors/indigo';
-import grey from  '@material-ui/core/colors/grey'
-import red from  '@material-ui/core/colors/red'
-import green from  '@material-ui/core/colors/green'
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+// import indigo from  '@material-ui/core/colors/indigo';
+// import grey from  '@material-ui/core/colors/grey'
+// import red from  '@material-ui/core/colors/red'
+// import green from  '@material-ui/core/colors/green'
+// import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItem from "@material-ui/core/ListItem";
-import List from "@material-ui/core/List";
+// import ListItemText from "@material-ui/core/ListItemText";
+// import ListItem from "@material-ui/core/ListItem";
+// import List from "@material-ui/core/List";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -94,9 +94,9 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 const Graphs = props => {
   
   const classes = useStyles();
-  const theme = useTheme();
+  // const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const reftools=reference;
+  // const reftools=reference;
 
   const  handleClickOpen=() =>{
     setOpen(true);
@@ -105,7 +105,7 @@ const Graphs = props => {
   const  handleClose=()=> {
     setOpen(false);
   }
-    let {impl ,gov, AddImp ,govfeedback,impfeedback} = props;
+    let {impl ,gov,govfeedback,impfeedback} = props;
    const  filtered =gov.filter( e=> e.value<3)
   
 
@@ -374,6 +374,6 @@ impfeedback:state.performance.impfeedback,
 
 export default withRouter(
   connect(mapStateToProps, {
-    AddImp
+    
   })(Graphs)
 );
