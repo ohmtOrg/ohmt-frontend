@@ -23,6 +23,8 @@ import {
 } from '@material-ui/core';
 import { AddGovFeedback,AddImpFeedback } from "../../redux/actions/PerformamceAction";
 import ResultChart from './chart'
+import Govern from './Gov'
+import Implem from './Emp'
 
 const Graphs = props => {
   
@@ -35,8 +37,10 @@ const Graphs = props => {
 
   return (
     <Fragment>
-      <ResultChart impl={gov} ll='Governance' submitFeedback={AddGovFeedback} fb={govfeedback}/>
-      <ResultChart impl={impl} ll='Implementation and performance' submitFeedback={AddImpFeedback} fb={impfeedback}/>
+      {/* <ResultChart impl={gov} ll='Governance' submitFeedback={AddGovFeedback} fb={performance.govfeedback}/>
+      <ResultChart impl={impl} ll='Implementation and performance' submitFeedback={AddImpFeedback} fb={performance.impfeedback}/> */}
+      <Govern/>
+      <Implem/>
       {/* <Chart valu={gov} ll='Governance' />  */}
       <Box 
       mt={3}
@@ -66,6 +70,7 @@ Graphs.propTypes = {
 const mapStateToProps = state => ({
     AddGovFeedback: PropTypes.func.isRequired,
     AddImpFeedback: PropTypes.func.isRequired,
+    performance:state.performance,
   gov: state.performance.gov,
   impl: state.performance.impl,
   govfeedback:state.performance.govfeedback,

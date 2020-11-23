@@ -10,7 +10,7 @@ import {
       impl:[...implemData],
       gov:[...goverd],
       govfeedback:'',
-      impfeedback:''
+      impfeedback:' '
   };
   
   const performanceReducer = function(state = initialState, action) {
