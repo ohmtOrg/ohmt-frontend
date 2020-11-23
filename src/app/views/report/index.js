@@ -265,9 +265,9 @@ reference.map(ob=>{
         <TableHead>
           <TableRow>
             <TableCell className="px-0"  colSpan={3}>Title</TableCell>
-            <TableCell className="px-0" colSpan={10}>Description</TableCell>
+            <TableCell className="px-0" colSpan={8}>Description</TableCell>
             <TableCell className="px-0" colSpan={2}>Link</TableCell>
-            <TableCell className="px-0" colSpan={2}>Score</TableCell>
+            <TableCell className="px-0" colSpan={4}>Reason</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -277,16 +277,19 @@ reference.map(ob=>{
                 {rectool.title}
               </TableCell>
              
-              <TableCell className="px-0 capitalize" colSpan={10}>
+              <TableCell className="px-0 capitalize" colSpan={8}>
                 {rectool.description}
               </TableCell>
-              <TableCell className="px-0" colSpan={1}>
+              <TableCell className="px-0" colSpan={2}>
                 <Button color="secondary" href={rectool.href} target='blank'>
                   Visit 
                 </Button>
               </TableCell>
-              <ExpansionPanel>
-              <ExpansionPanelSummary
+              <TableCell className="px-0" colSpan={4}>
+              <Typography >because you scored under 3 in some categories </Typography>
+              </TableCell>
+              {/* <ExpansionPanel> */}
+              {/* <ExpansionPanelSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
@@ -299,7 +302,7 @@ reference.map(ob=>{
               </TableCell>
               
             
-              </ExpansionPanelSummary>
+              </ExpansionPanelSummary> */}
               {/* <ExpansionPanelDetails>
               <RadioGroup
                 aria-label="Gender"
@@ -328,7 +331,7 @@ reference.map(ob=>{
              
               </RadioGroup>
               </ExpansionPanelDetails> */}
-            </ExpansionPanel>
+            {/* </ExpansionPanel> */}
             </TableRow>
             
           ))}
