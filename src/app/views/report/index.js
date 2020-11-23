@@ -113,12 +113,12 @@ const Graphs = props => {
     // console.log('filteredt two', filtered2)
     // console.log('filteredt one', filtered)
     const fil= [...filtered,...filtered2]
-    
+    console.log(reference)
 // reference.filter(fucntion (e) {
 // return e
 // })
 reference.map(ob=>{
-  console.log(fil)
+  
   if(ob.catId < 10){
     let results = fil.filter(f => ob.catId  ===parseInt(f.id/100)).map(obj=>{
       return obj.id
@@ -286,7 +286,12 @@ reference.map(ob=>{
                 </Button>
               </TableCell>
               <TableCell className="px-0" colSpan={4}>
-              <Typography >because you scored under 3 in some categories </Typography>
+              {((rectool.catId ===1) ||(rectool.catId>=10  && rectool.catId<20) || (rectool.catId>=100  && rectool.catId<200)) &&   (
+                        <Typography >because you scored under 3 in Governance  domain  </Typography>
+                        )}
+               {((rectool.catId ===2) ||(rectool.catId>=20  && rectool.catId<100) || (rectool.catId>=200 && rectool.catId<300 )) &&   (
+                        <Typography >because you scored under 3 in Implementation and Performance domain </Typography>
+                        )}
               </TableCell>
               {/* <ExpansionPanel> */}
               {/* <ExpansionPanelSummary
