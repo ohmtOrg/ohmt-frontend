@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import history from "history.js";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, withStyles} from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
@@ -43,6 +43,39 @@ const states = [
     label: '4'
   }
 ];
+const LightTooltip = withStyles((theme) => ({
+  tooltip: {
+    backgroundColor: theme.palette.common.white,
+    color: 'rgba(0, 0, 0, 0.87)',
+    boxShadow: theme.shadows[1],
+    fontSize: 11,
+  },
+}))(Tooltip);
+
+const useStylesBootstrap = makeStyles((theme) => ({
+  arrow: {
+    color: theme.palette.common.black,
+  },
+  tooltip: {
+    backgroundColor: theme.palette.common.black,
+  },
+}));
+
+function BootstrapTooltip(props) {
+  const classes = useStylesBootstrap();
+
+  return <Tooltip arrow classes={classes} {...props} />;
+}
+
+const HtmlTooltip = withStyles((theme) => ({
+  tooltip: {
+    backgroundColor: '#f5f5f9',
+    color: 'rgba(0, 0, 0, 0.87)',
+    maxWidth: 220,
+    fontSize: theme.typography.pxToRem(12),
+    border: '1px solid #dadde9',
+  },
+}))(Tooltip);
 const useStyles = makeStyles(theme => ({
   root: {
     width: "100%"
@@ -108,25 +141,26 @@ const useStyles = makeStyles(theme => ({
         >
              {states.map((option,ind) => (
                <>
-                  <Tooltip
-                  title={
-                    <>
-                    {v.qs[ind]?(
-                      <React.Fragment>
-                        <Typography color="inherit">Questions</Typography>
-                            {v.qs[ind]} </React.Fragment>
+                <HtmlTooltip
+        title={
+          <>
+          {v.qs[ind]?(
+            <React.Fragment>
+              <Typography color="inherit">Questions</Typography>
+              <p dangerouslySetInnerHTML={{__html: v.qs[ind]}}/> 
+              </React.Fragment>
                     ):(
                       <React.Fragment>
                       <Typography color="inherit">No Questions</Typography>
                       </React.Fragment>
-                    )}
-                   
+                    )}   
                     
              </>
-                  }
-                >
+              }
+              >
                <FormControlLabel value={option.value} control={<Radio />} label= {option.value+': '+v.scores[ind]}  />
-               </Tooltip>
+               
+               </HtmlTooltip>
                <div className="py-3" />
                </>
               ))}
