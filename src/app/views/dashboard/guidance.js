@@ -26,7 +26,7 @@ const guidance= [
     {
       
       
-      description: "The scoring scole is from 1 to 4. The meaning of each score scare is, 1: No initiative is in place for implementing OH; 2:Plans are in place to develop initiatives that will improve OH; 3:OH implementation is ongoing but initiatives/activities are not yet endorsed by relevant competent authorities and scoring 4 means OH implemtation is ongoing and initiatives/activities are endorsed by relevant competent authorities. The accessors conducting the self-assessment assigns scores into the OHMT scoring grid , by assigning a score  to each of the 26 sub-categories.Based on the scores entered into the OHMT scoring grid, graphs highlighting the institutionalization and operationalization system’s strengths and weaknesses are automatically generated. These outputs become the basis from which guidance for improvement are proposed.",
+      description: "The scoring scole is from 1 to 4. The meaning of each score scare is, 1: No initiative is in place for implementing OH; 2:Plans are in place to develop initiatives that will improve OH; 3:OH implementation is ongoing but initiatives/activities are not yet endorsed by relevant competent authorities and scoring 4 means OH implemtation is ongoing and initiatives/activities are endorsed by relevant competent authorities. The accessors conducting the self-assessment assigns scores into the OHMT scoring grid , by assigning a score  to each of the 26 sub-categories.As you go through the scoring scale, you will be prompted with a question(s) that you need to read and understand; so, you can select the right score accordingly.Based on the scores entered into the OHMT scoring grid, graphs highlighting the institutionalization and operationalization system’s strengths and weaknesses are automatically generated. These outputs become the basis from which guidance for improvement are proposed.",
       
       title: 'Scoring  ',
       
@@ -45,7 +45,7 @@ class Dashboard1 extends Component {
   
       <Container maxWidth={false}>
         {/* <Toolbar /> */}
-        <Box mt={3}>
+        <Box mt={3} mb={3}>
           <Grid
             container
             spacing={1}

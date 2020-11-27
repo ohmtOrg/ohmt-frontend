@@ -7,28 +7,28 @@ scores:['There is no plan to create/develop an entity that will conduct a multis
 'There is an established entity at national and/or sub-national level to coordinate OH activity'],
 qs:[
   '',
-  '1.Is there a record documenting the initiative to develop a multisectoral oversight for One Health implementation (meeting reports, straetegic plan, action plan etc.)?',
-  '1. Is there a record on existence of an entity mandated to conduct multisectoral oversight? (Endorsed organisational structure, meeting reports etc.)',
-  '1. Is there an MOU signed between relevant institutions establishing the national and sub-national cordination mechanism? <br/> 2.Is there an exectutive decision establishing the national coordination mechanism (Cabinet decision, ministerial instruction etc.)',
+  '1.Is there a record documenting the initiative to develop a multisectoral oversight for One Health implementation (meeting reports, straetegic plan, action plan etc)?',
+  '1. Is there a record on existence of an entity mandated to conduct multisectoral oversight? (Endorsed organisational structure, meeting reports etc)',
+  '1. Is there an MOU signed between relevant institutions establishing the national and sub-national cordination mechanism? <br/> 2.Is there an exectutive decision establishing the national coordination mechanism (Cabinet decision, ministerial instruction etc)',
 ]},
   {name:"Institutional organization",
   feedback:'',id:112,value:1,
   scores:['There is no plan to create  an entity that composed of public health, animal health, environment and wildlife sectors',
-  'There is plan to create/develop an entity is composed of public health, animal health, environment and wildlife sectors.',
+  'There is plan to create/develop an entity is composed of public health, animal health, environment and wildlife sectors',
   'There is an established entity composed of at least two sectors (public health, animal health, environment and wildlife sectors)',
   'There is an established entity composed of  all sectors (public health, animal health, environment and wildlife)']
   ,
   qs:[
     '',
-    '1. Is there a record documenting the initiative to develop a multisectoral organizational structure for One Health implementation (meeting reports, straetegic plan, action plan etc.)? ',
+    '1. Is there a record documenting the initiative to develop a multisectoral organizational structure for One Health implementation (meeting reports, straetegic plan, action plan etc)? ',
     '1. Is there an organizational structure endorsed by relevant institutions involved in One Health?',
-    '1. Is there an official organizational structure endorsed by an MOU? <br/> 2. Is there an official organizational structure endorsed by an executive decision (Cabinet decision, ministerial decree etc.)? ',
+    '1. Is there an official organizational structure endorsed by an MOU? <br/> 2. Is there an official organizational structure endorsed by an executive decision (Cabinet decision, ministerial decree etc)? ',
   ]},
   {name:"Policy coherence (Revised)",
   feedback:'',id:113,value:1,
-  scores:['The country has (i) a policy on environmental health that speaks to issues of the health of animals and people arising from the environment and  (ii) a policy on human health that speaks to issues of the health of people   arising from the animals and environment (iii)a policy on animal health that speaks to issues of the health of animals  arising from the environment; the impacts of animals and thier health on the public and environmental health (iv) all the 3 policies have explicitly called for  multisectoral collaboration at the environment-animal-human interface.',
-  'The country has (i) a policy on environmental health that speaks to issues of the health of animals and people arising from the environment and  (ii) a policy on human health that speaks to issues of the health of people   arising from the animals and environment (iii)a policy on animal health that speaks to issues of the health of animals  arising from the environment; the impacts of animals and thier health on the public and environmental health (iv) all the 3 policies have explicitly called for  multisectoral collaboration at the environment-animal-human interface.',
-  'The country has (i) a policy on environmental health that speaks to issues of the health of animals and people arising from the environment and  (ii) a policy on human health that speaks to issues of the health of people   arising from the animals and environment (iii)a policy on animal health that speaks to issues of the health of animals  arising from the environment; the impacts of animals and thier health on the public and environmental health (iv) not all the 3 policies have explicitly called for  multisectoral collaboration at the environment-animal-human interface.',
+  scores:['The country has (i) a policy on environmental health that speaks to issues of the health of animals and people arising from the environment and  (ii) a policy on human health that speaks to issues of the health of people   arising from the animals and environment (iii)a policy on animal health that speaks to issues of the health of animals  arising from the environment; the impacts of animals and thier health on the public and environmental health (iv) all the 3 policies have explicitly called for  multisectoral collaboration at the environment-animal-human interface',
+  'The country has (i) a policy on environmental health that speaks to issues of the health of animals and people arising from the environment and  (ii) a policy on human health that speaks to issues of the health of people   arising from the animals and environment (iii)a policy on animal health that speaks to issues of the health of animals  arising from the environment; the impacts of animals and thier health on the public and environmental health (iv) all the 3 policies have explicitly called for  multisectoral collaboration at the environment-animal-human interface',
+  'The country has (i) a policy on environmental health that speaks to issues of the health of animals and people arising from the environment and  (ii) a policy on human health that speaks to issues of the health of people   arising from the animals and environment (iii)a policy on animal health that speaks to issues of the health of animals  arising from the environment; the impacts of animals and thier health on the public and environmental health (iv) not all the 3 policies have explicitly called for  multisectoral collaboration at the environment-animal-human interface',
   'The country has any 0 or 1 of the following 3 policies in place (i) a policy on environmental health that speaks to issues of the health of animals and people arising from the environment and  (ii) a policy on human health that speaks to issues of the health of people   arising from the animals and environment (iii)a policy on animal health that speaks to issues of the health of animals  arising from the environment; the impacts of animals and thier health on the public and environmental health ']
   ,
   qs:[
@@ -40,10 +40,10 @@ qs:[
 
   {name:"Mainstreaming of One Health policies (revised)",
   feedback:'',id:114,value:1,
-  scores:['the country has developed at less than 50% of the following policies/strategies or the exisitng strategies are single sector  1. multisectoral AMR policy/national action plan   2. strategies or policies for prioritised zoonotic diseases  3. multisectoral food safety strategy/plan 4. multisectoral pesticides/chemical policy ',
-  'the country has developed at least 50% of the following policies/strategies 1. multisectoral AMR policy/national action plan   2. strategies or policies for prioritised zoonotic diseases  3. multisectoral food safety strategy/plan 4. multisectoral pesticides/chemical policy',
-  'the country has developed at least 75% of the following policies/strategies 1. multisectoral AMR policy/national action plan   2. strategies or policies for prioritised zoonotic diseases  3. multisectoral food safety strategy/plan 4. multisectoral pesticides/chemical policy ',
-  'the country has (i) an AMR policy/national action plan  that address public health, animal health, plant health, aqauaculture and environmental health prioirty issues (ii) has prioritised zoonotic diseases and developed multisectoral strategies and implementation plans for each of them (iii)   multisectoral food safety strategy/plan (iv) multisectoral pesticides/chemical policy']
+  scores:['The country has developed at less than 50% of the following policies/strategies or the exisitng strategies are single sector  1. multisectoral AMR policy/national action plan   2. strategies or policies for prioritised zoonotic diseases  3. multisectoral food safety strategy/plan 4. multisectoral pesticides/chemical policy ',
+  'The country has developed at least 50% of the following policies/strategies 1. multisectoral AMR policy/national action plan   2. strategies or policies for prioritised zoonotic diseases  3. multisectoral food safety strategy/plan 4. multisectoral pesticides/chemical policy',
+  'The country has developed at least 75% of the following policies/strategies 1. multisectoral AMR policy/national action plan   2. strategies or policies for prioritised zoonotic diseases  3. multisectoral food safety strategy/plan 4. multisectoral pesticides/chemical policy ',
+  'The country has (i) an AMR policy/national action plan  that address public health, animal health, plant health, aqauaculture and environmental health prioirty issues (ii) has prioritised zoonotic diseases and developed multisectoral strategies and implementation plans for each of them (iii)   multisectoral food safety strategy/plan (iv) multisectoral pesticides/chemical policy']
   ,
   qs:[
     '',
@@ -60,9 +60,9 @@ qs:[
   ,
   qs:[
     '',
-    'I there evidence of intiatives to develop a multisectoral workforce development plan (meeting minutes endorsed by relevant institutions etc.)?',
+    'I there evidence of intiatives to develop a multisectoral workforce development plan (meeting minutes endorsed by relevant institutions etc)?',
     'Is there a multisectoral workforce needs assesement plan?',
-    '1. Is there evidence of an official document signed by implementing institutions (workforce development plan, workforce needs assesemnt plan etc.)?  ',
+    '1. Is there evidence of an official document signed by implementing institutions (workforce development plan, workforce needs assesemnt plan etc)?  ',
   ]},
   {name:"Legislation framework",
   feedback:'',id:116,value:1,
@@ -76,7 +76,7 @@ scores:['There is no  plan to cretae/develop develop  legislation to support a O
     '',
     'Is there evidence of initiatives to set-up a legal framework for OH implementation (Action plan, strategic pan etc)? ',
     'Is there evidence of initiatives to set-up a legal framework for OH health implementation (Meeting reports, action plan etc)?',
-    ' Is there evidence of legally binding documents to support a multisectoral implementation framework (Laws and regulations,  Legal contract etc.)? ',
+    ' Is there evidence of legally binding documents to support a multisectoral implementation framework (Laws and regulations,  Legal contract etc)? ',
   ]
 },
 {name:"Financing mechanisms",
@@ -89,9 +89,9 @@ scores:['There is no plan to create/develop a budgetary provision mechanism to s
 ,
   qs:[
     '',
-    'Is there evidence of initiatives to develop a budeget provision mechanism (meeting reports etc.) ',
+    'Is there evidence of initiatives to develop a budeget provision mechanism (meeting reports etc) ',
     'Is there a evidence of a budget provision  to support  OH implementation (Budget plan,strategic plan etc)? ',
-    'Is there an MOU signed between relevant institutions establishing the financing mechanism for OH? <br/> 2.Is there an exectutive decision establishing the national coordination mechanism (Cabinet decision, ministerial instruction etc.) ',
+    'Is there an MOU signed between relevant institutions establishing the financing mechanism for OH? <br/> 2.Is there an exectutive decision establishing the national coordination mechanism (Cabinet decision, ministerial instruction etc) ',
   ]},
   {name:"Partnership and collaboration",
   feedback:'',id:118,value:1,
@@ -103,7 +103,7 @@ scores:['There is no plan to create/develop a budgetary provision mechanism to s
   ,
   qs:[
     '',
-    'Is there evidence of a plan to set-up OH partnership (Startegic plan, action plan etc.)? ',
+    'Is there evidence of a plan to set-up OH partnership (Startegic plan, action plan etc)? ',
     'Is there evidence of a OH patnership (Meeting reports on decisions to set-up a collaboration framework)?',
     ' Is there evidence of a patnership and collaboration framework endorsed by key stakeholders ( MOU, legal contract etc)?',
   ]},
@@ -119,35 +119,35 @@ scores:['There is no plan to create/develop a budgetary provision mechanism to s
   qs:[
     '',
     'Is there a document that describes initiatives for OH advocacy (STrategic plan, action plan etc)?',
-    'Is there evidence of documents that describe mechansisms for sharing and disseminating OH achievements and challenges (Meeting reports etc.)',
-    ' Is there evidence of endorsed documents that describe mechansisms for sharing and disseminating OH achievements and challenges (Memorandum of Undestanding - MOU, Implementation Plan etc.)',
+    'Is there evidence of documents that describe mechansisms for sharing and disseminating OH achievements and challenges (Meeting reports etc)',
+    ' Is there evidence of endorsed documents that describe mechansisms for sharing and disseminating OH achievements and challenges (Memorandum of Undestanding - MOU, Implementation Plan etc)',
   ]},
   {name:"Communication and advocacy framework",
   feedback:'',id:122,value:1,
   scores:['There is no plan to develop a communication strategy ',
   'There is a plan to develop a communication strategy ',
   'There is a communication strategy and implementation plan shared with all implementing partners and collaborators but not yet endorsed by competent authorities ',
-  'There is a communication strategy and implementation plan endorsed by competent authorities and shared with all implementing partners. '
+  'There is a communication strategy and implementation plan endorsed by competent authorities and shared with all implementing partners'
   ]
   ,
   qs:[
     '',
     'Is there evidence of initiatives to share the communication plan with partners (Meeting report)?',
-    'Is the evidence of sharing the OH communication strategy with stakeholders ( Meeting report etc.)?',
+    'Is the evidence of sharing the OH communication strategy with stakeholders ( Meeting report etc)?',
     ' Is there evidence of a communicartion strategy and plan (Endorsed strategy and mplementation plan)?',
   ]},
   {name:"One Health Monitoring and Evaluation framework",
   feedback:'',id:131,value:1,
   scores:['There is no plan to develop an M&E framework',
   'There is a plan to develop an M&E framework ',
-  'The M&E framework has not yet been endorsed by competent authorities but operational with clear indicators. ',
-  'There is an M&E framework that has been endorsed by competent authorities and operational with clear indicators.'
+  'The M&E framework has not yet been endorsed by competent authorities but operational with clear indicators',
+  'There is an M&E framework that has been endorsed by competent authorities and operational with clear indicators'
   ]
   ,
   qs:[
     '',
     'Is there evidence of initiatives to develop an M&E framework (Meeting report)?',
-    'Is there evidence of initiatives to develop an M&E plan (Strategic plan, action plan etc.)? ',
+    'Is there evidence of initiatives to develop an M&E plan (Strategic plan, action plan etc)? ',
     'Is there evidence of an M&E implementation plan?  ',
   ]},
   {name:"Plan to disseminate and utilize M&E information",
@@ -160,7 +160,7 @@ scores:['There is no plan to create/develop a budgetary provision mechanism to s
   ,
   qs:[
     '',
-    'Is there evidence of initiatives to develop an M&E Dissemination plan (Meeting report ect.)?',
+    'Is there evidence of initiatives to develop an M&E Dissemination plan (Meeting report ect)?',
     'Is there an M&E dissemination plan? ',
     'Is there an official plan to disseminate M&E information (M&E dissemination plan etc)?  ',
   ]},
@@ -169,7 +169,7 @@ scores:['There is no plan to create/develop a budgetary provision mechanism to s
   scores:['There is no plan to train and retain human resources competent in M& E',
   'A plan is being developed to train and retain human resources competent in M& E',
   'There is a plan to train human resources competent in M& E ',
-  'There is an implementation plan to train and retain human resources competent in M& E.'
+  'There is an implementation plan to train and retain human resources competent in M& E'
   ]
   ,
   qs:[
@@ -193,9 +193,9 @@ scores:['There is no plan to create/develop a budgetary provision mechanism to s
     feedback:'',
     scores:[
       'There is no plan to set-up a multi-sectoral interagency strategic document',
-  'There is a plan to develop multi-sectoral interagency strategic document that stipulates implementation strategies, timelines and responsibilities for each sector. ',
-  'There is a multi-sectoral interagency strategic document that stipulates implementation strategies, timelines and responsibilities for each sector but but not yet endorsed by competent authorities.  ',
-  'There is a multi-sectoral interagency strategic document endorsed by competent authorities that stipulates implementation strategies, timelines and responsibilities for each sector. '
+  'There is a plan to develop multi-sectoral interagency strategic document that stipulates implementation strategies, timelines and responsibilities for each sector ',
+  'There is a multi-sectoral interagency strategic document that stipulates implementation strategies, timelines and responsibilities for each sector but but not yet endorsed by competent authorities ',
+  'There is a multi-sectoral interagency strategic document endorsed by competent authorities that stipulates implementation strategies, timelines and responsibilities for each sector '
   
     ]
     ,
@@ -203,14 +203,14 @@ scores:['There is no plan to create/develop a budgetary provision mechanism to s
     '',
     'Is there evidence of initiatives to develop a multi-sectoral strategy for OH (Meeting report etc)? ',
     'Is there evidence of a multi-sectoral strategic document (Strategic Plan)?',
-    'Is there evidence of a multi-sectoral implementation  plan, that is validated by relevant authorities.  ',
+    'Is there evidence of a multi-sectoral implementation  plan, that is validated by relevant authorities ',
   ]
   },
     {name:"Funding for implementation",id:212,value:1,
     feedback:'',
     scores:['There is no plan to set-up a funding mechanism for implementing OH',
     'There is a plan to set-up a funding mechanism for implementing OH',
-  'There is a funding mechanism and funds are readily accessible but not yet endorsed. ',
+  'There is a funding mechanism and funds are readily accessible but not yet endorsed ',
   'There are funds accessible to support all relevant sectors to effectively carry out their roles for OH implementation '
   
     ]
@@ -224,19 +224,19 @@ scores:['There is no plan to create/develop a budgetary provision mechanism to s
     {name:"Government contribution for coordination",id:213,value:1,
     feedback:'',
     scores:[   
-      'There is a no budget provision by government institutions to support OH coordination across all sectors.',
-    'There is a plan to develop a budget provision by government institutions to support OH coordination across all sectors. ',
-    'There is a 50-90 % budget provision by government to support OH coordination across all sectors. ',
-    'government has provided 100% of its committment (financial, human) to support OH coordination across all sectors'
+      'There is a no budget provision by government institutions to support OH coordination across all sectors',
+    'There is a plan to develop a budget provision by government institutions to support OH coordination across all sectors ',
+    'There is a 50-90 % budget provision by government to support OH coordination across all sectors ',
+    'Government has provided 100% of its committment (financial, human) to support OH coordination across all sectors'
     
     
     ]
     ,
     qs:[
       '',
-      'There is evidence of initiatives to develop a budget provision mechanism ( Meeting report etc.)?',
-      'Is there evidence of financial commitemnt to support OH coordination ( Financial statements, expenditure reports etc.)?',
-      ' Is there evidence of financial commitemnt to support OH coordination ( Financial statements, expenditure reports etc.)?',
+      'There is evidence of initiatives to develop a budget provision mechanism ( Meeting report etc)?',
+      'Is there evidence of financial commitemnt to support OH coordination ( Financial statements, expenditure reports etc)?',
+      ' Is there evidence of financial commitemnt to support OH coordination ( Financial statements, expenditure reports etc)?',
     ]},
     {name:"Government contribution for OH emergency interventions",id:214,value:1,
     feedback:'',
@@ -263,7 +263,7 @@ scores:['There is no plan to create/develop a budgetary provision mechanism to s
     ,
     qs:[
       '',
-      'Is there an initiative to engage the private sector (Strategic plan, action plan etc.) ',
+      'Is there an initiative to engage the private sector (Strategic plan, action plan etc) ',
       'Is there engagement by the private sector to support One Health (Public private partnership initiatives)?',
       ' Is there evidence of commitement by the private sector to support One Health (Public private partnership agreement)?',
     ]},
@@ -297,23 +297,23 @@ scores:['There is no plan to create/develop a budgetary provision mechanism to s
     ,
     qs:[
       '',
-      'Is there a evidence of initiatives to establis a training program to address One Health gaps (Strategic plan, action plan, meeting report etc.)?',
-      'is there evidence of training program established to train health professionals to address OH gaps (Field Epidemiology and Laboratory Ttraining Program - FELTP, list of trained professionals etc.)',
+      'Is there a evidence of initiatives to establis a training program to address One Health gaps (Strategic plan, action plan, meeting report etc)?',
+      'is there evidence of training program established to train health professionals to address OH gaps (Field Epidemiology and Laboratory Ttraining Program - FELTP, list of trained professionals etc)',
       'Is there evidence of an accreditated OH  program for training in-service professionals from relevant sectors (FELTP - Masters Degree Program etc) ? ',
     ]},
     {name:"Certification program",id:223,value:1,
     feedback:'',
     scores:['There is are no plans to set-up a certification programs for in-service continuous professional training',
-    'There are plans to set-up a certification programs for in-service continuous professional training.',
+    'There are plans to set-up a certification programs for in-service continuous professional training',
     
-    'There are certification programs for in-service continuous professional training not yet accredited by competent authorities. ',
-      'There are certification programs for in-service continuous professional training accredited by competent authorities.',
+    'There are certification programs for in-service continuous professional training not yet accredited by competent authorities ',
+      'There are certification programs for in-service continuous professional training accredited by competent authorities',
     
     ]
     ,
     qs:[
       '',
-      'Is there evidence of initiatives to develop a certification program to address OH gaps (Action plan, meeting report etc.)? ',
+      'Is there evidence of initiatives to develop a certification program to address OH gaps (Action plan, meeting report etc)? ',
       'Is there evidence of a continuous development program for in-service training (Continous development  program (CPD), certirficate accreditation etc)?',
       'Is there evidence of an existing certified program for training in-service professionals from relevant sectors( Memorandum of Understanding - MOU etc) ? ',
     ]},
@@ -328,7 +328,7 @@ scores:['There is no plan to create/develop a budgetary provision mechanism to s
     ,
     qs:[
       '',
-      'Is there evidence of a plan to train a workforce that will be enegaged in OH policy decision making in all sectors (Strategic plan, action plan, meeting report etc.)?',
+      'Is there evidence of a plan to train a workforce that will be enegaged in OH policy decision making in all sectors (Strategic plan, action plan, meeting report etc)?',
       'Is there evidence of a training program for workforce development on OH policy decision making (Executive training program, OH leadesrship training modules etc )?',
       ' Is there evidence of a training program for workforce development on OH policy decision making that has been endorsed by relevant stakeholders (Executive training program, OH leadesrship training modules etc )?',
     ]},
@@ -342,9 +342,9 @@ scores:['There is no plan to create/develop a budgetary provision mechanism to s
     ,
     qs:[
       '',
-      'Is there evidence of initiatives to develop a research agenda (Startegic plan, action plan, etc.)?',
-      'Is there evidence of a research agenda on OH (Research agenda, reseach plan, etc.)? ',
-      ' Is there evidence of research agenda implementation on OH issues that has been endorsed by relevant stakeholders (MOU, Research implementation agenda)? Is there evidence of research results on One Health (Peer reviewed publications etc.)',
+      'Is there evidence of initiatives to develop a research agenda (Startegic plan, action plan, etc)?',
+      'Is there evidence of a research agenda on OH (Research agenda, reseach plan, etc)? ',
+      ' Is there evidence of research agenda implementation on OH issues that has been endorsed by relevant stakeholders (MOU, Research implementation agenda)? Is there evidence of research results on One Health (Peer reviewed publications etc)',
     ]},
     {name:"Zoonotic diseases",id:231,value:1,
     feedback:'',
@@ -356,7 +356,7 @@ scores:['There is no plan to create/develop a budgetary provision mechanism to s
     ,
     qs:[
       '',
-      'Is there evidence of a list of priority zoonotic  diseases ( meeting minutes, workshop report etc.)?',
+      'Is there evidence of a list of priority zoonotic  diseases ( meeting minutes, workshop report etc)?',
       'Is there evidence of a zoonotic diseases implementation plan (Zoonotic disease prioritization implemntation, etc)?',
       ' Is there evidence of an endorsed zoonotic diseases implementation plan (Zoonotic disease prioritization implemntation, etc)?',
     ]},
@@ -370,9 +370,9 @@ scores:['There is no plan to create/develop a budgetary provision mechanism to s
     ,
     qs:[
       '',
-      'Is there evidence of initiatives to develop a national AMR strategy and action plan (Meeting report, meeting minutes, etc.)?',
-      'Is there evidence of a national AMR implementation plan (AMR national strategy, AMR national action plan, etc.)?',
-      ' Is there evidence of an endosed national AMR implementation plan (AMR national implementation strategy, AMR national implementation plan, etc.)?',
+      'Is there evidence of initiatives to develop a national AMR strategy and action plan (Meeting report, meeting minutes, etc)?',
+      'Is there evidence of a national AMR implementation plan (AMR national strategy, AMR national action plan, etc)?',
+      ' Is there evidence of an endosed national AMR implementation plan (AMR national implementation strategy, AMR national implementation plan, etc)?',
     ]},
     {name:"Food safety  ",id:233,value:1,
     feedback:'',
@@ -384,9 +384,9 @@ scores:['There is no plan to create/develop a budgetary provision mechanism to s
     ,
     qs:[
       '',
-      'Is there an initiative to develop a food safety implementation strategy (Meeting report, meeting minutes, etc.)? ',
-      'Is there an food safety implementation plan (Implementation plan, implementation strategy, etc.)?',
-      ' Is there an endorsed food safety implementation plan (Implementation plan, implementation strategy, etc.)?',
+      'Is there an initiative to develop a food safety implementation strategy (Meeting report, meeting minutes, etc)? ',
+      'Is there an food safety implementation plan (Implementation plan, implementation strategy, etc)?',
+      ' Is there an endorsed food safety implementation plan (Implementation plan, implementation strategy, etc)?',
     ]},
   
     // {name:"Govenrance",id:1,value:1},
