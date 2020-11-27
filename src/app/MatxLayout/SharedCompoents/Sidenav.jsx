@@ -40,7 +40,7 @@ const Sidenav = props => {
         className="scrollable position-relative"
       >
         {props.children}
-        <MatxVerticalNav navigation={navigations} />
+        <MatxVerticalNav navigation={navigations}  style={{ textAlign: "left" }} />
       </Scrollbar>
       {renderOverlay()}
     </Fragment>

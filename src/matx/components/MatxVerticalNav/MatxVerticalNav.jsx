@@ -74,7 +74,7 @@ const MatxVerticalNav = props => {
                   );
                 }
               })()}
-              <span className="align-middle item-text">{item.name}</span>
+              <span className="align-left item-text"style={{ textAlign: "left" }} >{item.name}</span>
               <div className="mx-auto"></div>
               {item.badge && (
                 <div className={`badge bg-${item.badge.color}`}>
