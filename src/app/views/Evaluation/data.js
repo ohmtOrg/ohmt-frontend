@@ -24,13 +24,12 @@ qs:[
     '1. Is there an organizational structure endorsed by relevant institutions involved in One Health?',
     '1. Is there an official organizational structure endorsed by an MOU? <br/> 2. Is there an official organizational structure endorsed by an executive decision (Cabinet decision, ministerial decree etc)? ',
   ]},
-  {name:"Policy coherence (Revised)",
+  {name:"Policy coherence ",
   feedback:'',id:113,value:1,
-  scores:['The country has (i) a policy on environmental health that speaks to issues of the health of animals and people arising from the environment and  (ii) a policy on human health that speaks to issues of the health of people   arising from the animals and environment (iii)a policy on animal health that speaks to issues of the health of animals  arising from the environment; the impacts of animals and thier health on the public and environmental health (iv) all the 3 policies have explicitly called for  multisectoral collaboration at the environment-animal-human interface',
-  'The country has (i) a policy on environmental health that speaks to issues of the health of animals and people arising from the environment and  (ii) a policy on human health that speaks to issues of the health of people   arising from the animals and environment (iii)a policy on animal health that speaks to issues of the health of animals  arising from the environment; the impacts of animals and thier health on the public and environmental health (iv) all the 3 policies have explicitly called for  multisectoral collaboration at the environment-animal-human interface',
+  scores:[  'The country has any 0 or 1 of the following 3 policies in place (i) a policy on environmental health that speaks to issues of the health of animals and people arising from the environment and  (ii) a policy on human health that speaks to issues of the health of people   arising from the animals and environment (iii)a policy on animal health that speaks to issues of the health of animals  arising from the environment; the impacts of animals and thier health on the public and environmental health ',
+    'The country has (i) a policy on environmental health that speaks to issues of the health of animals and people arising from the environment and  (ii) a policy on human health that speaks to issues of the health of people   arising from the animals and environment (iii)a policy on animal health that speaks to issues of the health of animals  arising from the environment; the impacts of animals and thier health on the public and environmental health (iv) all the 3 policies have explicitly called for  multisectoral collaboration at the environment-animal-human interface',
   'The country has (i) a policy on environmental health that speaks to issues of the health of animals and people arising from the environment and  (ii) a policy on human health that speaks to issues of the health of people   arising from the animals and environment (iii)a policy on animal health that speaks to issues of the health of animals  arising from the environment; the impacts of animals and thier health on the public and environmental health (iv) not all the 3 policies have explicitly called for  multisectoral collaboration at the environment-animal-human interface',
-  'The country has any 0 or 1 of the following 3 policies in place (i) a policy on environmental health that speaks to issues of the health of animals and people arising from the environment and  (ii) a policy on human health that speaks to issues of the health of people   arising from the animals and environment (iii)a policy on animal health that speaks to issues of the health of animals  arising from the environment; the impacts of animals and thier health on the public and environmental health ']
-  ,
+  'The country has (i) a policy on environmental health that speaks to issues of the health of animals and people arising from the environment and  (ii) a policy on human health that speaks to issues of the health of people   arising from the animals and environment (iii)a policy on animal health that speaks to issues of the health of animals  arising from the environment; the impacts of animals and thier health on the public and environmental health (iv) all the 3 policies have explicitly called for  multisectoral collaboration at the environment-animal-human interface'],
   qs:[
     '',
     '',
@@ -38,7 +37,7 @@ qs:[
     ' ',
   ]},
 
-  {name:"Mainstreaming of One Health policies (revised)",
+  {name:"Mainstreaming of One Health policies ",
   feedback:'',id:114,value:1,
   scores:['The country has developed at less than 50% of the following policies/strategies or the exisitng strategies are single sector  1. multisectoral AMR policy/national action plan   2. strategies or policies for prioritised zoonotic diseases  3. multisectoral food safety strategy/plan 4. multisectoral pesticides/chemical policy ',
   'The country has developed at least 50% of the following policies/strategies 1. multisectoral AMR policy/national action plan   2. strategies or policies for prioritised zoonotic diseases  3. multisectoral food safety strategy/plan 4. multisectoral pesticides/chemical policy',
