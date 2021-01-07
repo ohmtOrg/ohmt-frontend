@@ -47,6 +47,7 @@ const states = [
     label: '4'
   }
 ];
+
 const LightTooltip = withStyles((theme) => ({
   tooltip: {
     backgroundColor: theme.palette.common.white,
