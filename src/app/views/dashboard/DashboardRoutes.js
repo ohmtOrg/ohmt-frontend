@@ -16,6 +16,11 @@ const dashboardRoutes = [
     path: "/dashboard/definitions",
     component: React.lazy(() => import("./definitions")),
     auth: authRoles.normal
+  },
+  {
+    path: "/dashboard/tools",
+    component: React.lazy(() => import("./recomendedTools")),
+    auth: authRoles.normal
   }
 
 ];

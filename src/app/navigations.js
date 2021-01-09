@@ -9,6 +9,11 @@ export const navigations = [
     path: "/dashboard/definitions",
     icon: "dashboard"
   },
+  {
+    name: "Tools",
+    path: "/dashboard/tools",
+    icon: "dashboard"
+  },
   // {
   //   name: "Dashboard",
   //   path: "/dashboard/analytics",
