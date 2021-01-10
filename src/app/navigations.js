@@ -10,7 +10,7 @@ export const navigations = [
     icon: "dashboard"
   },
   {
-    name: "Tools",
+    name: "Reference Guide",
     path: "/dashboard/tools",
     icon: "dashboard"
   },
