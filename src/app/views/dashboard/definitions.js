@@ -189,7 +189,7 @@ class Definition extends Component {
       <Container maxWidth={false}>
         {/* <Toolbar /> */}
         <h3>
-        The definitions are specific for the use of the OH-SMART tool</h3>
+        The definitions are specific for the use of the OH Monitoring tool</h3>
         <Box mt={1}>
           <Grid
             container
