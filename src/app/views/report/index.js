@@ -257,7 +257,7 @@ reference.map(ob=>{
         </AppBar>
         <Container>
       <Card elevation={3} className="pt-5 mb-6">
-      <div className="card-title px-6 mb-3">Reference OH tools and resources promoting multi-sectoral and multidisciplinary collaboration and coordination</div>
+      <div className="card-title px-6 mb-3">Reference tools based on your scoring</div>
       <div className="overflow-auto">
         
         <Paper className={classes.paper}>
