@@ -105,7 +105,7 @@ class Layout1Topbar extends Component {
                 menuButton={
                   <img
                     className="mx-2 align-middle circular-image-small cursor-pointer"
-                    src="/assets/images/fao.png"
+                    // src="/assets/images/fao.png"
                     alt="user"
                   />
                 }

@@ -33,7 +33,9 @@ export default function IconAvatars() {
   return (
     <div className={classes.root}>
       
-      <Avatar className={classes.green} src='/assets/images/faologo.png' style={{
+      <Avatar className={classes.green}
+      //  src='/assets/images/faologo.png'
+        style={{
     margin: "2px",
     width: "150px",
     height: "60px",

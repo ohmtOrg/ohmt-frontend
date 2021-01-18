@@ -43,7 +43,7 @@ import {
           <img
                 alt="OH Logo"
                 className={classes.image}
-                src="/assets/images/fao.png"
+                // src="/assets/images/fao.png"
               />
             
       
