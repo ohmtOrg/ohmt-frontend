@@ -16,12 +16,12 @@ export const definitions = [
     description: "It is a program which has been approved by and rolled out within a university environment leading to a degree."
   },
 
-  // {
-  //   title: "Action plan",
-  //   example: "",
+  {
+    title: "Action plan",
+    example: "",
 
-  //   description: "Is a list of tasks that you need to do to complete a project or objective."
-  // },
+    description: "A document that lists what steps must be taken in order to achieve a specific goal. The purpose of an action plan is to clarify what resources are required to reach the goal, formulate a timeline for when specific tasks need to be completed and determine what resources are required"
+  },
   {
     title: "Certification program",
     example: "",
@@ -238,14 +238,14 @@ export const definitions = [
   //     example:"One Health Strategy of cameroon"
 
   //   },
-    {
+    // {
 
-      description: "A document that lists what steps must be taken in order to achieve a specific goal. The purpose of an action plan is to clarify what resources are required to reach the goal, formulate a timeline for when specific tasks need to be completed and determine what resources are required.",
+    //   description: "A document that lists what steps must be taken in order to achieve a specific goal. The purpose of an action plan is to clarify what resources are required to reach the goal, formulate a timeline for when specific tasks need to be completed and determine what resources are required.",
 
-      title: 'Action plan',
-      example:""
+    //   title: 'Action plan',
+    //   example:""
 
-    },
+    // },
   //   {
 
 

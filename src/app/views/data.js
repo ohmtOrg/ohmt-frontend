@@ -227,6 +227,14 @@ export const reference=[
     sc:[]
   },
   {
+    title:"The Joint Cross-Sectoral Risk Assessment (JRA) and Risk Management, focusing on the animal-human interface.",
+    description:"The Joint Cross-Sectoral Risk Assessment (JRA) and Risk Management, focusing on the animal-human interface.",
+    href:" http://www.fao.org/3/cb1520en/CB1520EN.pdf ",
+    catId:0,
+    sc:[]
+  },
+  
+  {
     title:"Support to national legislation for IHR implementation ",
     description:" Sector-specific tool aimed at harmonizing existing legal frameworks with the IHR framework during implementation at country level  ",
     href:"https://www.who.int/ihr/Intro_legislative_implementation.pdf?ua=1",
