@@ -15,6 +15,7 @@ export const definitions = [
     example: "",
     description: "It is a program which has been approved by and rolled out within a university environment leading to a degree."
   },
+  
 
   {
     title: "Action plan",
@@ -117,6 +118,20 @@ export const definitions = [
 
     description: "A learning package consisting of a set of modules that helps employees learn specific knowledge or skills to improve performance in their current roles."
   },
+
+  
+{title:"One Health",
+description:"The collaborative efforts of multiple disciplines working locally, nationally, and globally, to attain optimal health for people, animals, and our environment."},
+{title:"Advocacy",
+description:"Advocacy is one strategy to raise levels of familiarity with an issue and promote health and access to quality health care and public health services at the individual and community levels. "},
+{title:"Monitoring",
+description:"Monitoring is the systematic process of collecting, analyzing, and using information to track a program’s progress toward reaching its objectives and to guide management decisions. Monitoring usually focuses on processes, such as when and where activities occur, who delivers them and how many people or entities they reach."},
+ {title:"Evaluation",
+ description:"Evaluation is the systematic assessment of an activity, project, program, strategy, policy, topic, theme, sector, operational area, or institution’s performance. Evaluation focuses on expected and achieved accomplishments, examining the results chain (inputs, activities, outputs, outcomes, and impacts), processes, contextual factors, and causality, to understand achievements or the lack of achievements."},
+
+{title:"Mainstreaming",
+description:"Mainstreaming involves ensuring that perspectives and attention to a specified goal are central to all activities - policy development, research, advocacy/ dialogue, legislation, resource allocation, and planning, implementation and monitoring of programs and projects."
+},
   // {
 
   //   description: 'The process of decision-making and the process by which decisions are implemented and enforced',
