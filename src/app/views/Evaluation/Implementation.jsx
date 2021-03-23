@@ -139,15 +139,15 @@ const useStyles = makeStyles(theme => ({
           value={v.value}
           onChange={handleChange(v.id)}
         >
-             {states.map((option,ind) => (
+             {states.slice(0).reverse().map((option,ind) => (
                <>
                 <HtmlTooltip
         title={
           <>
-          {v.qs[ind]?(
+          {v.qs[option.value-1]?(
             <React.Fragment>
               <Typography color="inherit">Questions</Typography>
-              <p dangerouslySetInnerHTML={{__html: v.qs[ind]}}/> 
+              <p dangerouslySetInnerHTML={{__html: v.qs[option.value-1]}}/> 
               </React.Fragment>
                     ):(
                       <React.Fragment>
@@ -158,7 +158,7 @@ const useStyles = makeStyles(theme => ({
              </>
               }
               >
-               <FormControlLabel value={option.value} control={<Radio />} label= {option.value+': '+v.scores[ind]}  />
+               <FormControlLabel value={option.value} control={<Radio />} label= {option.value+': '+v.scores[option.value-1]}  />
                
                </HtmlTooltip>
                <div className="py-3" />
