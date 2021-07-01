@@ -78,7 +78,7 @@ export const definitions = [
     description: "A system that outlines how certain activities are directed in order to achieve specific goals. These activities can include rules, roles, responsibilities and determines how information flows between different. A formal structure helps ensure mechanisms are functional, effective, and sustainable."
   },
   {
-    description: "Governance",
+    title: "Governance",
     example: "",
 
     description: "The process of decision-making and the process by which decisions are implemented and enforced."
@@ -118,6 +118,14 @@ export const definitions = [
 
     description: "A learning package consisting of a set of modules that helps employees learn specific knowledge or skills to improve performance in their current roles."
   },
+  {
+    title: "One Health approach",
+    example: "",
+
+    description: "An approach to address a health threat at the human-animal-environment interface based on collaboration, communication, and coordination across all relevant sectors and disciplines, with the ultimate goal of achieving optimal health outcomes for both people and animals; a One Health approach is applicable at the subnational, national, regional, and global level."
+  },
+
+
 
   
 {title:"One Health",

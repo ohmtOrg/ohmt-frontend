@@ -244,7 +244,7 @@ export const reference=[
   {
     title:"OIE Performance of Veterinary Services Pathway ",
     description:"The OIE PVS Pathway has a strong systems approach and as such supports the strengthening of multisectoral capacities needed in the control of zoonoses, food safety and AMR.  A country might repeat the process every few years (typically every 5 years) to measure improvement and identify ongoing gaps",
-    href:"https://www.oie.int/fileadmin/Home/eng/Support_to_OIE_Members/pdf/A_PVS_Tool_Final_Edition_2013.pdf",
+    href:"https://www.oie.int/en/what-we-offer/improving-veterinary-services/pvs-pathway/",
     catId:13,
     sc:[]
   },
