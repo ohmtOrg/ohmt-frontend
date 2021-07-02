@@ -95,10 +95,11 @@ setfeedback(e.target.value)
     scales: {
       xAxes: [
         {
-          barThickness: 50,
+          // barThickness: 50,
           maxBarThickness: 150,
-          barPercentage: 10,
-          categoryPercentage:1,
+          categorySpacing: 0,
+          // barPercentage: 10,
+          // categoryPercentage:1,
           ticks: {
             fontColor: theme.palette.text.secondary
           },
@@ -113,6 +114,12 @@ setfeedback(e.target.value)
           ticks: {
             fontColor: theme.palette.text.secondary,
             beginAtZero: true,
+            userCallback: function(label, index, labels) {
+              // when the floored value is the same as the value we have a whole number
+              if (Math.floor(label) === label) {
+                  return label;
+              }
+             },
             min: 0,
             interval:1
           },
@@ -170,7 +177,11 @@ setfeedback(e.target.value)
             Add Comments
           </Button>
         )}
-        title={`Scores for the assessment of Implementation and performance domain`}
+        title={
+          
+          <Typography variant="h7" component="h7">
+          Scores for the assessment of Implementation and performance domain
+       </Typography>}
       />
       <Divider />
       <CardContent>

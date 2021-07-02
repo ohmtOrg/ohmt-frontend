@@ -66,7 +66,8 @@ setfeedback(e.target.value)
   
   let colo=[red[200],grey[200],green[200], indigo[200]]
   // let borc=[red[500],grey[500],green[500], indigo[500]]
-
+const nbr =(100/7)
+console.log('valu',nbr,gov.length)
   let lbls=valu.map(a=>a.name)
   let points=valu.map(a=>a.value)
   let col=valu.map(a=>colo[a.value-1])
@@ -96,10 +97,15 @@ setfeedback(e.target.value)
     scales: {
       xAxes: [
         {
-          barThickness: 50,
-          maxBarThickness: 150,
-          barPercentage: 10,
-          categoryPercentage:1,
+          // barThickness: 50,
+          // maxBarThickness: 150,
+          // barPercentage: 10,
+          // categoryPercentage:1,
+            // barThickness: 50,
+            // maxBarThickness: 150,
+            categorySpacing: 0,
+            barPercentage: 1,
+            // categoryPercentage:1,
           ticks: {
             fontColor: theme.palette.text.secondary
           },
@@ -114,6 +120,14 @@ setfeedback(e.target.value)
           ticks: {
             fontColor: theme.palette.text.secondary,
             beginAtZero: true,
+           
+            userCallback: function(label, index, labels) {
+                     // when the floored value is the same as the value we have a whole number
+                     if (Math.floor(label) === label) {
+                         return label;
+                     }
+                    },
+
             min: 0,
             interval:1
           },
@@ -171,7 +185,12 @@ setfeedback(e.target.value)
             Add Comments
           </Button>
         )}
-        title={`Scores for the assessment of  Governance  domain`}
+        
+        title={
+          <Typography variant="h7" component="h7">
+          Scores for the assessment of  Governance  domain
+       </Typography>
+          }
       />
       <Divider />
       <CardContent>

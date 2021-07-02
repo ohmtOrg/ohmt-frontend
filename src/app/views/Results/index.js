@@ -12,6 +12,7 @@ import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import {
   Box,
   Button,
+  Grid,
   // Card,
   // CardContent,
   // CardHeader,
@@ -44,8 +45,27 @@ const handleNext=()=>{
     <Fragment>
       {/* <ResultChart impl={gov} ll='Governance' submitFeedback={AddGovFeedback} fb={performance.govfeedback}/>
       <ResultChart impl={impl} ll='Implementation and performance' submitFeedback={AddImpFeedback} fb={performance.impfeedback}/> */}
+ <Grid
+              container
+              spacing={3}
+            >
+<Grid
+                item
+                lg={6}
+                md={12}
+                xs={12}
+              >
       <Govern/>
+      </Grid>
+      <Grid
+                item
+                lg={6}
+                md={12}
+                xs={12}
+              >
       <Implem/>
+      </Grid>
+      </Grid>
       {/* <Chart valu={gov} ll='Governance' />  */}
       <Box 
       mt={3}
