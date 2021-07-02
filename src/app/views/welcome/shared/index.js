@@ -54,7 +54,7 @@ export default function Welcome() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" className="welcome_page">
         <Header title="Blog"  />
         <Grid  spacing={4} justify="center">
         <main>

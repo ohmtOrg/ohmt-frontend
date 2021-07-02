@@ -4,11 +4,15 @@
   border-radius: 50%;
   overflow: hidden;
 }
+.welcome_page{
+  border-color: black;
+  border-radius: 100%;
+  padding: 5% 5% 5% 5%;
+}
 .circular-image-medium {
   height: 100px;
   width: 250px;
   border-radius: 50%;
-  overflow: hidden;
 }
 .card {
   transition: all 0.3s ease;
