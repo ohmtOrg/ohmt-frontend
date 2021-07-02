@@ -7,13 +7,16 @@ import {
 const initialState = {
   success: false,
   loading: false,
+  error_message:null,
   error: {
     username: null,
     password: null
+    
   }
 };
 
 const LoginReducer = function(state = initialState, action) {
+  console.log("in login reducer",action,state.error_message)
   switch (action.type) {
     case LOGIN_LOADING: {
       return {
@@ -33,7 +36,7 @@ const LoginReducer = function(state = initialState, action) {
       return {
         success: false,
         loading: false,
-        error: action.data
+        error_message: action.payload
       };
     }
     default: {

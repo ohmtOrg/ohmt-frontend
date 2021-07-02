@@ -54,10 +54,12 @@ if(data.status === 'success'){
     })
 }else {
   console.log('error', data)
-  toast.error(data.message);
+  var B = (data?.data?.message) ? data?.data?.message:"incorrect username or password";
+  // toast(B)
+  toast.error(B);
  return  dispatch({
     type:LOGIN_ERROR,
-    payload: data.error
+    payload: B
 })
 }
     } 

@@ -7,7 +7,7 @@ const UpgradeCard = () => {
       <Card elevation={0} className="upgrade-card bg-light-primary p-sm-24">
         <img src="/assets/images/illustrations/upgrade.svg" alt="upgrade" />
         <p className="text-muted m-0 py-6">
-          Upgrade to <b>MatX PRO</b> for <br /> more resources
+          Download <b>Assesment Data</b> for <br /> offline access 
         </p>
         <Button
           className="uppercase"
@@ -15,7 +15,7 @@ const UpgradeCard = () => {
           variant="contained"
           color="primary"
         >
-          upgrade now
+          Download excel file
         </Button>
       </Card>
     </Card>

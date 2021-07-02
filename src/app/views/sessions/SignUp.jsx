@@ -5,7 +5,8 @@ import {
   FormControlLabel,
   Grid,
   Button,
-  TextField
+  TextField,
+  CircularProgress
 } from "@material-ui/core";
 import PropTypes from "prop-types";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
@@ -13,8 +14,27 @@ import { connect } from "react-redux";
 import { SignupAction } from "../../redux/actions/SignupActions";
 import { Autocomplete, createFilterOptions } from "@material-ui/lab";
 import history from "history.js";
+import { ToastContainer, toast } from 'react-toastify';
+import { withStyles } from "@material-ui/core/styles";
+import { withRouter } from "react-router-dom";
+import  {Dataset} from'data.js'
+import {countriesjson}  from './data'
 
-const suggestions = [
+const path = 'https://datahub.io/JohnSnowLabs/country-and-continent-codes-list/datapackage.json'
+
+
+const getCountries = async ()=>{
+// We're using self-invoking function here as we want to use async-await syntax:
+
+  return   await Dataset.load(path)
+ 
+}
+const suggestions = countriesjson.filter(item => item.Continent_Name ==="Africa");
+let absolute = countriesjson.filter(function(item){
+  return item.Continent_Name ==="Africa";
+});
+
+const suggestionss = [
   {label: "Afghanistan", "code": "AF"},
 {label: "Åland Islands", "code": "AX"},
 {label: "Albania", "code": "AL"},
@@ -196,7 +216,7 @@ const suggestions = [
 {label: "Reunion", "code": "RE"},
 {label: "Romania", "code": "RO"},
 {label: "Russian Federation", "code": "RU"},
-{label: "RWANDA", "code": "RW"},
+{label: "Rwanda", "code": "RW"},
 {label: "Saint Helena", "code": "SH"},
 {label: "Saint Kitts and Nevis", "code": "KN"},
 {label: "Saint Lucia", "code": "LC"},
@@ -260,7 +280,19 @@ const suggestions = [
 {label: "Zimbabwe", "code": "ZW"}
 
 ];
+const styles = theme => ({
+  wrapper: {
+    position: "relative"
+  },
 
+  buttonProgress: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    marginTop: -12,
+    marginLeft: -12
+  }
+});
 const filter = createFilterOptions();
 const filterOptions = (options, params) => {
   const filtered = filter(options, params);
@@ -281,19 +313,35 @@ class SignUp extends Component{
     country: "",
     firstName:"",
     lastName:"",
-    organisation:""
+    organisation:"",
+    region:"",
+  
   };
 
    handleChange = (event, newValue) => {
+   
     if (newValue && newValue.inputValue) {
+    
       this.setState({
         label: newValue.inputValue
       });
+      this.GetRegion(event.target.value)
       return;
     }
     event.persist();
+    
     this.setState({
       [event.target.name]: event.target.value
+    });
+    this.GetRegion(event.target.value)
+  };
+
+  GetRegion =() => {
+    console.log("country",this.state)
+    let obj = suggestions.find(o => o.Country_Name === this.state.country);
+
+  this.setState({
+      ['region']: obj
     });
   };
 
@@ -323,7 +371,8 @@ class SignUp extends Component{
   };
 
  render() {
-    let { firstName,lastName,country, email, password,organisation } = this.state;
+    let { firstName,lastName,country,region, email, password,organisation } = this.state;
+    let { classes } = this.props;
     return (
       <div className="signup flex justify-center w-full h-full-screen">
         <div className="p-8">
@@ -392,10 +441,11 @@ class SignUp extends Component{
                                 <Autocomplete
         className="mb-4 w-full"
         options={suggestions}
-        getOptionLabel={option => option.label}
+        getOptionLabel={option => option.Country_Name}
+        onChange={this.handleChange}
         renderInput={params => (
           <TextValidator
-                      
+          className="mb-4 w-half"
                       {...params}
                       label="Country"
                       variant="outlined"
@@ -411,6 +461,18 @@ class SignUp extends Component{
       
         )}
       />
+      <TextValidator
+                      className="mb-4 w-full"
+                      label="Region"
+                      variant="outlined"
+                      // onChange={this.handleChange}
+                      name="password"
+                      type="password"
+                      value={region}
+                      validators={["required"]}
+                      // errorMessages={["this field is required"]}
+                    />
+      
                     <TextValidator
                       className="mb-4 w-full"
                       label="Password"
@@ -427,9 +489,9 @@ class SignUp extends Component{
                       name="agreement"
                       onChange={this.handleChange}
                       control={<Checkbox />}
-                      label="I have read and agree to the terms of service."
+                      label="Do you have one health in your country."
                     />
-           
+              
                     <div className="flex items-center">
                       <Button
                         className="capitalize"
@@ -439,6 +501,17 @@ class SignUp extends Component{
                       >
                         Sign up
                       </Button>
+                      {this.props.Signup.loading && (
+                          <CircularProgress
+                            size={24}
+                            className={classes.buttonProgress}
+                          />
+                        )}
+                      {this.props.Signup.error_message&& (
+                           <div>
+                           <ToastContainer />
+                         </div>
+                        )}
                       <span className="mx-2 ml-5">or</span>
                       <Button
                         className="capitalize"
@@ -463,8 +536,11 @@ class SignUp extends Component{
 
 const mapStateToProps = state => ({
   // setUser: PropTypes.func.isRequired
+  Signup: state.Signup,
   SignupAction: PropTypes.func.isRequired,
   
 });
+export default withStyles(styles, { withTheme: true })(
+  withRouter(connect(mapStateToProps, { SignupAction })(SignUp))
+);
 
-export default connect(mapStateToProps, {SignupAction})(SignUp);

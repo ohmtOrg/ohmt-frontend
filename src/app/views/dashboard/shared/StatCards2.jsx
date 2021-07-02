@@ -13,14 +13,14 @@ const StatCards2 = () => {
             >
               <Icon className="text-green">trending_up</Icon>
             </Fab>
-            <h5 className="font-medium text-green m-0 ml-3">Active Users</h5>
+            <h5 className="font-medium text-green m-0 ml-3">Assesment submitted</h5>
           </div>
           <div className="pt-4 flex items-center">
-            <h2 className="m-0 text-muted flex-grow">10.8k</h2>
+            <h2 className="m-0 text-muted flex-grow">201</h2>
             <div className="ml-3 small-circle bg-green text-white">
               <Icon className="small-icon">expand_less</Icon>
             </div>
-            <span className="text-13 text-green ml-1"> (+21%)</span>
+            <span className="text-13 text-green ml-1"> (+45)</span>
           </div>
         </Card>
       </Grid>
@@ -31,16 +31,16 @@ const StatCards2 = () => {
               size="medium"
               className="bg-light-error circle-44 box-shadow-none overflow-hidden"
             >
-              <Icon className="text-error">star_outline</Icon>
+              <Icon className="text-error">group</Icon>
             </Fab>
-            <h5 className="font-medium text-error m-0 ml-3">Transactions</h5>
+            <h5 className="font-medium text-error m-0 ml-3">System Users</h5>
           </div>
           <div className="pt-4 flex items-center">
-            <h2 className="m-0 text-muted flex-grow">$2.8M</h2>
+            <h2 className="m-0 text-muted flex-grow">80</h2>
             <div className="ml-3 small-circle bg-error text-white">
               <Icon className="small-icon">expand_less</Icon>
             </div>
-            <span className="text-13 text-error ml-1">(+21%)</span>
+            <span className="text-13 text-error ml-1">(+5)</span>
           </div>
         </Card>
       </Grid>

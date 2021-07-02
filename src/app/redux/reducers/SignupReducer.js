@@ -7,6 +7,7 @@ import {
   const initialState = {
     success: false,
     loading: false,
+    error_message:null,
     error: {
       username: null,
       password: null
@@ -14,6 +15,7 @@ import {
   };
   
   const SignupReducer = function(state = initialState, action) {
+    console.log('is signup reducer ',action)
     switch (action.type) {
       case SIGNUP_LOADING: {
         return {
@@ -33,7 +35,8 @@ import {
         return {
           success: false,
           loading: false,
-          error: action.data
+          error: action.data,
+          error_message: action.payload,
         };
       }
       default: {

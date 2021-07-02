@@ -61,15 +61,15 @@ class Dashboard1 extends Component {
         <div className="analytics m-sm-30 mt--18">
           <Grid container spacing={3}>
             <Grid item lg={8} md={8} sm={12} xs={12}>
-              <StatCards />
-
+              {/* <StatCards /> */}
+              <StatCards2 />
               {/* Top Selling Products */}
               <TableCard />
 
               <StatCards2 />
 
-              <h4 className="card-title text-muted mb-4">Ongoing Projects</h4>
-              <RowCards />
+              {/* <h4 className="card-title text-muted mb-4">Ongoing Projects</h4>
+              <RowCards /> */}
             </Grid>
 
             <Grid item lg={4} md={4} sm={12} xs={12}>

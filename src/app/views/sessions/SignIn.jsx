@@ -13,6 +13,8 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 // import history from "history.js";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 
 import { loginWithEmailAndPassword } from "../../redux/actions/LoginActions";
@@ -43,15 +45,18 @@ class SignIn extends Component {
       [event.target.name]: event.target.value
     });
   };
+
   handleFormSubmit = event => {
     
-    // console.log(this.state)
+
     this.props.loginWithEmailAndPassword({ ...this.state });
     // history.push({
     //   pathname: "/dashboard/guidance"
     // });
   };
+  
   render() {
+   
     let { email, password } = this.state;
     let { classes } = this.props;
     return (
@@ -114,6 +119,11 @@ class SignIn extends Component {
                             size={24}
                             className={classes.buttonProgress}
                           />
+                        )}
+                        {this.props.login.error_message&& (
+                           <div>
+                           <ToastContainer />
+                         </div>
                         )}
                       </div>
                       <span className="mr-2 ml-5">or</span>

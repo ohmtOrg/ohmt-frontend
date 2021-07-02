@@ -47,10 +47,12 @@ if(data.status === 'success'){
     })
 }else {
   console.log('error', data)
-  toast.error(data.message);
+  var B = (data?.data?.message) ? data?.data?.message:"Error while signing up";
+  // toast(B)
+  toast.error(B);
  return  dispatch({
     type:SIGNUP_ERROR,
-    payload: data.error
+    payload: B
 })
 }
     } 
