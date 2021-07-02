@@ -43,14 +43,19 @@ export default function Header(props) {
           component="h2"
           variant="h5"
           color="primary"
-          align="center"
+          align="left"
           noWrap
           className={classes.toolbarTitle}
         >
-          <Icon/>
-         {/* <Brand/>
-         <div className="username-photo">
-          <img src='/assets/images/fao.png' alt="user" />
+          <img
+                    className="mx-2 align-middle circular-image-medium cursor-pointer"
+                    src="/assets/images/faologo.png"
+                    alt="user"
+                  />
+          {/* <Icon/> */}
+         {/* <Brand/> */}
+         {/* <div className="username-photo">
+          <img src='/assets/images/fao.png' alt="Fao logo" />
         </div> */}
         </Typography>
     

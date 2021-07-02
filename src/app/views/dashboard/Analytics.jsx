@@ -11,6 +11,11 @@ import StatCards2 from "./shared/StatCards2";
 import UpgradeCard from "./shared/UpgradeCard";
 import Campaigns from "./shared/Campaigns";
 import { withStyles } from "@material-ui/styles";
+import indigo from  '@material-ui/core/colors/indigo';
+import grey from  '@material-ui/core/colors/grey'
+import red from  '@material-ui/core/colors/red'
+import green from  '@material-ui/core/colors/green'
+let colo=[red[200],grey[200],green[200], indigo[200]]
 
 class Dashboard1 extends Component {
   state = {};
@@ -22,7 +27,7 @@ class Dashboard1 extends Component {
       <Fragment>
         <div className="pb-24 pt-7 px-8 bg-primary">
           <div className="card-title capitalize text-white mb-4 text-white-secondary">
-            Last 12 months sales
+            Last 12 months Assesment average score
           </div>
           <ModifiedAreaChart
             height="280px"
@@ -69,14 +74,18 @@ class Dashboard1 extends Component {
 
             <Grid item lg={4} md={4} sm={12} xs={12}>
               <Card className="px-6 py-4 mb-6">
-                <div className="card-title">Traffic Sources</div>
+                <div className="card-title">Score Rate</div>
                 <div className="card-subtitle">Last 30 days</div>
                 <DoughnutChart
                   height="300px"
                   color={[
-                    theme.palette.primary.dark,
-                    theme.palette.primary.main,
-                    theme.palette.primary.light
+                    colo[0],
+                    colo[1],
+                    colo[2],
+                    colo[3],
+                    // theme.palette.primary.dark,
+                    // theme.palette.primary.main,
+                    // theme.palette.primary.light
                   ]}
                 />
               </Card>

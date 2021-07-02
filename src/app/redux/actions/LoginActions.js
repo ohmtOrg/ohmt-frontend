@@ -45,7 +45,7 @@ if(data.status === 'success'){
     dispatch(setUserData(data.data.user));
     
     history.push({
-      pathname: "/dashboard/guidance"
+      pathname: "/dashboard/analytics"
     });
     
     return dispatch({

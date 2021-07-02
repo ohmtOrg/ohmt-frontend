@@ -18,24 +18,8 @@ const StatCards = ({ classes }) => {
           <div className="flex items-center">
             <Icon className={classes.icon}>group</Icon>
             <div className="ml-3">
-              <small className="text-muted">New Leads</small>
-              <h6 className="m-0 mt-1 text-primary font-medium">3050</h6>
-            </div>
-          </div>
-          <Tooltip title="View Details" placement="top">
-            <IconButton>
-              <Icon>arrow_right_alt</Icon>
-            </IconButton>
-          </Tooltip>
-        </Card>
-      </Grid>
-      <Grid item xs={12} md={6}>
-        <Card className="play-card p-sm-24 bg-paper" elevation={6}>
-          <div className="flex items-center">
-            <Icon className={classes.icon}>attach_money</Icon>
-            <div className="ml-3">
-              <small className="text-muted">This week Sales</small>
-              <h6 className="m-0 mt-1 text-primary font-medium">$80,500</h6>
+              <small className="text-muted">Total Users</small>
+              <h6 className="m-0 mt-1 text-primary font-medium">234</h6>
             </div>
           </div>
           <Tooltip title="View Details" placement="top">
@@ -50,9 +34,25 @@ const StatCards = ({ classes }) => {
           <div className="flex items-center">
             <Icon className={classes.icon}>store</Icon>
             <div className="ml-3">
-              <small className="text-muted">Inventory Status</small>
+              <small className="text-muted">Total Assesments</small>
+              <h6 className="m-0 mt-1 text-primary font-medium">456 Assesment submitted so far </h6>
+            </div>
+          </div>
+          <Tooltip title="View Details" placement="top">
+            <IconButton>
+              <Icon>arrow_right_alt</Icon>
+            </IconButton>
+          </Tooltip>
+        </Card>
+      </Grid>
+      <Grid item xs={12} md={6}>
+        <Card className="play-card p-sm-24 bg-paper" elevation={6}>
+          <div className="flex items-center">
+            <Icon className={classes.icon}>store</Icon>
+            <div className="ml-3">
+              <small className="text-muted">Assesmrnt submittion rate</small>
               <h6 className="m-0 mt-1 text-primary font-medium">
-                8.5% Stock Surplus
+                85.5% Of Assesment submitted last month
               </h6>
             </div>
           </div>
@@ -68,8 +68,8 @@ const StatCards = ({ classes }) => {
           <div className="flex items-center">
             <Icon className={classes.icon}>shopping_cart</Icon>
             <div className="ml-3">
-              <small className="text-muted">Orders to deliver</small>
-              <h6 className="m-0 mt-1 text-primary font-medium">305 Orders</h6>
+              <small className="text-muted">Suggested OH Tools</small>
+              <h6 className="m-0 mt-1 text-primary font-medium">305 Tools</h6>
             </div>
           </div>
           <Tooltip title="View Details" placement="top">

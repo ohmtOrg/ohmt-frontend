@@ -56,6 +56,7 @@ export default function Welcome() {
       <CssBaseline />
       <Container maxWidth="lg">
         <Header title="Blog"  />
+        <Grid  spacing={4} justify="center">
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           {/* <Grid container spacing={4}>
@@ -78,6 +79,7 @@ export default function Welcome() {
           </Grid> */}
          
         </main>
+        </Grid>
       </Container>
     </React.Fragment>
   );

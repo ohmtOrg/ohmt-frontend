@@ -43,7 +43,7 @@ const DoughnutChart = ({ height, color = [], theme }) => {
 
     series: [
       {
-        name: "Traffic Rate",
+        name: "Scoring Rate",
         type: "pie",
         radius: ["45%", "72.55%"],
         center: ["50%", "50%"],
@@ -78,14 +78,15 @@ const DoughnutChart = ({ height, color = [], theme }) => {
         },
         data: [
           {
-            value: 65,
-            name: "Google"
+            value: 5,
+            name: "1"
           },
           {
             value: 20,
-            name: "Facebook"
+            name: "2"
           },
-          { value: 15, name: "Others" }
+          { value: 30, name: "3" },
+          { value: 45, name: "4" }
         ],
         itemStyle: {
           emphasis: {
