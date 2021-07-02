@@ -61,7 +61,7 @@ export default function Header(props) {
     
       
         <Button variant="outlined" size="small" color="primary" onClick={handleLogin}>
-          Log in
+          Log In
         </Button>
       </Toolbar>
      
