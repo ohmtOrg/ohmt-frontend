@@ -52,8 +52,8 @@ const defaultOption = {
   },
   yAxis: {
     type: "value",
-    min: 10,
-    max: 60,
+    min: 0,
+    max: 4,
     axisLabel: {
       color: "#ccc",
       margin: 20,

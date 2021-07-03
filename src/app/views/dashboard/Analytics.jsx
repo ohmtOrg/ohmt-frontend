@@ -34,7 +34,7 @@ class Dashboard1 extends Component {
             option={{
               series: [
                 {
-                  data: [34, 45, 31, 45, 31, 43, 26, 43, 31, 45, 33, 40],
+                  data: [2, 4, 3.2, 1, 3.5, 2.8, 4, 1, 3, 3.3, 4, 3.8],
                   type: "line"
                 }
               ],
@@ -91,8 +91,8 @@ class Dashboard1 extends Component {
               </Card>
 
               <UpgradeCard />
-
-              <Campaigns />
+{/* 
+              <Campaigns /> */}
             </Grid>
           </Grid>
         </div>

@@ -1,5 +1,10 @@
 export const navigations = [
   {
+    name: "Dashboard",
+    path: "/dashboard/analytics",
+    icon: "dashboard"
+  },
+  {
     name: "Guidance",
     path: "/dashboard/guidance",
     icon: "dashboard"
@@ -14,11 +19,7 @@ export const navigations = [
     path: "/dashboard/tools",
     icon: "dashboard"
   },
-  // {
-  //   name: "Dashboard",
-  //   path: "/dashboard/analytics",
-  //   icon: "dashboard"
-  // },
+ 
   {
     name: "Assessment",
     icon: "description",
