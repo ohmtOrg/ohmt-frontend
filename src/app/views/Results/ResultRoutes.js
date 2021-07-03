@@ -16,7 +16,7 @@ const ResultRoutes = [
     // },
     {
       path: "/result",
-      component: React.lazy(() => import("./"))
+      component: React.lazy(() => import("./result2"))
     }
   ];
   

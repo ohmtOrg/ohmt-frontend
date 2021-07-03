@@ -16,7 +16,7 @@ const StatCards2 = () => {
             <h5 className="font-medium text-green m-0 ml-3">Assesment submitted</h5>
           </div>
           <div className="pt-4 flex items-center">
-            <h2 className="m-0 text-muted flex-grow">201</h2>
+            <h2 className="m-0 text-muted flex-grow">5</h2>
             <div className="ml-3 small-circle bg-green text-white">
               <Icon className="small-icon">expand_less</Icon>
             </div>
@@ -36,7 +36,7 @@ const StatCards2 = () => {
             <h5 className="font-medium text-error m-0 ml-3">System Users</h5>
           </div>
           <div className="pt-4 flex items-center">
-            <h2 className="m-0 text-muted flex-grow">80</h2>
+            <h2 className="m-0 text-muted flex-grow">3</h2>
             <div className="ml-3 small-circle bg-error text-white">
               <Icon className="small-icon">expand_less</Icon>
             </div>
