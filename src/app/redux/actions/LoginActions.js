@@ -25,51 +25,51 @@ export function loginWithEmailAndPassword({ email, password }) {
       headers: {
         'content-type': 'application/json',
       },
-      body: JSON.stringify({email,password}),
+      body: JSON.stringify({ email, password }),
     })
-    .then((res) => res.json())
-    .then((data) =>{
-        
-if(data.status === 'success'){
- 
-  localStorage.setItem("jwt_token", data.data.token);
-  
-  // axios.defaults.headers.common["Authorization"] = "Bearer " + data.body.token;
-  // console.log('after axios token ',data)
-  localStorageService.setItem("auth_user", data.data.user);
-  
-  //  history.push({
-  //     pathname: "/dashboard/guidance"
-  //   });
-    // console.log('here', data)
-    dispatch(setUserData(data.data.user));
-    
-    history.push({
-      pathname: "/dashboard/analytics"
-    });
-    
-    return dispatch({
-      type: LOGIN_SUCCESS,
-      payload:  data.data.user
-    })
-}else {
-  console.log('error', data)
-  var B = (data?.data?.message) ? data?.data?.message:"incorrect username or password";
-  // toast(B)
-  toast.error(B);
- return  dispatch({
-    type:LOGIN_ERROR,
-    payload: B
-})
-}
-    } 
-  ) .catch(error => {
-    return dispatch({
-      type: LOGIN_ERROR,
-      payload: error
-    });
-  });
-};
+      .then((res) => res.json())
+      .then((data) => {
+
+        if (data.status === 'success') {
+
+          localStorage.setItem("jwt_token", data.data.token);
+
+          // axios.defaults.headers.common["Authorization"] = "Bearer " + data.body.token;
+          // console.log('after axios token ',data)
+          localStorageService.setItem("auth_user", data.data.user);
+
+          //  history.push({
+          //     pathname: "/dashboard/guidance"
+          //   });
+          // console.log('here', data)
+          dispatch(setUserData(data.data.user));
+
+          history.push({
+            pathname: "/dashboard/analytics"
+          });
+
+          return dispatch({
+            type: LOGIN_SUCCESS,
+            payload: data.data.user
+          })
+        } else {
+          console.log('error', data)
+          var B = (data?.data?.message) ? data?.data?.message : "incorrect username or password";
+          // toast(B)
+          toast.error(B);
+          return dispatch({
+            type: LOGIN_ERROR,
+            payload: B
+          })
+        }
+      }
+      ).catch(error => {
+        return dispatch({
+          type: LOGIN_ERROR,
+          payload: error
+        });
+      });
+  };
 }
 
 export function firebaseLoginEmailPassword({ email, password }) {

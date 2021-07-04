@@ -1,11 +1,13 @@
 import history from "history.js";
+import { toast } from 'react-toastify';
+
 export const SET_GOV = "SET_GOV";
 export const SET_IMP_FEEDBACK = "SET_IMP_FEEDBACK";
 export const SET_GOV_FEEDBACK = "SET_GOV_FEEDBACK";
 export const SET_IMP = "SET_IMP";
-export const ADD_PERFORMANCE_LOADING = "ADD_PERFORMANCE_LOADING";
-export const ADD_PERFORMANCE_SUCCESS = "ADD_PERFORMANCE_SUCCESS";
-export const ADD_PERFORMANCE_ERROR = "ADD_PERFORMANCE_ERROR";
+export const ADD_REPORT_LOADING = "ADD_REPORT_LOADING";
+export const ADD_REPORT_SUCCESS = "ADD_REPORT_SUCCESS";
+export const ADD_REPORT_ERROR = "ADD_REPORT_ERROR";
 
 
 
@@ -51,10 +53,63 @@ export function AddImp(imp) {
         pathname: "/graphs"
       });
       dispatch({
-        type: SET_GOV,
+        type: SET_IMP,
         data: imp
       });
      
     };
   }
 
+
+  
+  export function AddReport(report) {
+  
+    return dispatch => {
+      dispatch({
+        type: ADD_REPORT_LOADING
+      });
+  
+      return fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/report`, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify(report),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+    
+          if (data.status === 'success') {
+    console.log("sucess")
+            toast.success("submitted sucessfully");
+            // history.push({
+            //   pathname: "/dashboard/analytics"
+            // });
+    
+            return dispatch({
+              type: ADD_REPORT_SUCCESS,
+              payload: data.data.user
+            })
+          } else {
+            console.log('error', data)
+            var B = (data?.data?.message) ? data?.data?.message : "report can not be submitted";
+            // toast(B)
+            toast.error(B);
+            return dispatch({
+              type: ADD_REPORT_ERROR,
+              payload: B
+            })
+          }
+        }
+        ).catch(error => {
+          return dispatch({
+            type: ADD_REPORT_ERROR,
+            payload: error
+          });
+        });
+    
+  }
+  }
+  
+  
+  

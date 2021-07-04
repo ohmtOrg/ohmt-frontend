@@ -8,6 +8,7 @@ import StatCards from "./shared/StatCards";
 import TableCard from "./shared/TableCard";
 import RowCards from "./shared/RowCards";
 import StatCards2 from "./shared/StatCards2";
+import MapChart from './shared/geoChart'
 import UpgradeCard from "./shared/UpgradeCard";
 import Campaigns from "./shared/Campaigns";
 import { withStyles } from "@material-ui/styles";
@@ -66,7 +67,7 @@ class Dashboard1 extends Component {
               {/* Top Selling Products */}
               <TableCard />
 
-              <StatCards2 />
+              <MapChart/>
 
               {/* <h4 className="card-title text-muted mb-4">Ongoing Projects</h4>
               <RowCards /> */}

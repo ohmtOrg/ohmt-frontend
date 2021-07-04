@@ -20,6 +20,7 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Chart from '../Evaluation/chart';
 import Dialog from "@material-ui/core/Dialog";
+import { AddReport} from "../../redux/actions/PerformamceAction";
 
 import {
   Box,
@@ -78,10 +79,11 @@ const Graphs = props => {
     setOpen(false);
   }
 
-  const handleNext=()=>{
-    history.push({
-      pathname: "/report"
-    });
+  const handleSubmit=()=>{
+    AddReport({impl,impl,govfeedback, impfeedback})
+    // history.push({
+    //   pathname: "/report"
+    // });
   }
   
   let { impl, gov, govfeedback, impfeedback } = props;
@@ -174,7 +176,7 @@ const Graphs = props => {
       
      
     </Fragment>
-    {/* <Fragment>
+    <Fragment>
   <Grid
                 item
                 lg={6}
@@ -220,7 +222,7 @@ const Graphs = props => {
             <Divider />
           
           </Grid>
-          </Fragment> */}
+          </Fragment>
 </Grid>
           </CardContent>
          
@@ -308,11 +310,11 @@ const Graphs = props => {
       <Button
             endIcon={<ArrowRightIcon  />}
             size="small"
-            variant="outlined" color="primary"
+            variant="outlined" color="secondary"
             // href='/report'
-            onClick={handleNext}
+            onClick={handleSubmit}
           >
-            Validate and Continue 
+            Submitt Report
           </Button>
           </Box>
     </Fragment>
@@ -323,11 +325,11 @@ Graphs.propTypes = {
   AddImp: PropTypes.func.isRequired,
   gov: PropTypes.object.isRequired,
   impl: PropTypes.object.isRequired,
+  AddReport: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
-  AddGovFeedback: PropTypes.func.isRequired,
-  AddImpFeedback: PropTypes.func.isRequired,
+  AddReport: PropTypes.func.isRequired,
   gov: state.performance.gov,
   impl: state.performance.impl,
   govfeedback: state.performance.govfeedback,
@@ -336,7 +338,7 @@ const mapStateToProps = state => ({
 
 export default withRouter(
   connect(mapStateToProps, {
-
+    AddReport
   })(Graphs)
 );
 

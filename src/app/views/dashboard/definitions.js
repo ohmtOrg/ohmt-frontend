@@ -122,7 +122,7 @@ export const definitions = [
     title: "One Health approach",
     example: "",
 
-    description: "An approach to address a health threat at the human-animal-environment interface based on collaboration, communication, and coordination across all relevant sectors and disciplines, with the ultimate goal of achieving optimal health outcomes for both people and animals; a One Health approach is applicable at the subnational, national, regional, and global level."
+    description: "An approach to address a health threat at the human-animal-environment interface based on collaboration, communication, and coordination across all relevant sectors and disciplines, with the ultimate goal of achieving optimal health outcomes for both people and animals; a One Health approach is applicable at the subnational, national, regional, and global level. "
   },
 
 

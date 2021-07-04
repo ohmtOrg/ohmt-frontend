@@ -15,6 +15,7 @@ export function SignupAction(input) {
     dispatch({
       type: SIGNUP_LOADING
     });
+    console.log('data to be sent ', JSON.stringify(input))
     return fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/user/signup`, {
       method: 'POST',
       headers: {
@@ -22,47 +23,47 @@ export function SignupAction(input) {
       },
       body: JSON.stringify(input),
     })
-    .then((res) => res.json())
-    .then((data) =>{
-        
-if(data.status === 'success'){
- 
-  localStorage.setItem("jwt_token", data.data.token);
-  
-  // axios.defaults.headers.common["Authorization"] = "Bearer " + data.body.token;
-  // console.log('after axios token ',data)
-  localStorageService.setItem("auth_user", data.data.user);
-  
-  //  history.push({
-  //     pathname: "/dashboard/guidance"
-  //   });
-    // console.log('here', data)
-    dispatch(setUserData(data.data.user));
-    history.push({
-      pathname: "/dashboard/guidance"
-    });
-    return dispatch({
-      type: SIGNUP_SUCCESS,
-      payload:  data.data.user
-    })
-}else {
-  console.log('error', data)
-  var B = (data?.data?.message) ? data?.data?.message:"Error while signing up";
-  // toast(B)
-  toast.error(B);
- return  dispatch({
-    type:SIGNUP_ERROR,
-    payload: B
-})
-}
-    } 
-  ) .catch(error => {
-    return dispatch({
-      type: SIGNUP_ERROR,
-      payload: error
-    });
-  });
-};
+      .then((res) => res.json())
+      .then((data) => {
+
+        if (data.status === 'success') {
+
+          localStorage.setItem("jwt_token", data.data.token);
+
+          // axios.defaults.headers.common["Authorization"] = "Bearer " + data.body.token;
+          // console.log('after axios token ',data)
+          localStorageService.setItem("auth_user", data.data.user);
+
+          //  history.push({
+          //     pathname: "/dashboard/guidance"
+          //   });
+          // console.log('here', data)
+          dispatch(setUserData(data.data.user));
+          history.push({
+            pathname: "/dashboard/guidance"
+          });
+          return dispatch({
+            type: SIGNUP_SUCCESS,
+            payload: data.data.user
+          })
+        } else {
+          console.log('error', data)
+          var B = (data?.data?.message) ? data?.data?.message : "Error while signing up";
+          // toast(B)
+          toast.error(B);
+          return dispatch({
+            type: SIGNUP_ERROR,
+            payload: B
+          })
+        }
+      }
+      ).catch(error => {
+        return dispatch({
+          type: SIGNUP_ERROR,
+          payload: error
+        });
+      });
+  };
 }
 
 

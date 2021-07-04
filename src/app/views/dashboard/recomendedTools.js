@@ -61,7 +61,47 @@ const RecTool = props => {
     
         <Container>
       <Card elevation={3} className="pt-5 mb-6">
-      <div className="card-title px-6 mb-3">Reference OH tools and resources promoting multi-sectoral and multidisciplinary collaboration and coordination </div>
+      <div className="card-title px-6 mb-3">Resource materials/guidelines  </div>
+      {/* <div className="card-title px-6 mb-3">Reference OH tools and resources promoting multi-sectoral and multidisciplinary collaboration and coordination </div> */}
+      <div className="overflow-auto">
+        
+        <Paper className={classes.paper}>
+        <Table className="whitespace-pre">
+        <TableHead>
+          <TableRow>
+            <TableCell className="px-0"  colSpan={3}>Title</TableCell>
+            <TableCell className="px-0" colSpan={8}>Description</TableCell>
+            <TableCell className="px-0" colSpan={2}>Link</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {reference.map( (rectool, index) => (
+            <TableRow key={index}>
+              <TableCell className="px-0 capitalize" align="left" colSpan={3}>
+                {rectool.title}
+              </TableCell>
+             
+              <TableCell className="px-0 capitalize" colSpan={8}>
+                {rectool.description}
+              </TableCell>
+              <TableCell className="px-0" colSpan={2}>
+                <Button color="secondary" href={rectool.href} target='blank'>
+                  Visit 
+                </Button>
+              </TableCell>
+              
+             
+            </TableRow>
+            
+          ))}
+        </TableBody>
+      </Table>
+      </Paper>
+      </div>
+    </Card>
+
+    <Card elevation={3} className="pt-5 mb-6">
+      <div className="card-title px-6 mb-3">Reference tools </div>
       <div className="overflow-auto">
         
         <Paper className={classes.paper}>

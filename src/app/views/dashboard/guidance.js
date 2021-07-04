@@ -12,7 +12,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 const state= [
     {
       
-      description: 'The One Health Monitoring Tool (OHMT) was developed to assist countries and organizations to institutionalize and operationalize One Health. It is a tool that is used to assess the progress of and to identify gaps in the implementation of OH at the local, national, and regional levels. The user collects semi-quantitative data, which is fed into a digital system that generates visuals, allowing for a comprehensive overview of operational gaps. The tool also serves as toolkit to facilitate users’ identification of existing OH tools, guidelines, initiatives, and other resources, thereby promoting multisectoral and multidisciplinary collaboration.',
+      description: 'The One Health Monitoring Tool (OHMT) was developed to assist all levels of organizations to institutionalize and operationalize One Health. It is a tool that is used to assess the progress of and to identify gaps in the implementation of OH at the local, national, and regional levels. The user collects semi-quantitative data, which is fed into a digital system that generates visuals, allowing for a comprehensive overview of operational gaps. The tool also serves as toolkit to facilitate users’ identification of existing OH tools, guidelines, initiatives, and other resources, thereby promoting multisectoral and multidisciplinary collaboration.',
       
       title: 'Purpose',
       
