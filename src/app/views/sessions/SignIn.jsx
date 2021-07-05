@@ -112,7 +112,7 @@ class SignIn extends Component {
                           disabled={this.props.login.loading}
                           type="submit"
                         >
-                          Sign in to Enter Dashboard
+                          Sign in 
                         </Button>
                         {this.props.login.loading && (
                           <CircularProgress

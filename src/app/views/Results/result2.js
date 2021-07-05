@@ -20,7 +20,8 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Chart from '../Evaluation/chart';
 import Dialog from "@material-ui/core/Dialog";
-import { AddReport} from "../../redux/actions/PerformamceAction";
+import { AddReport } from "../../redux/actions/PerformamceAction";
+import { ToastContainer, toast } from 'react-toastify';
 
 import {
   Box,
@@ -79,14 +80,15 @@ const Graphs = props => {
     setOpen(false);
   }
 
-  const handleSubmit=()=>{
-    AddReport({impl,impl,govfeedback, impfeedback})
+  const handleSubmit = () => {
+    console.log("about to submit ")
+    AddReport({ impl, gov, govfeedback, impfeedback})
     // history.push({
     //   pathname: "/report"
     // });
   }
-  
-  let { impl, gov, govfeedback, impfeedback } = props;
+
+  let { impl, gov, govfeedback, impfeedback,ReportError,ReportResult,AddReport  } = props;
   const filtered = gov.filter(e => e.value < 3)
 
 
@@ -126,7 +128,7 @@ const Graphs = props => {
 
   return (
     <Fragment>
-        
+
       <div>
 
 
@@ -155,77 +157,77 @@ const Graphs = props => {
               container
               spacing={3}
             >
-                 <Fragment>
-   
-<Grid
-                item
-                lg={6}
-                md={12}
-                xs={12}
-              >
-      <Govern/>
-      </Grid>
-      <Grid
-                item
-                lg={6}
-                md={12}
-                xs={12}
-              >
-      <Implem/>
-      </Grid>
-      
-     
-    </Fragment>
-    <Fragment>
-  <Grid
-                item
-                lg={6}
-                md={12}
-                xs={12}
-              >
-              <Grid
-                item
-                lg={12}
-                md={12}
-                xs={12}
-              >
-                <Box
+              <Fragment>
 
-                  position="relative"
+                <Grid
+                  item
+                  lg={6}
+                  md={12}
+                  xs={12}
                 >
-                  <Chart valu={gov} ll='Governance' />
-                </Box>
-              </Grid>
-              <Divider />
-              
-              </Grid>
-              <Grid
-                item
-                lg={6}
-                md={12}
-                xs={12}
-              >
-              <Grid
-                item
-                lg={12}
-                md={12}
-                xs={12}
-              >
-                <Box
+                  <Govern />
+                </Grid>
+                <Grid
+                  item
+                  lg={6}
+                  md={12}
+                  xs={12}
+                >
+                  <Implem />
+                </Grid>
 
-                  position="relative"
+
+              </Fragment>
+              <Fragment>
+                <Grid
+                  item
+                  lg={6}
+                  md={12}
+                  xs={12}
                 >
-                  <Chart valu={impl} ll='Implementation and performance' />
-                </Box>
-              </Grid>
-            
-            <Divider />
-          
-          </Grid>
-          </Fragment>
-</Grid>
+                  <Grid
+                    item
+                    lg={12}
+                    md={12}
+                    xs={12}
+                  >
+                    <Box
+
+                      position="relative"
+                    >
+                      <Chart valu={gov} ll='Governance' />
+                    </Box>
+                  </Grid>
+                  <Divider />
+
+                </Grid>
+                <Grid
+                  item
+                  lg={6}
+                  md={12}
+                  xs={12}
+                >
+                  <Grid
+                    item
+                    lg={12}
+                    md={12}
+                    xs={12}
+                  >
+                    <Box
+
+                      position="relative"
+                    >
+                      <Chart valu={impl} ll='Implementation and performance' />
+                    </Box>
+                  </Grid>
+
+                  <Divider />
+
+                </Grid>
+              </Fragment>
+            </Grid>
           </CardContent>
-         
+
         </Card>
         <Dialog
           fullScreen
@@ -289,7 +291,7 @@ const Graphs = props => {
                               <Typography >because you scored under 3 in Implementation and Performance domain </Typography>
                             )}
                           </TableCell>
-                          
+
                         </TableRow>
 
                       ))}
@@ -301,22 +303,27 @@ const Graphs = props => {
           </Container>
         </Dialog>
       </div>
-    
+
       <Divider />
-      <Box 
-      mt={3}
-      mb={3}
+      <Box
+        mt={3}
+        mb={3}
       >
-      <Button
-            endIcon={<ArrowRightIcon  />}
-            size="small"
-            variant="outlined" color="secondary"
-            // href='/report'
-            onClick={handleSubmit}
-          >
-            Submitt Report
-          </Button>
-          </Box>
+        <Button
+          endIcon={<ArrowRightIcon />}
+          size="small"
+          variant="outlined" color="secondary"
+          // href='/report'
+          onClick={handleSubmit}
+        >
+          Submitt Report
+        </Button>
+      </Box>
+      {ReportError && (
+        <div>
+          <ToastContainer />
+        </div>
+      )}
     </Fragment>
   );
 };
@@ -325,12 +332,16 @@ Graphs.propTypes = {
   AddImp: PropTypes.func.isRequired,
   gov: PropTypes.object.isRequired,
   impl: PropTypes.object.isRequired,
+  Report: PropTypes.object.isRequired,
   AddReport: PropTypes.func.isRequired,
+
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   AddReport: PropTypes.func.isRequired,
   gov: state.performance.gov,
+  ReportResult: state.Report.report,
+  ReportError: state.Report.error,
   impl: state.performance.impl,
   govfeedback: state.performance.govfeedback,
   impfeedback: state.performance.impfeedback,

@@ -68,10 +68,12 @@ export function AddImp(imp) {
       dispatch({
         type: ADD_REPORT_LOADING
       });
-  
+      const token = localStorage.getItem("jwt_token");
+  console.log(report)
       return fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/report`, {
         method: 'POST',
         headers: {
+          'authorization':localStorage.getItem("jwt_token"),
           'content-type': 'application/json',
         },
         body: JSON.stringify(report),
@@ -80,7 +82,7 @@ export function AddImp(imp) {
         .then((data) => {
     
           if (data.status === 'success') {
-    console.log("sucess")
+    console.log("sucessfully report submitted")
             toast.success("submitted sucessfully");
             // history.push({
             //   pathname: "/dashboard/analytics"
@@ -91,7 +93,7 @@ export function AddImp(imp) {
               payload: data.data.user
             })
           } else {
-            console.log('error', data)
+            console.log('error while submitting', data.data)
             var B = (data?.data?.message) ? data?.data?.message : "report can not be submitted";
             // toast(B)
             toast.error(B);

@@ -47,7 +47,7 @@ class JwtAuthService {
           .then((res) => res.json())
           .
         then(data => {
-          console.log(data)
+          console.log('fetch user suing token ',data)
           // Login successful
           // Save token
           if (data.status === 200){

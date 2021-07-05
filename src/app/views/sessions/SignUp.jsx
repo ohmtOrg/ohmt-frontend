@@ -5,9 +5,15 @@ import {
   FormControlLabel,
   Grid,
   Button,
+  Typography,
   TextField,
   CircularProgress
 } from "@material-ui/core";
+import {
+  MuiPickersUtilsProvider,
+  KeyboardTimePicker,
+  KeyboardDatePicker,
+} from '@material-ui/pickers';
 import PropTypes from "prop-types";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { connect } from "react-redux";
@@ -19,6 +25,7 @@ import { withStyles } from "@material-ui/core/styles";
 import { withRouter } from "react-router-dom";
 import { Dataset } from 'data.js'
 import { countriesjson } from './data'
+import DateFnsUtils from "@date-io/date-fns";
 
 const path = 'https://datahub.io/JohnSnowLabs/country-and-continent-codes-list/datapackage.json'
 
@@ -316,8 +323,10 @@ class SignUp extends Component {
     organisation: "",
     region: "",
     oneHealth: false,
-    countryCode:""
-
+    countryCode:"",
+    mode:"",
+    subRegion:"",
+    creationDate:new Date('2021-06-18T21:11:54'),otherInfo:"",platformName:"",section:"", assesmentDate:new Date('2021-06-18T21:11:54'),
 
   };
 
@@ -336,7 +345,13 @@ class SignUp extends Component {
  
     
   };
-
+changeMode=(newMode)=>{
+  const st = this.state
+  st.mode=newMode
+    this.setState({
+      ...st
+    });
+}
   GetRegion = () => {
     const st = this.state
     let obj = suggestions.find(o => o.Country_Name === this.state.country);
@@ -375,6 +390,27 @@ class SignUp extends Component {
       ...st
     });
   }
+  setMode = (newValue) => {
+    const st = this.state
+    st.mode = newValue
+    this.setState({
+      ...st
+    });
+  }
+handleAssesmentDate = (date) => {
+  const st = this.state
+  st.assesmentDate = date
+  this.setState({
+    ...st
+  });
+  };
+  handleCreationDate = (date) => {
+    const st = this.state
+    st.creationDate = date
+    this.setState({
+      ...st
+    });
+  };
   setCountry = newValue => {
     const st = this.state
     st.country = newValue.Country_Name
@@ -393,8 +429,874 @@ class SignUp extends Component {
   };
 
   render() {
-    let { firstName, lastName, country, region, email, password, organisation } = this.state;
+    let { firstName, lastName, country,subRegion,creationDate,otherInfo,platformName,section, assesmentDate, region,mode, email, password, organisation } = this.state;
+    const platform =["One Health Platform","other","Dashboard"]
     let { classes } = this.props;
+    if(!mode){
+      return (
+        <div className="play-card p-sm-24 bg-paper h-full-screen flex justify-center ">
+        {/* // <div className=" flex justify-center w-full h-full-screen">
+        // <div className="flex items-center"> */}
+          <Grid container justify="center">
+       
+        {/* <Grid item md={12} lg={12} sm={12}  justify="center" > */}
+                  
+                    <Typography justify="center" component="h5" variant="h5" color="inherit" >
+                      Login as
+                    </Typography>
+                 
+                 
+                {/* </Grid> */}
+                {/* <Grid item md={3} lg={3} sm={6}   > */}
+                <Button variant="outlined" size="small" color="primary" onClick={(event, newValue) => {
+                        this.setMode("One Health Platform");
+                      }}>
+                      One Health User
+        </Button>
+                {/* </Grid>
+                <Grid item md={3} lg={3} sm={6}  > */}
+                <Button variant="outlined" size="small" color="primary" onClick={(event, newValue) => {
+                        this.setMode("Other");
+                      }} >
+                      Others
+        </Button>
+                {/* </Grid>
+                <Grid item md={3} lg={3} sm={6}   > */}
+                <Button variant="outlined" size="small" color="primary" onClick={(event, newValue) => {
+                        this.setMode("Dashboard");
+                      }}>
+                      Dashboard
+        </Button>
+                {/* </Grid> */}
+        
+        </Grid>
+     
+        </div>
+                    // </div>
+                    // </div>
+      )
+    }else if(mode==="One Health Platform"){
+      return (
+        <div className="signup flex justify-center w-full h-full-screen">
+        <div className="p-8">
+          <Card className="signup-card position-relative y-center">
+            <Grid container>
+              <Grid item lg={5} md={5} sm={5} xs={12}>
+                <div className="p-8 flex justify-center bg-light-gray items-center h-full">
+                  <img
+                    src="/assets/images/illustrations/posting_photo.svg"
+                    alt=""
+                  />
+                </div>
+              </Grid>
+              <Grid item lg={7} md={7} sm={7} xs={12}>
+                <div className="p-9 h-full">
+                <ValidatorForm ref="form" onSubmit={this.handleFormSubmit}>
+                    <TextValidator
+                      className="mb-6 w-full"
+                      variant="outlined"
+                      label="First Name"
+                      onChange={this.handleChange}
+                      type="text"
+                      name="firstName"
+                      value={firstName}
+                      validators={["required"]}
+                      errorMessages={["this field is required"]}
+                    />
+                    <TextValidator
+                      className="mb-6 w-full"
+                      variant="outlined"
+                      label="Last Name"
+                      onChange={this.handleChange}
+                      type="text"
+                      name="lastName"
+                      value={lastName}
+                      validators={["required"]}
+                      errorMessages={["this field is required"]}
+                    />
+                  
+                      <TextValidator
+                      className="mb-6 w-full"
+                      variant="outlined"
+                      label="Platfor Name"
+                      onChange={this.handleChange}
+                      type="text"
+                      name="platformName"
+                      value={platformName}
+                      validators={["required"]}
+                      errorMessages={["this field is required"]}
+                    />
+                     <MuiPickersUtilsProvider utils={DateFnsUtils}>
+{/*     
+                     <TextValidator
+                      className="mb-6 w-full"
+                      variant="outlined"
+    id="datetime-local"
+    label="Next appointment"
+    type="datetime-local"
+    defaultValue="2017-05-24T10:30"
+    className={classes.textField}
+    InputLabelProps={{
+      shrink: true,
+    }}
+  /> */}
+                     <KeyboardDatePicker
+                     className="mb-6 w-full"
+                     variant="outlined"
+          disableToolbar
+          variant="inline"
+          format="MM/dd/yyyy"
+          margin="normal"
+          id="date-picker-inline"
+          label="Platform Creation Date"
+          value={creationDate}
+          onChange={this.handleCreationDate}
+          validators={["required"]}
+           errorMessages={["this field is required"]}
+          KeyboardButtonProps={{
+            'aria-label': 'change date',
+          }}
+        />
+     
+        </MuiPickersUtilsProvider >
+                      {/* <TextValidator
+                      className="mb-6 w-full"
+                      variant="outlined"
+                      label="Platform Creation Date"
+                      onChange={this.handleChange}
+                      type="text"
+                      name="creationDate"
+                      value={creationDate}
+                      validators={["required"]}
+                      errorMessages={["this field is required"]}
+                    /> */}
+                    <TextValidator
+                      className="mb-6 w-full"
+                      variant="outlined"
+                      label="Email"
+                      onChange={this.handleChange}
+                      type="email"
+                      name="email"
+                      value={email}
+                      validators={["required", "isEmail"]}
+                      errorMessages={[
+                        "this field is required",
+                        "email is not valid"
+                      ]}
+                    />
+
+<TextValidator
+                      className="mb-6 w-full"
+                      variant="outlined"
+                      label="Section"
+                      onChange={this.handleChange}
+                      type="text"
+                      name="section"
+                      value={section}
+                      validators={["required"]}
+                      errorMessages={[
+                        "this field is required",
+                      ]}
+                    />
+                     <TextValidator
+                      className="mb-6 w-full"
+                      variant="outlined"
+                      label="Gender"
+                      onChange={this.handleChange}
+                      type="text"
+                      name="gender"
+                      value={email}
+                      validators={["required", "isGender"]}
+                      errorMessages={[
+                        "this field is required",
+                        "it should be gender"
+                      ]}
+                    />
+
+
+                    <Autocomplete
+                      className="mb-4 w-full"
+                      options={suggestions}
+                      name="country"
+                      getOptionLabel={option => option.Country_Name}
+                      // onChange={this.handleChange}
+                      onChange={(event, newValue) => {
+                        this.setCountry(newValue);
+                      }}
+                      renderInput={params => (
+                        <TextValidator
+                          className="mb-4 w-half"
+                          {...params}
+                          label="Country"
+                          variant="outlined"
+                          fullWidthvariant="outlined"
+                          label="Country"
+                          // onChange={this.handleChange}
+                          type="text"
+                          value={country}
+                          validators={["required"]}
+                          errorMessages={["this field is required"]}
+                        />
+
+                      )}
+                    />
+                    <TextValidator
+                      className="mb-4 w-full"
+                      label="Other Information"
+                      variant="outlined"
+                      onChange={this.handleChange}
+                      name="otherInfo"
+                      type="text"
+                      value={otherInfo}
+                      validators={["required"]}
+                      errorMessages={["this field is required"]}
+                    />
+                     <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                  <KeyboardDatePicker
+                                   className="mb-6 w-full"
+                                   variant="outlined"
+          disableToolbar
+          variant="inline"
+          format="MM/dd/yyyy"
+          margin="normal"
+          id="date-picker-inline"
+          label="Assesment Date"
+          value={assesmentDate}
+          onChange={this.handleAssesmentDate}
+          validators={["required"]}
+           errorMessages={["this field is required"]}
+          KeyboardButtonProps={{
+            'aria-label': 'change date',
+          }}
+        />
+               </MuiPickersUtilsProvider>  
+                   {/* <TextValidator
+                      className="mb-4 w-full"
+                      label="Date Of assesment"
+                      variant="outlined"
+                      onChange={this.handleChange}
+                      name="assesmentDate"
+                      type="text"
+                      value={assesmentDate}
+                      validators={["required"]}
+                      errorMessages={["this field is required"]}
+                    /> */}
+
+                    <TextValidator
+                      className="mb-4 w-full"
+                      label="Password"
+                      variant="outlined"
+                      onChange={this.handleChange}
+                      name="password"
+                      type="password"
+                      value={password}
+                      validators={["required"]}
+                      errorMessages={["this field is required"]}
+                    />
+                    {/* <FormControlLabel
+                      className="mb-4"
+                      name="oneHealth"
+                      onChange={() => {
+                        this.setOneHealth();
+                      }}
+                      control={<Checkbox />}
+                      label="Do you have one health in your country."
+                    /> */}
+
+                    <div className="flex items-center">
+                      <Button
+                        className="capitalize"
+                        variant="contained"
+                        color="primary"
+                        type="submit"
+                      >
+                        Sign up
+                      </Button>
+                      {this.props.Signup.loading && (
+                        <CircularProgress
+                          size={24}
+                          className={classes.buttonProgress}
+                        />
+                      )}
+                      {this.props.Signup.error_message && (
+                        <div>
+                          <ToastContainer />
+                        </div>
+                      )}
+                      <span className="mx-2 ml-5">or</span>
+                      <Button
+                        className="capitalize"
+                        onClick={() =>
+                          this.props.history.push("/session/signin")
+                        }
+                      >
+                        Sign in
+                      </Button>
+                      <span className="mx-2 ml-5">or</span>
+                      <Button
+                        className="capitalize"
+                        onClick={(event, newValue) => {
+                          this.setMode("");
+                        }}
+                      >
+                        get Back
+                      </Button>
+
+
+                    </div>
+                  </ValidatorForm>
+                </div>
+              </Grid>
+            </Grid>
+          </Card>
+        </div>
+      </div>
+      )
+    }
+    else if(mode==="One Health Platformdd"){
+      return (
+        <div className="signup flex justify-center w-full h-full-screen">
+        <div className="p-8">
+          <Card className="signup-card position-relative y-center">
+            <Grid container>
+              <Grid item lg={5} md={5} sm={5} xs={12}>
+                <div className="p-8 flex justify-center bg-light-gray items-center h-full">
+                  <img
+                    src="/assets/images/illustrations/posting_photo.svg"
+                    alt=""
+                  />
+                </div>
+              </Grid>
+              <Grid item lg={7} md={7} sm={7} xs={12}>
+                <div className="p-9 h-full">
+                  <ValidatorForm ref="form" onSubmit={this.handleFormSubmit}>
+                    <TextValidator
+                      className="mb-6 w-full"
+                      variant="outlined"
+                      label="First Name"
+                      onChange={this.handleChange}
+                      type="text"
+                      name="firstName"
+                      value={firstName}
+                      validators={["required"]}
+                      errorMessages={["this field is required"]}
+                    />
+                    <TextValidator
+                      className="mb-6 w-full"
+                      variant="outlined"
+                      label="Last Name"
+                      onChange={this.handleChange}
+                      type="text"
+                      name="lastName"
+                      value={lastName}
+                      validators={["required"]}
+                      errorMessages={["this field is required"]}
+                    />
+                    <TextValidator
+                      className="mb-6 w-full"
+                      variant="outlined"
+                      label="Organisation"
+                      onChange={this.handleChange}
+                      type="text"
+                      name="organisation"
+                      value={organisation}
+                      validators={["required"]}
+                      errorMessages={["this field is required"]}
+                    />
+                    <TextValidator
+                      className="mb-6 w-full"
+                      variant="outlined"
+                      label="Email"
+                      onChange={this.handleChange}
+                      type="email"
+                      name="email"
+                      value={email}
+                      validators={["required", "isEmail"]}
+                      errorMessages={[
+                        "this field is required",
+                        "email is not valid"
+                      ]}
+                    />
+
+
+                    <Autocomplete
+                      className="mb-4 w-full"
+                      options={suggestions}
+                      name="country"
+                      getOptionLabel={option => option.Country_Name}
+                      // onChange={this.handleChange}
+                      onChange={(event, newValue) => {
+                        this.setCountry(newValue);
+                      }}
+                      renderInput={params => (
+                        <TextValidator
+                          className="mb-4 w-half"
+                          {...params}
+                          label="Country"
+                          variant="outlined"
+                          fullWidthvariant="outlined"
+                          label="Country"
+                          // onChange={this.handleChange}
+                          type="text"
+                          value={country}
+                          validators={["required"]}
+                          errorMessages={["this field is required"]}
+                        />
+
+                      )}
+                    />
+                    {/* <TextValidator
+                      className="mb-4 w-full"
+                      label="Region"
+                      variant="outlined"
+                      onChange={this.handleChange}
+                      name="region"
+                      type="text"
+                      value={region}
+                      validators={["required"]}
+                      errorMessages={["this field is required"]}
+                    /> */}
+
+                    <TextValidator
+                      className="mb-4 w-full"
+                      label="Password"
+                      variant="outlined"
+                      onChange={this.handleChange}
+                      name="password"
+                      type="password"
+                      value={password}
+                      validators={["required"]}
+                      errorMessages={["this field is required"]}
+                    />
+                    <FormControlLabel
+                      className="mb-4"
+                      name="oneHealth"
+                      onChange={() => {
+                        this.setOneHealth();
+                      }}
+                      control={<Checkbox />}
+                      label="Do you have one health in your country."
+                    />
+
+                    <div className="flex items-center">
+                      <Button
+                        className="capitalize"
+                        variant="contained"
+                        color="primary"
+                        type="submit"
+                      >
+                        Sign up
+                      </Button>
+                      {this.props.Signup.loading && (
+                        <CircularProgress
+                          size={24}
+                          className={classes.buttonProgress}
+                        />
+                      )}
+                      {this.props.Signup.error_message && (
+                        <div>
+                          <ToastContainer />
+                        </div>
+                      )}
+                      <span className="mx-2 ml-5">or</span>
+                      <Button
+                        className="capitalize"
+                        onClick={() =>
+                          this.props.history.push("/session/signin")
+                        }
+                      >
+                        Sign in
+                      </Button>
+                    </div>
+                  </ValidatorForm>
+                </div>
+              </Grid>
+            </Grid>
+          </Card>
+        </div>
+      </div>
+      )
+    }else if (mode==="Other"){
+      return (
+        <div className="signup flex justify-center w-full h-full-screen">
+        <div className="p-8">
+          <Card className="signup-card position-relative y-center">
+            <Grid container>
+              <Grid item lg={5} md={5} sm={5} xs={12}>
+                <div className="p-8 flex justify-center bg-light-gray items-center h-full">
+                  <img
+                    src="/assets/images/illustrations/posting_photo.svg"
+                    alt=""
+                  />
+                </div>
+              </Grid>
+              <Grid item lg={7} md={7} sm={7} xs={12}>
+                <div className="p-9 h-full">
+                  <ValidatorForm ref="form" onSubmit={this.handleFormSubmit}>
+                    <TextValidator
+                      className="mb-6 w-full"
+                      variant="outlined"
+                      label="First Name"
+                      onChange={this.handleChange}
+                      type="text"
+                      name="firstName"
+                      value={firstName}
+                      validators={["required"]}
+                      errorMessages={["this field is required"]}
+                    />
+                    <TextValidator
+                      className="mb-6 w-full"
+                      variant="outlined"
+                      label="Last Name"
+                      onChange={this.handleChange}
+                      type="text"
+                      name="lastName"
+                      value={lastName}
+                      validators={["required"]}
+                      errorMessages={["this field is required"]}
+                    />
+                    {/* <TextValidator
+                      className="mb-6 w-full"
+                      variant="outlined"
+                      label="Organisation"
+                      onChange={this.handleChange}
+                      type="text"
+                      name="organisation"
+                      value={organisation}
+                      validators={["required"]}
+                      errorMessages={["this field is required"]}
+                    /> */}
+                    <TextValidator
+                      className="mb-6 w-full"
+                      variant="outlined"
+                      label="Email"
+                      onChange={this.handleChange}
+                      type="email"
+                      name="email"
+                      value={email}
+                      validators={["required", "isEmail"]}
+                      errorMessages={[
+                        "this field is required",
+                        "email is not valid"
+                      ]}
+                    />
+
+<TextValidator
+                      className="mb-6 w-full"
+                      variant="outlined"
+                      label="Section"
+                      onChange={this.handleChange}
+                      type="text"
+                      name="section"
+                      value={section}
+                      validators={["required"]}
+                      errorMessages={[
+                        "this field is required",
+                      ]}
+                    />
+                     <TextValidator
+                      className="mb-6 w-full"
+                      variant="outlined"
+                      label="Gender"
+                      onChange={this.handleChange}
+                      type="text"
+                      name="gender"
+                      value={email}
+                      validators={["required", "isGender"]}
+                      errorMessages={[
+                        "this field is required",
+                        "it should be gender"
+                      ]}
+                    />
+
+
+                    <Autocomplete
+                      className="mb-4 w-full"
+                      options={suggestions}
+                      name="country"
+                      getOptionLabel={option => option.Country_Name}
+                      // onChange={this.handleChange}
+                      onChange={(event, newValue) => {
+                        this.setCountry(newValue);
+                      }}
+                      renderInput={params => (
+                        <TextValidator
+                          className="mb-4 w-half"
+                          {...params}
+                          label="Country"
+                          variant="outlined"
+                          fullWidthvariant="outlined"
+                          label="Country"
+                          // onChange={this.handleChange}
+                          type="text"
+                          value={country}
+                          validators={["required"]}
+                          errorMessages={["this field is required"]}
+                        />
+
+                      )}
+                    />
+                    <TextValidator
+                      className="mb-4 w-full"
+                      label="Other Information"
+                      variant="outlined"
+                      onChange={this.handleChange}
+                      name="otherInfo"
+                      type="text"
+                      value={otherInfo}
+                      validators={["required"]}
+                      errorMessages={["this field is required"]}
+                    />
+                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                              <KeyboardDatePicker
+                                               className="mb-6 w-full"
+                                               variant="outlined"
+          disableToolbar
+          variant="inline"
+          format="MM/dd/yyyy"
+          margin="normal"
+          id="date-picker-inline"
+          label="Assesment Date"
+          value={assesmentDate}
+          onChange={this.handleAssesmentDate}
+          validators={["required"]}
+           errorMessages={["this field is required"]}
+          KeyboardButtonProps={{
+            'aria-label': 'change date',
+          }}
+        />
+        </MuiPickersUtilsProvider>
+
+                    <TextValidator
+                      className="mb-4 w-full"
+                      label="Password"
+                      variant="outlined"
+                      onChange={this.handleChange}
+                      name="password"
+                      type="password"
+                      value={password}
+                      validators={["required"]}
+                      errorMessages={["this field is required"]}
+                    />
+                    {/* <FormControlLabel
+                      className="mb-4"
+                      name="oneHealth"
+                      onChange={() => {
+                        this.setOneHealth();
+                      }}
+                      control={<Checkbox />}
+                      label="Do you have one health in your country."
+                    /> */}
+
+                    <div className="flex items-center">
+                      <Button
+                        className="capitalize"
+                        variant="contained"
+                        color="primary"
+                        type="submit"
+                      >
+                        Sign up
+                      </Button>
+                      {this.props.Signup.loading && (
+                        <CircularProgress
+                          size={24}
+                          className={classes.buttonProgress}
+                        />
+                      )}
+                      {this.props.Signup.error_message && (
+                        <div>
+                          <ToastContainer />
+                        </div>
+                      )}
+                      <span className="mx-2 ml-5">or</span>
+                      <Button
+                        className="capitalize"
+                        onClick={() =>
+                          this.props.history.push("/session/signin")
+                        }
+                      >
+                        Sign in
+                      </Button>
+                      <span className="mx-2 ml-5">or</span>
+                      <Button
+                        className="capitalize"
+                        onClick={(event, newValue) => {
+                          this.setMode("");
+                        }}
+                      >
+                        get Back
+                      </Button>
+
+
+                    </div>
+                  </ValidatorForm>
+                </div>
+              </Grid>
+            </Grid>
+          </Card>
+        </div>
+      </div>
+      )
+    }else if(mode==="Dashboard"){
+      return (
+        <div className="signup flex justify-center w-full h-full-screen">
+        <div className="p-8">
+          <Card className="signup-card position-relative y-center">
+            <Grid container>
+              <Grid item lg={5} md={5} sm={5} xs={12}>
+                <div className="p-8 flex justify-center bg-light-gray items-center h-full">
+                  <img
+                    src="/assets/images/illustrations/posting_photo.svg"
+                    alt=""
+                  />
+                </div>
+              </Grid>
+              <Grid item lg={7} md={7} sm={7} xs={12}>
+                <div className="p-9 h-full">
+                  <ValidatorForm ref="form" onSubmit={this.handleFormSubmit}>
+                  <TextValidator
+                      className="mb-6 w-full"
+                      variant="outlined"
+                      label="First Name"
+                      onChange={this.handleChange}
+                      type="text"
+                      name="firstName"
+                      value={firstName}
+                      validators={["required"]}
+                      errorMessages={["this field is required"]}
+                    />
+                    <TextValidator
+                      className="mb-6 w-full"
+                      variant="outlined"
+                      label="Last Name"
+                      onChange={this.handleChange}
+                      type="text"
+                      name="lastName"
+                      value={lastName}
+                      validators={["required"]}
+                      errorMessages={["this field is required"]}
+                    />
+                  
+                  <Autocomplete
+                      className="mb-4 w-full"
+                      options={suggestions}
+                      name="country"
+                      getOptionLabel={option => option.Country_Name}
+                      // onChange={this.handleChange}
+                      onChange={(event, newValue) => {
+                        this.setCountry(newValue);
+                      }}
+                      renderInput={params => (
+                        <TextValidator
+                          className="mb-4 w-half"
+                          {...params}
+                          label="Country"
+                          variant="outlined"
+                          fullWidthvariant="outlined"
+                          label="Country"
+                          // onChange={this.handleChange}
+                          type="text"
+                          value={country}
+                          validators={["required"]}
+                          errorMessages={["this field is required"]}
+                        />
+
+                      )}
+                    />
+                    <TextValidator
+                      className="mb-6 w-full"
+                      variant="outlined"
+                      label="Sub Region"
+                      onChange={this.handleChange}
+                      type="text"
+                      name="SubRegion"
+                      value={subRegion}
+                      validators={["required"]}
+                      errorMessages={["this field is required"]}
+                    />
+                    <TextValidator
+                      className="mb-6 w-full"
+                      variant="outlined"
+                      label="Region"
+                      onChange={this.handleChange}
+                      type="text"
+                      name="Region"
+                      value={region}
+                      validators={["required"]}
+                      errorMessages={["this field is required"]}
+                    />
+                    
+                    <TextValidator
+                      className="mb-4 w-full"
+                      label="Password"
+                      variant="outlined"
+                      onChange={this.handleChange}
+                      name="password"
+                      type="password"
+                      value={password}
+                      validators={["required"]}
+                      errorMessages={["this field is required"]}
+                    />
+                    {/* <FormControlLabel
+                      className="mb-4"
+                      name="oneHealth"
+                      onChange={() => {
+                        this.setOneHealth();
+                      }}
+                      control={<Checkbox />}
+                      label="Do you have one health in your country."
+                    /> */}
+
+                    <div className="flex items-center">
+                      <Button
+                        className="capitalize"
+                        variant="contained"
+                        color="primary"
+                        type="submit"
+                      >
+                        Sign up
+                      </Button>
+                      {this.props.Signup.loading && (
+                        <CircularProgress
+                          size={24}
+                          className={classes.buttonProgress}
+                        />
+                      )}
+                      {this.props.Signup.error_message && (
+                        <div>
+                          <ToastContainer />
+                        </div>
+                      )}
+                      <span className="mx-2 ml-5">or</span>
+                      <Button
+                        className="capitalize"
+                        onClick={() =>
+                          this.props.history.push("/session/signin")
+                        }
+                      >
+                        Sign in
+                      </Button>
+                      <span className="mx-2 ml-5">or</span>
+                      <Button
+                        className="capitalize"
+                        onClick={(event, newValue) => {
+                          this.setMode("");
+                        }}
+                      >
+                        get Back
+                      </Button>
+
+
+                    </div>
+                  </ValidatorForm>
+                </div>
+              </Grid>
+            </Grid>
+          </Card>
+        </div>
+      </div>
+      )
+    }
     return (
       <div className="signup flex justify-center w-full h-full-screen">
         <div className="p-8">
