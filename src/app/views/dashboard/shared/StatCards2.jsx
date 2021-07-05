@@ -20,7 +20,7 @@ const StatCards2 = () => {
             <div className="ml-3 small-circle bg-green text-white">
               <Icon className="small-icon">expand_less</Icon>
             </div>
-            <span className="text-13 text-green ml-1"> (+45)</span>
+            <span className="text-13 text-green ml-1"> (+1)</span>
           </div>
         </Card>
       </Grid>
@@ -40,7 +40,7 @@ const StatCards2 = () => {
             <div className="ml-3 small-circle bg-error text-white">
               <Icon className="small-icon">expand_less</Icon>
             </div>
-            <span className="text-13 text-error ml-1">(+5)</span>
+            <span className="text-13 text-error ml-1">(+2)</span>
           </div>
         </Card>
       </Grid>

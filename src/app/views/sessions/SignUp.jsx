@@ -315,7 +315,8 @@ class SignUp extends Component {
     lastName: "",
     organisation: "",
     region: "",
-    oneHealth: false
+    oneHealth: false,
+    countryCode:""
 
 
   };
@@ -341,8 +342,10 @@ class SignUp extends Component {
     let obj = suggestions.find(o => o.Country_Name === this.state.country);
     if(obj.region){
       st.region=obj.region
+      st.countryCode=obj.Two_Letter_Country_Code
   } else {
     st.region='Africa'
+    st.countryCode="Africa"
   }
       this.setState({
         ...st

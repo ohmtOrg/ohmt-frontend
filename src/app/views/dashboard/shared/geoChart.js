@@ -2,13 +2,13 @@ import * as React from "react";
 import { Chart } from "react-google-charts";
 
 const data = [
-  ["Country", "Popularity"],
-  ["Germany", 200],
-  ["United States", 300],
-  ["Brazil", 400],
-  ["Canada", 500],
-  ["France", 600],
-  ["RU", 700]
+  ["Country", "Average-Score"],
+  ["Rwanda", 4],
+  ["Botswana", 2],
+  ["Nigeria", 2],
+  ["CD", 4],
+  ["DRC", 3],
+  ["Burundi", 1]
 ];
 const  MapChart=()=>{
 
