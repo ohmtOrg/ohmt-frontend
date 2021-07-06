@@ -407,9 +407,14 @@ import { connect } from "react-redux";
 import { GetReports } from "../../redux/actions/ReportAction";
 
 import { ToastContainer, toast } from 'react-toastify';
+import { FormControlLabel } from '@material-ui/core';
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/styles";
+import { 
+    Button
+    } from "@material-ui/core";
+
 
 const SimpleMuiTable = props => {
     const [isAlive, setIsAlive] = useState(true)
@@ -435,6 +440,7 @@ const SimpleMuiTable = props => {
     //     })
     //     return () => setIsAlive(false)
     // }, [isAlive])
+
 
     return (
         <div className="m-sm-30">
@@ -504,6 +510,23 @@ const columns = [
             filter: true,
         },
     },
+    {
+    name: "Download Report Pdf",
+    options: {
+        filter: false,
+        customBodyRender: (value, tableMeta, updateValue) => (
+            <FormControlLabel
+              control={
+                <Button  >
+                <a href = "/public/Report.pdf "target = "_blank">Download Report Pdf</a>
+             </Button>
+              }
+              
+            />
+         )
+       
+    }
+}
 ]
 
 
