@@ -26,8 +26,10 @@ class Dashboard1 extends Component {
 
     return (
       <Fragment>
+         
         <div className="pb-24 pt-7 px-8 bg-primary">
-          <div className="card-title capitalize text-white mb-4 text-white-secondary">
+        <MapChart/>
+          {/* <div className="card-title capitalize text-white mb-4 text-white-secondary">
             Last 12 months Assesment average score
           </div>
           <ModifiedAreaChart
@@ -56,18 +58,18 @@ class Dashboard1 extends Component {
                 ]
               }
             }}
-          ></ModifiedAreaChart>
+          ></ModifiedAreaChart> */}
         </div>
 
         <div className="analytics m-sm-30 mt--18">
           <Grid container spacing={3}>
             <Grid item lg={8} md={8} sm={12} xs={12}>
               {/* <StatCards /> */}
-              <StatCards2 />
+              {/* <StatCards2 /> */}
               {/* Top Selling Products */}
               <TableCard />
 
-              <MapChart/>
+              {/* <MapChart/> */}
 
               {/* <h4 className="card-title text-muted mb-4">Ongoing Projects</h4>
               <RowCards /> */}

@@ -326,6 +326,7 @@ class SignUp extends Component {
     countryCode:"",
     mode:"",
     subRegion:"",
+    gender:"",
     creationDate:new Date('2021-06-18T21:11:54'),otherInfo:"",platformName:"",section:"", assesmentDate:new Date('2021-06-18T21:11:54'),
 
   };
@@ -429,7 +430,7 @@ handleAssesmentDate = (date) => {
   };
 
   render() {
-    let { firstName, lastName, country,subRegion,creationDate,otherInfo,platformName,section, assesmentDate, region,mode, email, password, organisation } = this.state;
+    let { firstName, lastName, country,subRegion,gender,creationDate,otherInfo,platformName,section, assesmentDate, region,mode, email, password, organisation } = this.state;
     const platform =["One Health Platform","other","Dashboard"]
     let { classes } = this.props;
     if(!mode){
@@ -442,7 +443,7 @@ handleAssesmentDate = (date) => {
         {/* <Grid item md={12} lg={12} sm={12}  justify="center" > */}
                   
                     <Typography justify="center" component="h5" variant="h5" color="inherit" >
-                      Login as
+                      Sign up as  
                     </Typography>
                  
                  
@@ -605,7 +606,7 @@ handleAssesmentDate = (date) => {
                       onChange={this.handleChange}
                       type="text"
                       name="gender"
-                      value={email}
+                      value={gender}
                       validators={["required", "isGender"]}
                       errorMessages={[
                         "this field is required",
@@ -709,6 +710,7 @@ handleAssesmentDate = (date) => {
                         variant="contained"
                         color="primary"
                         type="submit"
+                        onClick={this.handleFormSubmit}
                       >
                         Sign up
                       </Button>
@@ -884,6 +886,7 @@ handleAssesmentDate = (date) => {
                         variant="contained"
                         color="primary"
                         type="submit"
+                        onClick={this.handleFormSubmit}
                       >
                         Sign up
                       </Button>
@@ -1094,6 +1097,7 @@ handleAssesmentDate = (date) => {
                         variant="contained"
                         color="primary"
                         type="submit"
+                        onClick={this.handleFormSubmit}
                       >
                         Sign up
                       </Button>
@@ -1253,6 +1257,7 @@ handleAssesmentDate = (date) => {
                         variant="contained"
                         color="primary"
                         type="submit"
+                        onClick={this.handleFormSubmit}
                       >
                         Sign up
                       </Button>
