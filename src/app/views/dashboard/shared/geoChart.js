@@ -15,6 +15,13 @@ const  MapChart=()=>{
     return (
       <div className="App">
         <Chart
+        options={{
+            region: '002', // Africa
+            colorAxis: { colors: ['#00853f', 'black', '#e31b23'] },
+            backgroundColor: '#81d4fa',
+            datalessRegionColor: '#f8bbd0',
+            defaultColor: '#f5f5f5',
+          }}
           chartEvents={[
             {
               eventName: "select",
