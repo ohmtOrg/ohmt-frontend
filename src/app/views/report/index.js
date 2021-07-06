@@ -497,6 +497,13 @@ const columns = [
             filter: true,
         },
     },
+    {
+        name: 'done_at',
+        label: 'Date Of submittion',
+        options: {
+            filter: true,
+        },
+    },
 ]
 
 
@@ -533,7 +540,7 @@ const columns = [
         },
         {
           imgUrl: "/assets/images/products/iphone-2.jpg",
-          name: "South Africa",
+          Region: "South Africa",
           Country: "Seyshel",
           impl: 3,
           gov: 4,
@@ -542,7 +549,7 @@ const columns = [
         },
         {
           imgUrl: "/assets/images/products/iphone-1.jpg",
-          name: "MEast Afica",
+          Region: "MEast Afica",
           Country: "Uganda",
           impl: 3,
           gov: 1,
@@ -551,7 +558,7 @@ const columns = [
         },
         {
           imgUrl: "/assets/images/products/headphone-3.jpg",
-          name: "West Afica",
+          Region: "West Afica",
           Country: "Nigeria",
           impl: 4,
           gov: 1,
