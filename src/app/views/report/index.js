@@ -403,17 +403,38 @@ import React, { useState, useEffect } from 'react'
 import  Breadcrumb  from 'matx/components/Breadcrumb'
 import Axios from 'axios'
 import MUIDataTable from 'mui-datatables'
+import { connect } from "react-redux";
+import { GetReports } from "../../redux/actions/ReportAction";
 
-const SimpleMuiTable = () => {
+import { ToastContainer, toast } from 'react-toastify';
+import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/styles";
+
+const SimpleMuiTable = props => {
     const [isAlive, setIsAlive] = useState(true)
     const [userList, setUserList] = useState([])
+    const [reportList, setReportList] = useState([])
 
     useEffect(() => {
+        console.log('component mounted sucessfully')
+        GetReports()
         Axios.get('/api/user/all').then(({ data }) => {
-            if (isAlive) setUserList(data)
+            if (isAlive) setReportList(reports)
         })
         return () => setIsAlive(false)
-    }, [isAlive])
+      }, [isAlive]);
+    
+      
+        let { theme,GetReports ,reports} = props;
+
+    // useEffect(() => {
+        
+    //     Axios.get('/api/user/all').then(({ data }) => {
+    //         if (isAlive) setUserList(data)
+    //     })
+    //     return () => setIsAlive(false)
+    // }, [isAlive])
 
     return (
         <div className="m-sm-30">
@@ -427,7 +448,7 @@ const SimpleMuiTable = () => {
             </div>
             <MUIDataTable
                 title={'User Reports'}
-                data={userList}
+                data={productList}
                 columns={columns}
                 options={{
                     filterType: 'textField',
@@ -449,33 +470,92 @@ const SimpleMuiTable = () => {
 
 const columns = [
     {
-        name: 'name', // field name in the row object
-        label: 'Name', // column title that will be shown in table
+        name: 'Country', // field name in the row object
+        label: 'Country', // column title that will be shown in table
         options: {
             filter: true,
         },
     },
     {
-        name: 'email',
-        label: 'Email',
+        name: 'Region',
+        label: 'Region',
         options: {
             filter: true,
         },
     },
     {
-        name: 'organisation',
-        label: 'Organisation',
+        name: 'impl',
+        label: 'Peroformance Avg Score',
         options: {
             filter: true,
         },
     },
     {
-        name: 'totalscore',
-        label: 'Total Score',
+        name: 'gov',
+        label: 'Governance Avg Score',
         options: {
             filter: true,
         },
     },
 ]
 
-export default SimpleMuiTable
+
+
+
+    const mapStateToProps = state => ({
+        // setUser: PropTypes.func.isRequired
+        reports: state.Report.reports,
+        GetReports: PropTypes.func.isRequired,
+      
+      });
+      export default withStyles({}, { withTheme: true })(
+        withRouter(connect(mapStateToProps, { GetReports })(SimpleMuiTable))
+      );
+
+      const productList = [
+        {
+          imgUrl: "/assets/images/products/headphone-2.jpg",
+          Region: "Est Africa",
+          Country: "Rwanda",
+          impl: 2,
+          gov: 4,
+          done_at: "12/06/2021",
+          available: 15
+        },
+        {
+          imgUrl: "/assets/images/products/headphone-3.jpg",
+          Region: "Est Africa",
+          Country: "Kenya",
+          impl: 3,
+          gov: 2,
+          done_at: "12/06/2021",
+          available: 30
+        },
+        {
+          imgUrl: "/assets/images/products/iphone-2.jpg",
+          name: "South Africa",
+          Country: "Seyshel",
+          impl: 3,
+          gov: 4,
+          done_at: "12/06/2021",
+          available: 35
+        },
+        {
+          imgUrl: "/assets/images/products/iphone-1.jpg",
+          name: "MEast Afica",
+          Country: "Uganda",
+          impl: 3,
+          gov: 1,
+          done_at: "12/06/2021",
+          available: 0
+        },
+        {
+          imgUrl: "/assets/images/products/headphone-3.jpg",
+          name: "West Afica",
+          Country: "Nigeria",
+          impl: 4,
+          gov: 1,
+          done_at: "12/06/2021",
+          available: 5
+        }
+      ];

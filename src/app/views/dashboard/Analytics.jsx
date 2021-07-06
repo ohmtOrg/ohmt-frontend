@@ -1,7 +1,8 @@
-import React, { Component, Fragment } from "react";
+import React, { useEffect, Fragment } from "react";
 import { Grid, Card } from "@material-ui/core";
 
 import DoughnutChart from "../charts/echarts/Doughnut";
+import PropTypes from "prop-types";
 
 import ModifiedAreaChart from "./shared/ModifiedAreaChart";
 import StatCards from "./shared/StatCards";
@@ -16,13 +17,25 @@ import indigo from  '@material-ui/core/colors/indigo';
 import grey from  '@material-ui/core/colors/grey'
 import red from  '@material-ui/core/colors/red'
 import green from  '@material-ui/core/colors/green'
+import { connect } from "react-redux";
+import { GetReports } from "../../redux/actions/ReportAction";
+
+import { ToastContainer, toast } from 'react-toastify';
+import { withRouter } from "react-router-dom";
+
 let colo=[red[200],grey[200],green[200], indigo[200]]
 
-class Dashboard1 extends Component {
-  state = {};
 
-  render() {
-    let { theme } = this.props;
+
+const  Dashboard1 =props=>{
+ 
+  useEffect(() => {
+    console.log('component mounted sucessfully')
+    GetReports()
+  }, []);
+
+  
+    let { theme,GetReports ,reports} = props;
 
     return (
       <Fragment>
@@ -67,7 +80,7 @@ class Dashboard1 extends Component {
               {/* <StatCards /> */}
               {/* <StatCards2 /> */}
               {/* Top Selling Products */}
-              <TableCard />
+              <TableCard  reports={reports}/>
 
               {/* <MapChart/> */}
 
@@ -76,6 +89,22 @@ class Dashboard1 extends Component {
             </Grid>
 
             <Grid item lg={4} md={4} sm={12} xs={12}>
+              <Card className="px-6 py-4 mb-6">
+                <div className="card-title">Score Rate Based on Region</div>
+                <div className="card-subtitle">Last 30 days</div>
+                <DoughnutChart
+                  height="300px"
+                  color={[
+                    colo[0],
+                    colo[1],
+                    colo[2],
+                    colo[3],
+                    // theme.palette.primary.dark,
+                    // theme.palette.primary.main,
+                    // theme.palette.primary.light
+                  ]}
+                />
+              </Card>
               <Card className="px-6 py-4 mb-6">
                 <div className="card-title">Score Rate</div>
                 <div className="card-subtitle">Last 30 days</div>
@@ -101,7 +130,17 @@ class Dashboard1 extends Component {
         </div>
       </Fragment>
     );
-  }
+  
 }
 
-export default withStyles({}, { withTheme: true })(Dashboard1);
+
+const mapStateToProps = state => ({
+  // setUser: PropTypes.func.isRequired
+  reports: state.Report.reports,
+  GetReports: PropTypes.func.isRequired,
+
+});
+export default withStyles({}, { withTheme: true })(
+  withRouter(connect(mapStateToProps, { GetReports })(Dashboard1))
+);
+

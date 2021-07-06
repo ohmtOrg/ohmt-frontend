@@ -10,7 +10,8 @@ import {
   TableBody
 } from "@material-ui/core";
 
-const TableCard = () => {
+const TableCard = (reports) => {
+  
   const productList = [
     {
       imgUrl: "/assets/images/products/headphone-2.jpg",
