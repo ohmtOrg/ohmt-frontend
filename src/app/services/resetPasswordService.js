@@ -82,3 +82,6 @@ class JwtAuthService {
   removeUser = () => {
     localStorage.removeItem("auth_user");
   }
+}
+
+export default new JwtAuthService();
