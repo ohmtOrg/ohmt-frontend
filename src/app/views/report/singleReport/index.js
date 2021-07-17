@@ -3,7 +3,7 @@ import { useReactToPrint } from "react-to-print";
 import TableBody from "../../../components/CustomTable/TableBody";
 import TableHeader from "../../../components/CustomTable/TableHeader";
 import { getCountryData } from "../../../services/countriesService";
-import { Button } from '@material-ui/core';
+import { Button } from "@material-ui/core";
 
 const CountryReport = ({ match }) => {
   const componentRef = useRef();
@@ -27,7 +27,7 @@ const CountryReport = ({ match }) => {
   const columns = [
     {
       path: "name",
-      label: "",
+      label: "#",
     },
     { path: "score", label: "Score" },
     { path: "action", label: "Action" },
@@ -49,14 +49,25 @@ const CountryReport = ({ match }) => {
         {countryData.domains.map((item, index) => (
           <Fragment key={index}>
             <tbody>
-              <tr className="text-center text-primary">
-                <td colSpan="6" className="text-uppercase">
+              <tr className="text-center text-white bg-dark">
+                <td colSpan="6" className="text-uppercase h4">
                   {item.name}
                 </td>
               </tr>
             </tbody>
-
-            <TableBody columns={columns} data={item.categories} />
+              {item.categories.map((i, index) => (
+                <Fragment key={index}>
+                <tbody>
+                  <tr className="text-center text-white bg-primary">
+                    <td colSpan="6" className="h6">
+                      {i.name}
+                    </td>
+                  </tr>
+                </tbody>
+                  <TableBody columns={columns} data={i.subcategories} />
+                </Fragment>
+              ))}
+            
           </Fragment>
         ))}
       </table>
