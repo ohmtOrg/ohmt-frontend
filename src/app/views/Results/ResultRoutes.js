@@ -7,7 +7,7 @@ const ResultRoutes = [
     // },
     
     {
-      path: "/singleReport",
+      path: "/singleReport/:id",
       exact: true,
       component: React.lazy(() => import("../report/singleReport"))
     },

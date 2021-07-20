@@ -394,9 +394,10 @@
 import React, { useState, useEffect } from "react";
 import Breadcrumb from "matx/components/Breadcrumb";
 import Axios from "axios";
+import {Link} from "react-router-dom";
 import MUIDataTable from "mui-datatables";
 import { connect } from "react-redux";
-import { GetReports } from "../../redux/actions/ReportAction";
+import { getReports } from "../../redux/actions/ReportAction";
 
 import { ToastContainer, toast } from "react-toastify";
 import { FormControlLabel } from "@material-ui/core";
@@ -408,40 +409,39 @@ import { Button } from "@material-ui/core";
 const SimpleMuiTable = (props) => {
   const [isAlive, setIsAlive] = useState(true);
   const [userList, setUserList] = useState([]);
-  const [reportList, setReportList] = useState([]);
+  // const [reportList, setReportList] = useState([]);
+  let { getReports, reports } = props;
 
   useEffect(() => {
-    console.log("component mounted sucessfully");
-    GetReports();
-    Axios.get("/api/user/all").then(({ data }) => {
-      if (isAlive) setReportList(reports);
-    });
-    return () => setIsAlive(false);
-  }, [isAlive]);
+    getReports();
+  }, []);
 
-  let { theme, GetReports, reports } = props;
+  const reportList = reports.map((i) => {
 
-  // useEffect(() => {
+    return {
+      id: i._id,
+      country: i.author[0].country || "N/A",
+      avgGovernance: "",
+      avgImplementation: "",
+      doneAt: new Date(i.createdAt).toLocaleDateString(),
+      domains: [],
+    };
+  });
 
-  //     Axios.get('/api/user/all').then(({ data }) => {
-  //         if (isAlive) setUserList(data)
-  //     })
-  //     return () => setIsAlive(false)
-  // }, [isAlive])
-
+  console.log(reportList);
   return (
     <div className="m-sm-30">
       <div className="mb-sm-30">
         <Breadcrumb
           routeSegments={[
             { name: "All Report ", path: "/pages" },
-            { name: "Users Reports" },
+            { name: "Countries Reports" },
           ]}
         />
       </div>
       <MUIDataTable
-        title={"User Reports"}
-        data={productList}
+        title={"Countries Reports"}
+        data={reportList}
         columns={columns}
         options={{
           filterType: "textField",
@@ -461,53 +461,47 @@ const SimpleMuiTable = (props) => {
   );
 };
 
+const mapStateToProps = (state) => ({
+  reports: state.reports.reports,
+  // GetReports: PropTypes.func.isRequired,
+});
+
+export default withStyles(
+  {},
+  { withTheme: true }
+)(withRouter(connect(mapStateToProps, { getReports })(SimpleMuiTable)));
+
 const columns = [
   {
-    name: "Country", // field name in the row object
+    name: "country", // field name in the row object
     label: "Country", // column title that will be shown in table
-    options: {
-      filter: true,
-    },
   },
   {
-    name: "Region",
+    name: "region",
     label: "Region",
-    options: {
-      filter: true,
-    },
   },
   {
-    name: "impl",
-    label: "Peroformance Avg Score",
-    options: {
-      filter: true,
-    },
+    name: "avgImplementation",
+    label: "Performance Avg",
   },
   {
-    name: "gov",
-    label: "Governance Avg Score",
-    options: {
-      filter: true,
-    },
+    name: "avgGovernance",
+    label: "Governance Avg",
   },
   {
-    name: "done_at",
-    label: "Date Of submittion",
-    options: {
-      filter: true,
-    },
+    name: "doneAt",
+    label: "Date Of submission",
   },
   {
-    name: "Download Report Pdf",
+    name: "id",
+    label: "Action",
     options: {
       filter: false,
       customBodyRender: (value, tableMeta, updateValue) => (
         <FormControlLabel
           control={
-            <Button>
-              <a href="/singleReport">
-                View Report
-              </a>
+            <Button color="primary">
+              <Link to={`/singleReport/${value}`} variant="contained">View Report</Link>
             </Button>
           }
         />
@@ -516,61 +510,50 @@ const columns = [
   },
 ];
 
-const mapStateToProps = (state) => ({
-  // setUser: PropTypes.func.isRequired
-  reports: state.Report.reports,
-  GetReports: PropTypes.func.isRequired,
-});
-
-export default withStyles(
-  {},
-  { withTheme: true }
-)(withRouter(connect(mapStateToProps, { GetReports })(SimpleMuiTable)));
-
-const productList = [
-  {
-    imgUrl: "/assets/images/products/headphone-2.jpg",
-    Region: "Est Africa",
-    Country: "Rwanda",
-    impl: 2,
-    gov: 4,
-    done_at: "12/06/2021",
-    available: 15,
-  },
-  {
-    imgUrl: "/assets/images/products/headphone-3.jpg",
-    Region: "Est Africa",
-    Country: "Kenya",
-    impl: 3,
-    gov: 2,
-    done_at: "12/06/2021",
-    available: 30,
-  },
-  {
-    imgUrl: "/assets/images/products/iphone-2.jpg",
-    Region: "South Africa",
-    Country: "Seyshel",
-    impl: 3,
-    gov: 4,
-    done_at: "12/06/2021",
-    available: 35,
-  },
-  {
-    imgUrl: "/assets/images/products/iphone-1.jpg",
-    Region: "MEast Afica",
-    Country: "Uganda",
-    impl: 3,
-    gov: 1,
-    done_at: "12/06/2021",
-    available: 0,
-  },
-  {
-    imgUrl: "/assets/images/products/headphone-3.jpg",
-    Region: "West Afica",
-    Country: "Nigeria",
-    impl: 4,
-    gov: 1,
-    done_at: "12/06/2021",
-    available: 5,
-  },
-];
+// const reportData = [
+//   {
+//     imgUrl: "/assets/images/products/headphone-2.jpg",
+//     Region: "Est Africa",
+//     Country: "Rwanda",
+//     impl: 2,
+//     gov: 4,
+//     done_at: "12/06/2021",
+//     available: 15,
+//   },
+//   {
+//     imgUrl: "/assets/images/products/headphone-3.jpg",
+//     Region: "Est Africa",
+//     Country: "Kenya",
+//     impl: 3,
+//     gov: 2,
+//     done_at: "12/06/2021",
+//     available: 30,
+//   },
+//   {
+//     imgUrl: "/assets/images/products/iphone-2.jpg",
+//     Region: "South Africa",
+//     Country: "Seyshel",
+//     impl: 3,
+//     gov: 4,
+//     done_at: "12/06/2021",
+//     available: 35,
+//   },
+//   {
+//     imgUrl: "/assets/images/products/iphone-1.jpg",
+//     Region: "MEast Afica",
+//     Country: "Uganda",
+//     impl: 3,
+//     gov: 1,
+//     done_at: "12/06/2021",
+//     available: 0,
+//   },
+//   {
+//     imgUrl: "/assets/images/products/headphone-3.jpg",
+//     Region: "West Afica",
+//     Country: "Nigeria",
+//     impl: 4,
+//     gov: 1,
+//     done_at: "12/06/2021",
+//     available: 5,
+//   },
+// ];

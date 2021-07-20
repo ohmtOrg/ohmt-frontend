@@ -8,14 +8,14 @@ import NotificationReducer from "./NotificationReducer";
 import EcommerceReducer from "./EcommerceReducer";
 import NavigationReducer from "./NavigationReducer";
 import PerformamceReducer from "./PerformanceReducer"
-import reportReducer from "./ReportReducer"
+import reportsReducer from "./ReportReducer"
 
 const RootReducer = combineReducers({
   login: LoginReducer,
   user: UserReducer,
   Signup:SignupReducer,
   layout: LayoutReducer,
-  Report:reportReducer,
+  reports:reportsReducer,
   // scrumboard: ScrumBoardReducer,
   // notification: NotificationReducer,
   // ecommerce: EcommerceReducer,

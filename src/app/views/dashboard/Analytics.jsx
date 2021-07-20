@@ -9,40 +9,35 @@ import StatCards from "./shared/StatCards";
 import TableCard from "./shared/TableCard";
 import RowCards from "./shared/RowCards";
 import StatCards2 from "./shared/StatCards2";
-import MapChart from './shared/geoChart'
+import MapChart from "./shared/geoChart";
 import UpgradeCard from "./shared/UpgradeCard";
 import Campaigns from "./shared/Campaigns";
 import { withStyles } from "@material-ui/styles";
-import indigo from  '@material-ui/core/colors/indigo';
-import grey from  '@material-ui/core/colors/grey'
-import red from  '@material-ui/core/colors/red'
-import green from  '@material-ui/core/colors/green'
+import indigo from "@material-ui/core/colors/indigo";
+import grey from "@material-ui/core/colors/grey";
+import red from "@material-ui/core/colors/red";
+import green from "@material-ui/core/colors/green";
 import { connect } from "react-redux";
-import { GetReports } from "../../redux/actions/ReportAction";
+import { getReports } from "../../redux/actions/ReportAction";
 
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 import { withRouter } from "react-router-dom";
 
-let colo=[red[200],grey[200],green[200], indigo[200]]
+let colo = [red[200], grey[200], green[200], indigo[200]];
 
-
-
-const  Dashboard1 =props=>{
- 
+const Dashboard1 = (props) => {
   useEffect(() => {
-    console.log('component mounted sucessfully')
-    GetReports()
+    console.log("component mounted sucessfully");
+    getReports();
   }, []);
 
-  
-    let { theme,GetReports ,reports} = props;
+  let { theme, getReports, reports } = props;
 
-    return (
-      <Fragment>
-         
-        <div className="pb-24 pt-7 px-8 bg-primary">
-        <MapChart/>
-          {/* <div className="card-title capitalize text-white mb-4 text-white-secondary">
+  return (
+    <Fragment>
+      <div className="pb-24 pt-7 px-8 bg-primary">
+        <MapChart />
+        {/* <div className="card-title capitalize text-white mb-4 text-white-secondary">
             Last 12 months Assesment average score
           </div>
           <ModifiedAreaChart
@@ -72,75 +67,72 @@ const  Dashboard1 =props=>{
               }
             }}
           ></ModifiedAreaChart> */}
-        </div>
+      </div>
 
-        <div className="analytics m-sm-30 mt--18">
-          <Grid container spacing={3}>
-            <Grid item lg={8} md={8} sm={12} xs={12}>
-              {/* <StatCards /> */}
-              {/* <StatCards2 /> */}
-              {/* Top Selling Products */}
-              <TableCard  reports={reports}/>
+      <div className="analytics m-sm-30 mt--18">
+        <Grid container spacing={3}>
+          <Grid item lg={8} md={8} sm={12} xs={12}>
+            {/* <StatCards /> */}
+            {/* <StatCards2 /> */}
+            {/* Top Selling Products */}
+            <TableCard reports={reports} />
 
-              {/* <MapChart/> */}
+            {/* <MapChart/> */}
 
-              {/* <h4 className="card-title text-muted mb-4">Ongoing Projects</h4>
+            {/* <h4 className="card-title text-muted mb-4">Ongoing Projects</h4>
               <RowCards /> */}
-            </Grid>
-
-            <Grid item lg={4} md={4} sm={12} xs={12}>
-              <Card className="px-6 py-4 mb-6">
-                <div className="card-title">Score Rate Based on Region</div>
-                <div className="card-subtitle">Last 30 days</div>
-                <DoughnutChart
-                  height="300px"
-                  color={[
-                    colo[0],
-                    colo[1],
-                    colo[2],
-                    colo[3],
-                    // theme.palette.primary.dark,
-                    // theme.palette.primary.main,
-                    // theme.palette.primary.light
-                  ]}
-                />
-              </Card>
-              <Card className="px-6 py-4 mb-6">
-                <div className="card-title">Score Rate</div>
-                <div className="card-subtitle">Last 30 days</div>
-                <DoughnutChart
-                  height="300px"
-                  color={[
-                    colo[0],
-                    colo[1],
-                    colo[2],
-                    colo[3],
-                    // theme.palette.primary.dark,
-                    // theme.palette.primary.main,
-                    // theme.palette.primary.light
-                  ]}
-                />
-              </Card>
-
-              <UpgradeCard />
-{/* 
-              <Campaigns /> */}
-            </Grid>
           </Grid>
-        </div>
-      </Fragment>
-    );
-  
-}
 
+          <Grid item lg={4} md={4} sm={12} xs={12}>
+            <Card className="px-6 py-4 mb-6">
+              <div className="card-title">Score Rate Based on Region</div>
+              <div className="card-subtitle">Last 30 days</div>
+              <DoughnutChart
+                height="300px"
+                color={[
+                  colo[0],
+                  colo[1],
+                  colo[2],
+                  colo[3],
+                  // theme.palette.primary.dark,
+                  // theme.palette.primary.main,
+                  // theme.palette.primary.light
+                ]}
+              />
+            </Card>
+            <Card className="px-6 py-4 mb-6">
+              <div className="card-title">Score Rate</div>
+              <div className="card-subtitle">Last 30 days</div>
+              <DoughnutChart
+                height="300px"
+                color={[
+                  colo[0],
+                  colo[1],
+                  colo[2],
+                  colo[3],
+                  // theme.palette.primary.dark,
+                  // theme.palette.primary.main,
+                  // theme.palette.primary.light
+                ]}
+              />
+            </Card>
 
-const mapStateToProps = state => ({
+            <UpgradeCard />
+            {/* 
+              <Campaigns /> */}
+          </Grid>
+        </Grid>
+      </div>
+    </Fragment>
+  );
+};
+
+const mapStateToProps = (state) => ({
   // setUser: PropTypes.func.isRequired
-  reports: state.Report.reports,
-  GetReports: PropTypes.func.isRequired,
-
+  reports: state.reports.reports,
+  getReports: PropTypes.func.isRequired,
 });
-export default withStyles({}, { withTheme: true })(
-  withRouter(connect(mapStateToProps, { GetReports })(Dashboard1))
-);
-
+export default withStyles(
+  {},
+  { withTheme: true }
+)(withRouter(connect(mapStateToProps, { getReports })(Dashboard1)));

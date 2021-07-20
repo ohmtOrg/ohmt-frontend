@@ -14,27 +14,24 @@ import {
 import { goverd, implemData } from '../../views/Evaluation/data'
 
 const initialState = {
-    reports:{},
-    report: {
-        impl: [...implemData],
-        gov: [...goverd],
-    },
+    reports:[],
+    report: {},
     loading: false,
     error: null
 
 };
 
 const reportReducer = function (state = initialState, action) {
-    console.log("in report reducers ", action)
+    console.log("in report reducers ", state)
     switch (action.type) {
         case GET_REPORT_SUCCESS: {
-
             return {
                 ...state,
                 loading: false,
-                reports: { ...action.payload },
+                reports: action.payload,
             };
         }
+       
         case GET_REPORT_ERROR: {
             return {
                 ...state,
