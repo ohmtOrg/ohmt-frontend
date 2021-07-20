@@ -10,37 +10,27 @@ export function getReports() {
     dispatch({
       type: GET_REPORT_LOADING,
     });
-    console.log("get reports called");
-    // const token = localStorage.getItem("jwt_token");
 
     return fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/reports`, {
       method: "GET",
       headers: {
         authorization: localStorage.getItem("jwt_token"),
-        "content-type": "application/json",
+        "Content-Type": "application/json",
       },
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.status === "success") {
-          console.log("successfully reports fetched");
-          toast.success("submitted report retrieved");
-          // history.push({
-          //   pathname: "/dashboard/analytics"
-          // });
-          // console.log(data);
 
           return dispatch({
             type: GET_REPORT_SUCCESS,
             payload: data.data,
           });
         } else {
-          console.log("error while fetching report ", data.data);
           var B = data?.data?.message
             ? data?.data?.message
             : "reports can not be fetched";
           // toast(B)
-          toast.error(B);
           return dispatch({
             type: GET_REPORT_ERROR,
             payload: B,

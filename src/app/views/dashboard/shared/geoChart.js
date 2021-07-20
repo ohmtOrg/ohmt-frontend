@@ -1,6 +1,8 @@
-import * as React from "react";
+import React, {useEffect} from "react";
 import { Chart } from "react-google-charts";
 import MyMap from "../../map/Map"
+
+
 
 const data = [
     ['Country', 'Completed assesment'],
@@ -13,7 +15,7 @@ const data = [
     // ['Cameroon', null],
     ['Canary Islands', 1],
     ['Cape Verde', 1],
-    ['Central African Republic', 1],
+    ['Central African Republic', 2],
     ['Ceuta', 1],
     ['Chad', 1],
     ['Comoros', 1],
@@ -68,8 +70,11 @@ const data = [
     ['Zimbabwe', 1],
 ];
 const  MapChart=()=>{
+    
+    
+    
 
-    return <MyMap/>
+    return <MyMap data={data}/>
   
 }
 
