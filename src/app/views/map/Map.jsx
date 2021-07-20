@@ -1,54 +1,70 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {Map, GeoJSON, SVGOverlay} from 'react-leaflet'
 import countries from './data/countries.json';
 import 'leaflet/dist/leaflet.css';
 import './map.css'
 
-class MyMap extends React.Component {
-    state = { color: "white" };
-    componentDidMount() {
-    }
-    countryStyle = {
-        fillColor: 'red',
+const MyMap = (props) => {
+    const {data} = props;
+    const [country, setCountry] = useState('')
+    const [itsColor, setItsColor] = useState('red')
+    const [ass, setAss] = useState(0)
+    data.forEach(count => {
+        console.log(country)
+        if(country === count){
+            setItsColor('blue')
+        }
+    })
+    const countryStyle = {
+        fillColor: itsColor,
         fillOpacity: 1,
         color: 'white',
         weight: 1,
-        dashArray: 2,
         height: "80vh",
         width: "100vw"
     }
-    colorChange = (e) => {
-        this.setState({color: e.target.value})
-    }
 
-    onCountryClick = (e) => {
-        e.target.setStyle({
-            fillColor: this.state.color,
-            fillOpacity: 1
-        })
+    const onCountryClick = (e) => {
+        const countryName = e.target.feature.properties.ADMIN
+        let i;
+        for(i = 0; i < data.length; i++) {
+            if(data[i][0]=== countryName){
+                if(data[i][1]===1){
+                    setAss(data[i][1])
+                    e.target.setStyle({
+                        fillColor: "blue",
+                        fillOpacity: 0.5
+                    })
+                }else if(data[i][1]===2){
+                    setAss(data[i][1])
+                    e.target.setStyle({
+                        fillColor: "green",
+                        fillOpacity: 0.5
+                    })
+                }else{
+                    setAss(0)
+                }
+            }
+        }
     }
-    onCountry =(feature, layer) => {
+    const onCountry =(feature, layer) => {
         const countryName = feature.properties.ADMIN
-        layer.bindPopup(countryName + " ("+feature.properties.ISO_A3+")")
+        layer.bindPopup(`<b>${countryName}</b></br>${feature.properties.ISO_A3}<br>Completed Assessment : ${ass}/2`)
 
         layer.options.fillOpacity = 0.2
 
         layer.on({
-            // click: this.onCountryClick,
-            mouseOver: layer.bindPopup(`${countryName}</br>${feature.properties.ISO_A3}<br>Completed Assessment : ${Math.random()*2}`)
+            mouseover: onCountryClick
         })
     }
     
-    render(){
-        return (
-            <div>
-                <Map style={{height: "50vh"}} zoom={2} center={[-1.940278,29.873888]}>
-                    <GeoJSON style={this.countryStyle} data={countries.features} onEachFeature={this.onCountry}/>
-                </Map>
-                <input type="color" value={this.state.color} onChange={this.colorChange} />
-            </div>
-        )
-    }
+    return (
+        <div>
+            <Map style={{height: "50vh"}} zoom={2} center={[-1.940278,29.873888]}>
+                <GeoJSON style={countryStyle} data={countries.features} onEachFeature={onCountry}/>
+            </Map>
+        </div>
+    )
 }
 
 export default MyMap

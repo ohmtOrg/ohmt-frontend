@@ -13,7 +13,7 @@ const data = [
     // ['Cameroon', null],
     ['Canary Islands', 1],
     ['Cape Verde', 1],
-    ['Central African Republic', 1],
+    ['Central African Republic', 2],
     ['Ceuta', 1],
     ['Chad', 1],
     ['Comoros', 1],
@@ -69,7 +69,7 @@ const data = [
 ];
 const  MapChart=()=>{
 
-    return <MyMap/>
+    return <MyMap data={data}/>
   
 }
 
