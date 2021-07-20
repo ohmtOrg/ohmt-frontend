@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Chart } from "react-google-charts";
+import MyMap from "../../map/Map"
 
 const data = [
     ['Country', 'Completed assesment'],
@@ -68,9 +69,15 @@ const data = [
 ];
 const  MapChart=()=>{
 
-    return (
-      <div className="App">
-        <Chart
+    return <MyMap/>
+  
+}
+
+export default  MapChart
+
+
+/// Codes for the chart
+{/* <Chart
         options={{
             region: '002', // Africa
              colorAxis: { colors: [ 'black','#00853f', '#f8bbd0'] },
@@ -94,13 +101,7 @@ const  MapChart=()=>{
           width="100%"
           height="400px"
           data={data}
-        />
-      </div>
-    );
-  
-}
-
-export default  MapChart
+        /> */}
 
 // import * as React from "react";
 // import { Chart } from "react-google-charts";
