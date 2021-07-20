@@ -22,7 +22,6 @@
 // // import FormControlLabel from "@material-ui/core/FormControlLabel";
 // // import Tooltip from '@material-ui/core/Tooltip';
 
-
 // // import { navigations } from "../../navigations";
 // // import { MatxVerticalNav } from "matx";
 // import Chart from '../Evaluation/chart';
@@ -70,7 +69,6 @@
 // import Slide from "@material-ui/core/Slide";
 // import { reference } from '../data'
 
-
 // const useStyles = makeStyles(theme => ({
 //   appBar: {
 //     position: "relative"
@@ -90,7 +88,6 @@
 //   return <Slide direction="up" ref={ref} {...props} />;
 // });
 
-
 // const Graphs = props => {
 
 //   const classes = useStyles();
@@ -107,7 +104,6 @@
 //   }
 //   let { impl, gov, govfeedback, impfeedback } = props;
 //   const filtered = gov.filter(e => e.value < 3)
-
 
 //   const filtered2 = impl.filter(e => e.value < 3)
 //   // console.log('filteredt two', filtered2)
@@ -145,14 +141,11 @@
 //   })
 //   console.log('ref', reference)
 
-//   // const filteredRef=reference.filter(f => f.sc.length>0) 
+//   // const filteredRef=reference.filter(f => f.sc.length>0)
 
 //   return (
 //     <Fragment>
 //       <div>
-
-
-
 
 //         <Card
 
@@ -227,7 +220,7 @@
 //                   <Chart valu={impl} ll='Implementation and performance' />
 //                 </Box>
 //               </Grid>
-            
+
 //             <Divider />
 //           <Box
 //             display="flex"
@@ -242,7 +235,7 @@
 //           </Grid>
 // </Grid>
 //           </CardContent>
-         
+
 //         </Card>
 //         <Dialog
 //           fullScreen
@@ -312,14 +305,13 @@
 //                 aria-controls="panel1a-content"
 //                 id="panel1a-header"
 //               >
-                
+
 //                 <TableCell className="px-0" colSpan={1}>
-                
+
 //                 <Typography className={classes.heading}>Why ?</Typography>
-                
+
 //               </TableCell>
-              
-            
+
 //               </ExpansionPanelSummary> */}
 //                           {/* <ExpansionPanelDetails>
 //               <RadioGroup
@@ -336,17 +328,17 @@
 //                         <React.Fragment>
 //                           <Typography color="inherit">becouse you scored low</Typography>
 //                           {option.name}
-                          
+
 //                         </React.Fragment>
 //                       }
 //                     >
 //                      <FormControlLabel value={option.value} control={<Radio />} label= {option.value+': '+v.scores[ind]}  />
-                     
+
 //                      </Tooltip>
 //                      <div className="py-3" />
 //                      </>
 //                     ))}
-             
+
 //               </RadioGroup>
 //               </ExpansionPanelDetails> */}
 //                           {/* </ExpansionPanel> */}
@@ -399,193 +391,186 @@
 //   })(Graphs)
 // );
 
-import React, { useState, useEffect } from 'react'
-import  Breadcrumb  from 'matx/components/Breadcrumb'
-import Axios from 'axios'
-import MUIDataTable from 'mui-datatables'
+import React, { useState, useEffect } from "react";
+import Breadcrumb from "matx/components/Breadcrumb";
+import Axios from "axios";
+import MUIDataTable from "mui-datatables";
 import { connect } from "react-redux";
 import { GetReports } from "../../redux/actions/ReportAction";
 
-import { ToastContainer, toast } from 'react-toastify';
-import { FormControlLabel } from '@material-ui/core';
+import { ToastContainer, toast } from "react-toastify";
+import { FormControlLabel } from "@material-ui/core";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/styles";
-import { 
-    Button
-    } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 
+const SimpleMuiTable = (props) => {
+  const [isAlive, setIsAlive] = useState(true);
+  const [userList, setUserList] = useState([]);
+  const [reportList, setReportList] = useState([]);
 
-const SimpleMuiTable = props => {
-    const [isAlive, setIsAlive] = useState(true)
-    const [userList, setUserList] = useState([])
-    const [reportList, setReportList] = useState([])
+  useEffect(() => {
+    console.log("component mounted sucessfully");
+    GetReports();
+    Axios.get("/api/user/all").then(({ data }) => {
+      if (isAlive) setReportList(reports);
+    });
+    return () => setIsAlive(false);
+  }, [isAlive]);
 
-    useEffect(() => {
-        console.log('component mounted sucessfully')
-        GetReports()
-        Axios.get('/api/user/all').then(({ data }) => {
-            if (isAlive) setReportList(reports)
-        })
-        return () => setIsAlive(false)
-      }, [isAlive]);
-    
-      
-        let { theme,GetReports ,reports} = props;
+  let { theme, GetReports, reports } = props;
 
-    // useEffect(() => {
-        
-    //     Axios.get('/api/user/all').then(({ data }) => {
-    //         if (isAlive) setUserList(data)
-    //     })
-    //     return () => setIsAlive(false)
-    // }, [isAlive])
+  // useEffect(() => {
 
+  //     Axios.get('/api/user/all').then(({ data }) => {
+  //         if (isAlive) setUserList(data)
+  //     })
+  //     return () => setIsAlive(false)
+  // }, [isAlive])
 
-    return (
-        <div className="m-sm-30">
-            <div className="mb-sm-30">
-                <Breadcrumb
-                    routeSegments={[
-                        { name: 'All Report ', path: '/pages' },
-                        { name: 'Users Reports' },
-                    ]}
-                />
-            </div>
-            <MUIDataTable
-                title={'User Reports'}
-                data={productList}
-                columns={columns}
-                options={{
-                    filterType: 'textField',
-                    responsive: 'simple',
-                    selectableRows: 'none', // set checkbox for each row
-                    // search: false, // set search option
-                    // filter: false, // set data filter option
-                    // download: false, // set download option
-                    // print: false, // set print option
-                    // pagination: true, //set pagination option
-                    // viewColumns: false, // set column option
-                    elevation: 0,
-                    rowsPerPageOptions: [10, 20, 40, 80, 100],
-                }}
-            />
-        </div>
-    )
-}
+  return (
+    <div className="m-sm-30">
+      <div className="mb-sm-30">
+        <Breadcrumb
+          routeSegments={[
+            { name: "All Report ", path: "/pages" },
+            { name: "Users Reports" },
+          ]}
+        />
+      </div>
+      <MUIDataTable
+        title={"User Reports"}
+        data={productList}
+        columns={columns}
+        options={{
+          filterType: "textField",
+          responsive: "simple",
+          selectableRows: "none", // set checkbox for each row
+          // search: false, // set search option
+          // filter: false, // set data filter option
+          // download: false, // set download option
+          // print: false, // set print option
+          // pagination: true, //set pagination option
+          // viewColumns: false, // set column option
+          elevation: 0,
+          rowsPerPageOptions: [10, 20, 40, 80, 100],
+        }}
+      />
+    </div>
+  );
+};
 
 const columns = [
-    {
-        name: 'Country', // field name in the row object
-        label: 'Country', // column title that will be shown in table
-        options: {
-            filter: true,
-        },
+  {
+    name: "Country", // field name in the row object
+    label: "Country", // column title that will be shown in table
+    options: {
+      filter: true,
     },
-    {
-        name: 'Region',
-        label: 'Region',
-        options: {
-            filter: true,
-        },
+  },
+  {
+    name: "Region",
+    label: "Region",
+    options: {
+      filter: true,
     },
-    {
-        name: 'impl',
-        label: 'Peroformance Avg Score',
-        options: {
-            filter: true,
-        },
+  },
+  {
+    name: "impl",
+    label: "Peroformance Avg Score",
+    options: {
+      filter: true,
     },
-    {
-        name: 'gov',
-        label: 'Governance Avg Score',
-        options: {
-            filter: true,
-        },
+  },
+  {
+    name: "gov",
+    label: "Governance Avg Score",
+    options: {
+      filter: true,
     },
-    {
-        name: 'done_at',
-        label: 'Date Of submittion',
-        options: {
-            filter: true,
-        },
+  },
+  {
+    name: "done_at",
+    label: "Date Of submittion",
+    options: {
+      filter: true,
     },
-    {
+  },
+  {
     name: "Download Report Pdf",
     options: {
-        filter: false,
-        customBodyRender: (value, tableMeta, updateValue) => (
-            <FormControlLabel
-              control={
-                <Button  >
-                <a href = "/public/Report.pdf "target = "_blank">Download Report Pdf</a>
-             </Button>
-              }
-              
-            />
-         )
-       
-    }
-}
-]
+      filter: false,
+      customBodyRender: (value, tableMeta, updateValue) => (
+        <FormControlLabel
+          control={
+            <Button>
+              <a href="/singleReport">
+                View Report
+              </a>
+            </Button>
+          }
+        />
+      ),
+    },
+  },
+];
 
+const mapStateToProps = (state) => ({
+  // setUser: PropTypes.func.isRequired
+  reports: state.Report.reports,
+  GetReports: PropTypes.func.isRequired,
+});
 
+export default withStyles(
+  {},
+  { withTheme: true }
+)(withRouter(connect(mapStateToProps, { GetReports })(SimpleMuiTable)));
 
-
-    const mapStateToProps = state => ({
-        // setUser: PropTypes.func.isRequired
-        reports: state.Report.reports,
-        GetReports: PropTypes.func.isRequired,
-      
-      });
-      export default withStyles({}, { withTheme: true })(
-        withRouter(connect(mapStateToProps, { GetReports })(SimpleMuiTable))
-      );
-
-      const productList = [
-        {
-          imgUrl: "/assets/images/products/headphone-2.jpg",
-          Region: "Est Africa",
-          Country: "Rwanda",
-          impl: 2,
-          gov: 4,
-          done_at: "12/06/2021",
-          available: 15
-        },
-        {
-          imgUrl: "/assets/images/products/headphone-3.jpg",
-          Region: "Est Africa",
-          Country: "Kenya",
-          impl: 3,
-          gov: 2,
-          done_at: "12/06/2021",
-          available: 30
-        },
-        {
-          imgUrl: "/assets/images/products/iphone-2.jpg",
-          Region: "South Africa",
-          Country: "Seyshel",
-          impl: 3,
-          gov: 4,
-          done_at: "12/06/2021",
-          available: 35
-        },
-        {
-          imgUrl: "/assets/images/products/iphone-1.jpg",
-          Region: "MEast Afica",
-          Country: "Uganda",
-          impl: 3,
-          gov: 1,
-          done_at: "12/06/2021",
-          available: 0
-        },
-        {
-          imgUrl: "/assets/images/products/headphone-3.jpg",
-          Region: "West Afica",
-          Country: "Nigeria",
-          impl: 4,
-          gov: 1,
-          done_at: "12/06/2021",
-          available: 5
-        }
-      ];
+const productList = [
+  {
+    imgUrl: "/assets/images/products/headphone-2.jpg",
+    Region: "Est Africa",
+    Country: "Rwanda",
+    impl: 2,
+    gov: 4,
+    done_at: "12/06/2021",
+    available: 15,
+  },
+  {
+    imgUrl: "/assets/images/products/headphone-3.jpg",
+    Region: "Est Africa",
+    Country: "Kenya",
+    impl: 3,
+    gov: 2,
+    done_at: "12/06/2021",
+    available: 30,
+  },
+  {
+    imgUrl: "/assets/images/products/iphone-2.jpg",
+    Region: "South Africa",
+    Country: "Seyshel",
+    impl: 3,
+    gov: 4,
+    done_at: "12/06/2021",
+    available: 35,
+  },
+  {
+    imgUrl: "/assets/images/products/iphone-1.jpg",
+    Region: "MEast Afica",
+    Country: "Uganda",
+    impl: 3,
+    gov: 1,
+    done_at: "12/06/2021",
+    available: 0,
+  },
+  {
+    imgUrl: "/assets/images/products/headphone-3.jpg",
+    Region: "West Afica",
+    Country: "Nigeria",
+    impl: 4,
+    gov: 1,
+    done_at: "12/06/2021",
+    available: 5,
+  },
+];

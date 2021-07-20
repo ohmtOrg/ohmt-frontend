@@ -19,13 +19,13 @@ const App = () => {
     <AppContext.Provider value={{ routes }}>
       <Provider store={Store}>
         <MatxTheme>
-          <Auth>
-            <Router history={history}>
-              <AuthGuard>
-                <MatxLayout />
-              </AuthGuard>
-            </Router>
-          </Auth>
+          {/* <Auth> */}
+          <Router history={history}>
+            {/* <AuthGuard> */}
+            <MatxLayout />
+            {/* </AuthGuard> */}
+          </Router>
+          {/* </Auth> */}
         </MatxTheme>
       </Provider>
     </AppContext.Provider>

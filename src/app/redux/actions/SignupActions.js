@@ -15,7 +15,7 @@ export function SignupAction(input) {
     dispatch({
       type: SIGNUP_LOADING
     });
-    console.log('data to be sent ', JSON.stringify(input))
+    // console.log('data to be sent ', JSON.stringify(input))
     return fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/user/signup`, {
       method: 'POST',
       headers: {
