@@ -316,7 +316,7 @@ const Graphs = props => {
           // href='/report'
           onClick={handleSubmit}
         >
-          Submitt Report
+          Submit Report
         </Button>
       </Box>
       {ReportError && (
@@ -340,8 +340,8 @@ Graphs.propTypes = {
 const mapStateToProps = (state) => ({
   AddReport: PropTypes.func.isRequired,
   gov: state.performance.gov,
-  ReportResult: state.Report.report,
-  ReportError: state.Report.error,
+  ReportResult: state.reports.report,
+  ReportError: state.reports.error,
   impl: state.performance.impl,
   govfeedback: state.performance.govfeedback,
   impfeedback: state.performance.impfeedback,
