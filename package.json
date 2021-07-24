@@ -33,7 +33,7 @@
     "leaflet": "^1.7.1",
     "lodash": "^4.17.21",
     "mui-datatables": "^3.7.7",
-    "node-sass": "^6.0.1",
+    "node-sass": "^4.14.1",
     "notistack": "^0.8.8",
     "prop-types": "^15.7.2",
     "qwest": "^4.5.0",
@@ -66,8 +66,7 @@
     "redux-thunk": "^2.3.0",
     "shortid": "^2.2.16",
     "svg-map-extra": "^1.0.5",
-    "svgmap": "^2.2.2",
-    "svgmap-next": "^2.0.2",
+    "svgmap": "^2.2.0",
     "swiper": "^6.8.0",
     "victory": "^32.3.3"
   },

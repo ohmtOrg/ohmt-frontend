@@ -6,12 +6,15 @@ import TableBody from "../../../components/CustomTable/TableBody";
 import TableHeader from "../../../components/CustomTable/TableHeader";
 import { Button } from "@material-ui/core";
 
+const map = document.getElementById("svgMap");
 const CountryReport = ({ match, reports, getReports }) => {
   const componentRef = useRef();
 
   useEffect(() => {
     getReports();
   }, []);
+
+  map.style.display ="none"
 
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,

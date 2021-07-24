@@ -406,6 +406,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/styles";
 import { Button } from "@material-ui/core";
 
+const map = document.getElementById("svgMap");
 const SimpleMuiTable = (props) => {
   const [isAlive, setIsAlive] = useState(true);
   const [userList, setUserList] = useState([]);
@@ -415,7 +416,7 @@ const SimpleMuiTable = (props) => {
   useEffect(() => {
     getReports();
   }, []);
-
+  map.style.display="none"
   const reportList = reports.map((i) => {
 
     return {

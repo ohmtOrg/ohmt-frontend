@@ -312,6 +312,9 @@ const filterOptions = (options, params) => {
   return filtered;
 };
 
+
+const map = document.getElementById("svgMap");
+
 class SignUp extends Component {
   state = {
     email: "",
@@ -434,6 +437,7 @@ class SignUp extends Component {
   };
 
   render() {
+    map.style.display = "none"
     let {
       firstName,
       lastName,
