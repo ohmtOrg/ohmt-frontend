@@ -14,6 +14,8 @@ import Auth from "./auth/Auth";
 import MatxLayout from "./MatxLayout/MatxLayoutSFC";
 import AuthGuard from "./auth/AuthGuard";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
 const App = () => {
   return (
     <AppContext.Provider value={{ routes }}>

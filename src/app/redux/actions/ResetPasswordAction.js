@@ -1,8 +1,7 @@
 
-import FirebaseAuthService from "../../services/firebase/firebaseAuthService";
 import localStorageService from "../../services/localStorageService";
 import { setUserData } from "./UserActions";
-import history from "history.js";
+// import history from "history.js";
 import axios from "axios";
 
 
