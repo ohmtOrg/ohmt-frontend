@@ -1,75 +1,43 @@
-import React, { useState, useEffect } from "react";
-import { Map, GeoJSON, SVGOverlay } from "react-leaflet";
-import countries from "./data/countries.json";
+import React, { useState, useEffect, Fragment } from "react";
+import { getReports } from "../../redux/actions/ReportAction";
 import "leaflet/dist/leaflet.css";
 import "./map.css";
+import svgMap from "svgmap";
+import "svgmap/dist/svgMap.min.css";
 
+const map = document.getElementById("svgMap");
 const MyMap = (props) => {
-  const { data } = props;
-  const [country, setCountry] = useState("");
-  const [itsColor, setItsColor] = useState("red");
-  const [ass, setAss] = useState(0);
-  data.forEach((count) => {
-    console.log(country);
-    if (country === count) {
-      setItsColor("blue");
-    }
+  map.style.display = "block";
+  const reports = props.reports;
+  const vals =
+    reports.length > 0
+      ? reports.reduce((o, key) => ({
+          ...o,
+          [key.author[0].countryCode]: { report: 1 },
+        }))
+      : {};
+
+  console.log(vals);
+  new svgMap({
+    targetElementID: "svgMap",
+    data: {
+      data: {
+        report: {
+          name: "Completed report assessment:",
+          format: "{0} / 1",
+          thresholdMax: 1,
+          thresholdMin: 0,
+        },
+      },
+      applyData: "report",
+      values: vals,
+    },
   });
-  const countryStyle = {
-    fillColor: itsColor,
-    fillOpacity: 1,
-    color: "white",
-    weight: 1,
-    height: "80vh",
-    width: "100vw",
-  };
-
-  const onCountryClick = (e) => {
-    const countryName = e.target.feature.properties.ADMIN;
-    let i;
-    for (i = 0; i < data.length; i++) {
-      if (data[i][0] === countryName) {
-        if (data[i][1] === 1) {
-          setAss(data[i][1]);
-          e.target.setStyle({
-            fillColor: "blue",
-            fillOpacity: 0.5,
-          });
-        } else if (data[i][1] === 2) {
-          setAss(data[i][1]);
-          e.target.setStyle({
-            fillColor: "green",
-            fillOpacity: 0.5,
-          });
-        } else {
-          setAss(0);
-        }
-      }
-    }
-  };
-  const onCountry = (feature, layer) => {
-    const countryName = feature.properties.ADMIN;
-    layer.bindPopup(
-      `<b>${countryName}</b></br>${feature.properties.ISO_A3}<br>Completed Assessment : ${ass}/2`
-    );
-
-    layer.options.fillOpacity = 0.2;
-
-    layer.on({
-      mouseover: onCountryClick,
-    });
-  };
 
   return (
-    <div>
-      <Map style={{ height: "50vh" }} zoom={2} center={[-1.940278, 29.873888]}>
-        <GeoJSON
-          style={countryStyle}
-          data={countries.features}
-          onEachFeature={onCountry}
-        />
-      </Map>
-    </div>
+    <Fragment>
+      <div id="svgMap"></div>
+    </Fragment>
   );
 };
 
