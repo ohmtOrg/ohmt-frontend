@@ -11,7 +11,6 @@ import {
     GET_REPORT_SUCCESS,
    
 } from "../actions/ReportAction";
-import { goverd, implemData } from '../../views/Evaluation/data'
 
 const initialState = {
     reports:[],
@@ -22,7 +21,6 @@ const initialState = {
 };
 
 const reportReducer = function (state = initialState, action) {
-    console.log("in report reducers ", state)
     switch (action.type) {
         case GET_REPORT_SUCCESS: {
             return {

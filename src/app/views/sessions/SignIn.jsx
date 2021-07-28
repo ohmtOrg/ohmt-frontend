@@ -33,6 +33,8 @@ const styles = theme => ({
   }
 });
 
+const map = document.getElementById("svgMap");
+
 class SignIn extends Component {
   state = {
     email: "",
@@ -56,7 +58,7 @@ class SignIn extends Component {
   };
   
   render() {
-   
+    map.style.display = "none"
     let { email, password } = this.state;
     let { classes } = this.props;
     return (

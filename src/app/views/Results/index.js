@@ -28,8 +28,12 @@ import {
 import Govern from './Gov'
 import Implem from './Emp'
 
+
+const map = document.getElementById("svgMap");
+
+
 const Result = props => {
-  
+    map.style.display = "none"
     // let {gov,impl, impfeedback,govfeedback } = props;
     // const [gover,setGov]=useState([gov])
     // const [impl,setImp]=useState([imp])

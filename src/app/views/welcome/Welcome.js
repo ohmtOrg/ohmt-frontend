@@ -25,7 +25,10 @@ import {
     }
   }));
   
+  const map = document.getElementById("svgMap");
+
   const HomeView = () => {
+    map.style.display = "none"
     const classes = useStyles();
    
 

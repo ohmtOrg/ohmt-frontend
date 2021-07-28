@@ -37,6 +37,8 @@ const styles = (theme) => ({
   },
 });
 
+const map = document.getElementById("svgMap");
+
 class SignUp extends Component {
   state = {
     formData: {
@@ -157,6 +159,8 @@ class SignUp extends Component {
 
   render() {
     let { mode, formData } = this.state;
+    map.style.display = "none";
+
     let { classes } = this.props;
 
     const platform = ["One Health Platform", "other"];
