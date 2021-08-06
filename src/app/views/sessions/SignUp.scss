@@ -5,15 +5,56 @@
 *
 **/
 
-.signUp-form {
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+.signUp {
 
-    &__img {
-        width: 100%;
-        background-color: #eee;
+    &-form {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+
+        &__img {
+            width: 100%;
+            background-color: #eee;
+        }
+    }
+
+    &-options {
+        margin: 180px auto;
+        text-align: center;
+
+        .title {
+            font-size: 35px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        ul {
+            margin: 0 auto;
+            padding: 0;
+            max-width: 300px;
+
+            li {
+                &:not(:last-child) {
+                    margin-bottom: 25px;
+                }
+
+                .btn-select {
+                    width: 100%;
+                    padding: 20px;
+                    font-size: 18px;
+                    box-shadow: 0 2.5px 5px rgba(51, 51, 51, 0.2);
+                    border-radius: 5px;
+                    background-color: #fff;
+                    border: 0;
+                    transition: all 0.5s;
+
+                    &:hover {
+                        box-shadow: 0 2.5px 5px rgba(51, 51, 51, 0.3);
+                    }
+                }
+            }
+        }
     }
 }

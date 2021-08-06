@@ -9,12 +9,12 @@ import { resetPassword } from "../../redux/actions/ResetPasswordAction";
 
 class ForgotPassword extends Component {
   state = {
-    email: "watson@example.com"
+    email: "",
   };
-  handleChange = event => {
+  handleChange = (event) => {
     event.persist();
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
   handleFormSubmit = () => {
@@ -30,7 +30,7 @@ class ForgotPassword extends Component {
             <Grid container>
               <Grid item lg={5} md={5} sm={5} xs={12}>
                 <div className="p-8 flex justify-center items-center h-full">
-                  <img src="/assets/images/illustrations/dreamer.svg" alt="" />
+                  <img src="/assets/images/welcomeohmt.jpg" alt="" />
                 </div>
               </Grid>
               <Grid item lg={7} md={7} sm={7} xs={12}>
@@ -44,10 +44,11 @@ class ForgotPassword extends Component {
                       type="email"
                       name="email"
                       value={email}
+                      placeholder="Enter Email"
                       validators={["required", "isEmail"]}
                       errorMessages={[
                         "this field is required",
-                        "email is not valid"
+                        "email is not valid",
                       ]}
                     />
                     <div className="flex items-center">
@@ -75,9 +76,9 @@ class ForgotPassword extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   resetPassword: PropTypes.func.isRequired,
-  login: state.login
+  login: state.login,
 });
 export default withRouter(
   connect(mapStateToProps, { resetPassword })(ForgotPassword)

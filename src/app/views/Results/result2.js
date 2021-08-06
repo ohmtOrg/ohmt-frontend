@@ -316,7 +316,7 @@ const Graphs = props => {
           // href='/report'
           onClick={handleSubmit}
         >
-          Submit Report
+          Submit Results
         </Button>
       </Box>
       {ReportError && (

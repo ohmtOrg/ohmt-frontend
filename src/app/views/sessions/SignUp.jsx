@@ -163,7 +163,7 @@ class SignUp extends Component {
 
     let { classes } = this.props;
 
-    const platform = ["One Health Platform", "other"];
+    const platform = ["One Health User", '"Other" User', "Dashboard User"];
 
     const inputElements = Object.keys(formData).map((i, index) => {
       let elementInput;
@@ -220,39 +220,21 @@ class SignUp extends Component {
     });
 
     const modeButtons = platform.map((key, index) => (
-      <Grid item sm={4} xs={12} key={index}>
-        <Card className={classes.root} variant="outlined">
-          <CardContent>
-            <Typography
-              className={classes.title}
-              color="textSecondary"
-              gutterBottom
-            >
-              {key}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small" onClick={() => this.changeMode(key)}>
-              Select
-            </Button>
-          </CardActions>
-        </Card>
-      </Grid>
+      <li key={index}>
+        <button className="btn-select" onClick={() => this.changeMode(key)}>
+          {key}
+        </button>
+      </li>
     ));
 
     let uiForm = null;
 
     if (!mode) {
       uiForm = (
-        <div className="play-card p-sm-24 bg-paper h-full-screen flex justify-center">
-          <Grid container justify="center">
-            <h2 className="mr-4" display="block">
-              Register as:
-            </h2>
-            <Grid container item xs={8} spacing={4}>
-              {modeButtons}
-            </Grid>
-          </Grid>
+        <div className="signUp-options">
+          <h2 className="title">Register as:</h2>
+
+          <ul className="list-unstyled">{modeButtons}</ul>
         </div>
       );
     } else {

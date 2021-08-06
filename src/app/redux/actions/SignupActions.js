@@ -9,7 +9,6 @@ export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
 export const SIGNUP_LOADING = "SIGNUP_LOADING";
 
 
-
 export function SignupAction(input) {
   return dispatch => {
     dispatch({
