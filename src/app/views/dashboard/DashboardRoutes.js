@@ -2,11 +2,11 @@ import React from "react";
 import { authRoles } from "../../auth/authRoles";
 
 const dashboardRoutes = [
-  {
-    path: "/dashboard/analytics",
-    component: React.lazy(() => import("./Analytics")),
-    auth: authRoles.normal
-  },
+  // {
+  //   path: "/dashboard/analytics",
+  //   component: React.lazy(() => import("./Analytics")),
+  //   auth: authRoles.normal
+  // },
   {
     path: "/dashboard/guidance",
     component: React.lazy(() => import("./guidance")),

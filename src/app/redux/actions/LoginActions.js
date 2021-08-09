@@ -17,7 +17,7 @@ export function loginWithEmailAndPassword({ email, password }) {
       type: LOGIN_LOADING
     });
 
-    return fetch(`${process.env.REACT_APP_BACKEND_URL}api/v1/user/signin`, {
+    return fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/user/signin`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -42,7 +42,7 @@ export function loginWithEmailAndPassword({ email, password }) {
           dispatch(setUserData(data.data.user));
 
           history.push({
-            pathname: "/dashboard/analytics"
+            pathname: "/dashboard/guidance"
           });
 
           return dispatch({
