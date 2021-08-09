@@ -318,6 +318,20 @@ const Graphs = props => {
         >
           Submit Results
         </Button>
+
+        <Button
+        variant="contained"
+        component="label"
+        size="small"
+        color="primary"
+        className="ml-4"
+        >
+        Upload File
+        <input
+         type="file"
+         hidden
+        />
+        </Button>
       </Box>
       {ReportError && (
         <div>

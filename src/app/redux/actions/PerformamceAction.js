@@ -72,7 +72,7 @@ export function AddReport(report) {
           console.log("sucessfully report submitted");
           toast.success("submitted sucessfully");
           history.push({
-            pathname: "/dashboard/analytics",
+            pathname: "/dashboard/guidance",
           });
 
           return dispatch({
