@@ -120,7 +120,6 @@ class SignUp extends Component {
     const formData = { ...this.state.formData };
     formData[e.target.name].value = e.target.value;
 
-    console.log(formData);
     this.setState({ formData });
   };
 
@@ -150,11 +149,17 @@ class SignUp extends Component {
   };
 
   handleFormSubmit = (event) => {
-    // console.log(this.state);
-    this.props.SignupAction({ ...this.state });
-    // history.push({
-    //   pathname: "/dashboard/guidance"
-    // });
+    event.preventDefault();
+
+    let dataObj = {};
+
+    Object.keys(this.state.formData).map((key) => {
+      return (dataObj[key] = this.state.formData[key].value);
+    });
+
+    console.log(dataObj);
+
+    this.props.SignupAction(dataObj);
   };
 
   render() {
