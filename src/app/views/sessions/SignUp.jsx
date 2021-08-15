@@ -168,7 +168,7 @@ class SignUp extends Component {
 
     let { classes } = this.props;
 
-    const platform = ["One Health User", '"Other" User', "Dashboard User"];
+    const platform = ["With One Health Platform", "Without One Health Platform", "Or register as a dashboard User"];
 
     const inputElements = Object.keys(formData).map((i, index) => {
       let elementInput;
@@ -237,7 +237,7 @@ class SignUp extends Component {
     if (!mode) {
       uiForm = (
         <div className="signUp-options">
-          <h2 className="title">Register as:</h2>
+          <h2 className="title">Register as s country </h2>
 
           <ul className="list-unstyled">{modeButtons}</ul>
         </div>
