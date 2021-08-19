@@ -66,7 +66,7 @@ export default function SimpleExpansionPanel() {
       <div className="mb-sm-30">
         <Breadcrumb
           routeSegments={[
-            { name: "Inplementation and performance" }
+            { name: "Implementation and performance" }
           ]}
         />
       </div>

@@ -478,18 +478,6 @@ const columns = [
     label: "Country", // column title that will be shown in table
   },
   {
-    name: "region",
-    label: "Region",
-  },
-  {
-    name: "avgImplementation",
-    label: "Performance Avg",
-  },
-  {
-    name: "avgGovernance",
-    label: "Governance Avg",
-  },
-  {
     name: "doneAt",
     label: "Date Of submission",
   },
