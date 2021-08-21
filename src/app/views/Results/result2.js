@@ -42,7 +42,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
-import { reference } from '../data'
+import { ref_tools, ref_resources } from '../data'
 
 
 const useStyles = makeStyles(theme => ({
@@ -95,9 +95,9 @@ const Graphs = props => {
   const filtered2 = impl.filter(e => e.value < 3)
 
   const fil = [...filtered, ...filtered2]
-  console.log(reference)
+  console.log(ref_tools)
 
-  reference.map(ob => {
+  ref_tools.map(ob => {
 
     if (ob.catId < 10) {
       let results = fil.filter(f => ob.catId === parseInt(f.id / 100)).map(obj => {
@@ -123,7 +123,7 @@ const Graphs = props => {
 
     }
   })
-  console.log('ref', reference)
+  console.log('ref', ref_tools)
 
 
   return (
@@ -255,7 +255,7 @@ const Graphs = props => {
           </AppBar>
           <Container>
             <Card elevation={3} className="pt-5 mb-6">
-              <div className="card-title px-6 mb-3">Reference tools based on your scoring</div>
+              <div className="card-title px-6 mb-3">ref_tools tools based on your scoring</div>
               <div className="overflow-auto">
 
                 <Paper className={classes.paper}>
@@ -269,7 +269,7 @@ const Graphs = props => {
                       </TableRow>
                     </TableHead>
                     <TableBody>
-                      {reference.filter(f => f.sc.length > 0).map((rectool, index) => (
+                      {ref_tools.filter(f => f.sc.length > 0).map((rectool, index) => (
                         <TableRow key={index}>
                           <TableCell className="px-0 capitalize" align="left" colSpan={3}>
                             {rectool.title}

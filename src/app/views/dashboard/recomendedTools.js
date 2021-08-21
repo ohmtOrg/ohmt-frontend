@@ -26,8 +26,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 import Slide from "@material-ui/core/Slide";
-import { reference, ref_tools, ref_resources } from '../data'
-// import { reference } from '../'
+import { ref_tools, ref_resources } from '../data'
 
 
 const useStyles = makeStyles(theme => ({
@@ -77,7 +76,7 @@ const RecTool = props => {
         </TableHead>
         
         <TableBody>
-          {ref_resources.map( (rectool, index) => (
+          {ref_tools.map( (rectool, index) => (
             <TableRow key={index}>
               <TableCell className="px-0 capitalize" align="left" colSpan={3}>
                 {rectool.title}
@@ -116,7 +115,7 @@ const RecTool = props => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {ref_tools.map( (rectool, index) => (
+          {ref_resources.map( (rectool, index) => (
             <TableRow key={index}>
               <TableCell className="px-0 capitalize" align="left" colSpan={3}>
                 {rectool.title}
