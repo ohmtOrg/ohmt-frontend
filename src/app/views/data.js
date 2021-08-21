@@ -218,22 +218,6 @@ scores:['There is no plan to create/develop a budgetary provision mechanism to s
     
 ]
 
-export const reference=[
-  {
-    title:"WHO IHR Monitoring and Evaluation Framework",
-    description:"The IHR MEF identifies gaps in capacity and agreed priority actions, many of which require engagement of multiple sectors and/or relate to zoonoses and other health threats at The human-animal-environment interface.  Countries can use The Tripartite zoonoses Guide as appropriate to bring together stakeholders to fill these gaps and undertake these priority actions",
-    href:"https://apps.who.int/iris/bitstream/handle/10665/276651/WHO-WHE-CPI-2018.51-eng.pdf?sequence=1",
-    catId:13,
-    sc:[]
-  },
-  {
-    title:"The Joint Cross-Sectoral Risk Assessment (JRA) and Risk Management, focusing on the animal-human interface.",
-    description:"The Joint Cross-Sectoral Risk Assessment (JRA) and Risk Management, focusing on the animal-human interface.",
-    href:" http://www.fao.org/3/cb1520en/CB1520EN.pdf ",
-    catId:0,
-    sc:[]
-  }
-]
 
 export const ref_tools=[
   {
@@ -385,5 +369,5 @@ export const ref_resources=[
     description:"It describes how the OIE can reinforce One Health strategies through a Wildlife Health Framework. This responds to a global need to better manage risks from emerging diseases at the human-animal- ecosystems interface, whilst protecting wildlife",
     href:"https://www.oie.int/app/uploads/2021/03/a-wildlifehealth-conceptnote.pdf ",
     catId: 26,
-  },
+  }
 ]
