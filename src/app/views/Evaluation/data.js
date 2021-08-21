@@ -123,8 +123,8 @@ export const goverd = [{
 },
 
 {
-  name: "Tools and mechanisms for collecting... ",
-  // name: "Tools and mechanisms for collecting, sharing and disseminating OH achievements and challenges",
+  // name: "Tools and mechanisms for collecting... ",
+  name: "Tools and mechanisms for collecting, sharing and disseminating OH achievements and challenges",
   feedback: '', id: 121, value: 1,
   scores: ['There is no plan to develop mechanisms and tools for sharing and disseminating OH achievements and challenges ',
     'There is plan to develop mechanisms and tools for sharing and disseminating OH achievements and challenges ',

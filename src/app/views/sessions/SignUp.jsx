@@ -105,7 +105,10 @@ class SignUp extends Component {
         value: "",
         options: [
           { label: "Animal Health", value: "animal" },
-          { label: "Wild Health", value: "wild" },
+          { label: "Wildlife Health", value: "wild" },          
+          { label: "Public Health", value: "public" },
+          { label: "Environment Health", value: "environment" },
+          { label: "Other", value: "other" },
         ],
         filterOption: "label",
         isAutoComplete: true,
@@ -168,7 +171,8 @@ class SignUp extends Component {
 
     let { classes } = this.props;
 
-    const platform = ["With One Health Platform", "Without One Health Platform", "Or register as a dashboard User"];
+    // const platform = ["With One Health Platform", "Without One Health Platform", "Or register as a dashboard User"];
+     const platform = ["With One Health Platform", "Without One Health Platform"];
 
     const inputElements = Object.keys(formData).map((i, index) => {
       let elementInput;

@@ -31,10 +31,11 @@ const CountryReport = ({ match, reports, getReports }) => {
         name: "Governance",
         categories: (reportInfo && reportInfo.gov.map(i => ({
           name: i.name,
-          score:i.value,
+          score: i.value,
           action: "",
           priority: "",
           timeline: "",
+          resources: "",
           responsible: "",
         })) ) || [],
       },
@@ -47,6 +48,7 @@ const CountryReport = ({ match, reports, getReports }) => {
           action: "",
           priority: "",
           timeline: "",
+          resources: "",
           responsible: "",
         })) ) || [],
       }
@@ -54,13 +56,12 @@ const CountryReport = ({ match, reports, getReports }) => {
   }
 
   const columns = [
-    {
-      path: "name",
-      label: "#",
-    },
+    { path: "name", label: "#" },
     { path: "score", label: "Score" },
     { path: "action", label: "Action" },
+    { path: "priority", label: "Implentation Priority" },
     { path: "timeline", label: "Implementation Timeline" },
+    { path: "resources", label: "Resources / Tools" },
     { path: "responsible", label: "Responsible" },
   ];
 
@@ -79,7 +80,12 @@ const CountryReport = ({ match, reports, getReports }) => {
           <Fragment key={index}>
             <tbody>
               <tr className="text-center text-white bg-dark">
-                <td colSpan="6" className="text-uppercase h4">
+                <td colSpan="7" className="text-uppercase h4">
+                  {item.name}
+                </td>
+              </tr>
+              <tr className="text-center text-black">
+                <td colSpan="7" className="h6">
                   {item.name}
                 </td>
               </tr>

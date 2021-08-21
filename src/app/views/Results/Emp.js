@@ -214,7 +214,7 @@ setfeedback(e.target.value)
         <DialogTitle id="form-dialog-title">Add comments </DialogTitle>
         <DialogContent>
           <DialogContentText>
-          Add comments focusing on weaknes strength and recomendation 
+          Add comments focusing on weakness strength and recomendation 
           </DialogContentText>
           <TextField
             autoFocus
